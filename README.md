@@ -1,4 +1,4 @@
-# 🌐 **\[cyberrakshakinstitute]** — Aapka Next Favorite Web Destination!
+# 🌐 **\[National Computer Institute]** — Aapka Next Favorite Web Destination!
 
 [![Visit-Website](https://img.shields.io/badge/Visit%20Website-Click%20Here-blue?logo=google-chrome)](https://www.cyberrakshakinstitute.com)
 [![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red)](#)
