@@ -1,6 +1,6 @@
 # 🌐 **\[National Computer Institute]** — Aapka Next Favorite Web Destination!
 
-[![Visit-Website](https://img.shields.io/badge/Visit%20Website-Click%20Here-blue?logo=google-chrome)](https://www.cyberrakshakinstitute.com)
+[![Visit-Website](https://img.shields.io/badge/Visit%20Website-Click%20Here-blue?logo=google-chrome)](https://www.nationalcomputerinstitute.com)
 [![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red)](#)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](#)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
