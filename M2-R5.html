@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2-R5 Web Designing & Publishing – Complete Syllabus Guide | National Computer Institute</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+      background: #eef1f5;
+      color: #1a2639;
+      line-height: 1.65;
+      padding: 1.5rem;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* ===== PAGE CONTAINER (like a PDF page) ===== */
+    .page {
+      max-width: 1000px;
+      margin: 0 auto 2rem;
+      background: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+      padding: 2.5rem 2.8rem;
+      position: relative;
+      border: 1px solid #e0e6ed;
+      transition: box-shadow 0.3s;
+    }
+
+    .page:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ===== PAGE NUMBER ===== */
+    .page-num {
+      position: absolute;
+      bottom: 0.8rem;
+      right: 1.5rem;
+      font-size: 0.75rem;
+      color: #8a9bb5;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #0a2a43;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0a2a43;
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid #f9a826;
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1a4b6d;
+      margin: 1.5rem 0 0.8rem;
+      padding-left: 0.8rem;
+      border-left: 5px solid #f9a826;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1a4b6d;
+      margin: 1rem 0 0.5rem;
+    }
+
+    p {
+      margin-bottom: 0.8rem;
+      color: #2c3e50;
+      font-size: 1rem;
+    }
+
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      margin: 0.5rem 0 0.8rem 1.5rem;
+      color: #2c3e50;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* ===== HERO SECTION (Page 1) ===== */
+    .hero {
+      background: linear-gradient(135deg, #0a2a43 0%, #123b5c 40%, #1a4b6d 100%);
+      border-radius: 6px;
+      padding: 2.5rem 2.8rem;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(249, 168, 38, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(26, 115, 232, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text .badge {
+      display: inline-block;
+      background: #f9a826;
+      color: #0a2a43;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+      color: #ffffff;
+      font-size: 2.6rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-text h1 span {
+      color: #f9a826;
+    }
+
+    .hero-text .subtitle {
+      font-size: 1.1rem;
+      color: #d0e2f0;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #b0c8de;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta i {
+      color: #f9a826;
+    }
+
+    /* Right side card in hero */
+    .hero-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem 1.8rem;
+      min-width: 220px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      color: #0a2a43;
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0a2a43;
+      margin: 0 0 0.8rem;
+      padding: 0;
+      border: none;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-card li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-bottom: 1px solid #eef1f5;
+    }
+
+    .hero-card li:last-child {
+      border-bottom: none;
+    }
+
+    .hero-card li i {
+      color: #1a73e8;
+      font-size: 0.9rem;
+      width: 18px;
+      text-align: center;
+    }
+
+    /* Avatar / Image placeholder */
+    .hero-avatar {
+      position: absolute;
+      bottom: 0;
+      left: 2.8rem;
+      width: 140px;
+      height: 140px;
+      border-radius: 50% 50% 0 0;
+      background: linear-gradient(180deg, #2a6f97, #1a4b6d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f9a826;
+      font-size: 4rem;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      z-index: 1;
+      opacity: 0.35;
+    }
+
+    /* ===== TABLES ===== */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 1.2rem 0;
+      border-radius: 8px;
+      border: 1px solid #d0d7de;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: #ffffff;
+      min-width: 500px;
+    }
+
+    th {
+      background: #1a4b6d;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 0.8rem 1rem;
+      text-align: left;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+
+    td, th {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid #e0e6ed;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #fafbfc;
+    }
+
+    tr:hover td {
+      background: #f0f7ff;
+      transition: background 0.15s;
+    }
+
+    /* ===== CODE BLOCKS ===== */
+    .code-block {
+      background: #f6f8fa;
+      color: #1a2639;
+      padding: 1.2rem 1.5rem;
+      border-radius: 8px;
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 0.88rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 1rem 0;
+      border-left: 5px solid #f9a826;
+      border: 1px solid #e0e6ed;
+      border-left: 5px solid #f9a826;
+      line-height: 1.5;
+    }
+
+    .code-block .tag {
+      color: #1a73e8;
+    }
+
+    .code-block .attr {
+      color: #b85e00;
+    }
+
+    .code-block .str {
+      color: #0a7b3e;
+    }
+
+    /* ===== HIGHLIGHT BOXES ===== */
+    .info-box {
+      background: #e8f0fe;
+      border-left: 5px solid #1a73e8;
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.2rem 0;
+      color: #1a2639;
+    }
+
+    .warning-box {
+      background: #fff8e6;
+      border-left: 5px solid #f9a826;
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.2rem 0;
+    }
+
+    .success-box {
+      background: #e6f7ed;
+      border-left: 5px solid #0a7b3e;
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.2rem 0;
+    }
+
+    /* ===== BADGES ===== */
+    .pill {
+      display: inline-block;
+      background: #1a4b6d;
+      color: #ffffff;
+      font-weight: 500;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      margin-right: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .pill.yellow {
+      background: #f9a826;
+      color: #0a2a43;
+    }
+
+    .pill.green {
+      background: #0a7b3e;
+      color: #ffffff;
+    }
+
+    /* ===== HR ===== */
+    hr {
+      border: none;
+      border-top: 2px dashed #d0d7de;
+      margin: 2rem 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      body { padding: 0.8rem; }
+      .page { padding: 1.5rem 1.2rem; border-radius: 4px; }
+      .hero { padding: 1.8rem 1.5rem; }
+      .hero-text h1 { font-size: 1.8rem; }
+      .hero-text .subtitle { font-size: 0.95rem; }
+      .hero-card { min-width: 100%; }
+      .hero-avatar { display: none; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      h3 { font-size: 1.05rem; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 0.5rem 0.6rem; }
+      .code-block { font-size: 0.8rem; padding: 0.8rem 1rem; }
+      .page-num { font-size: 0.65rem; bottom: 0.5rem; right: 0.8rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 1.4rem; }
+      .page { padding: 1rem 0.8rem; }
+      .hero { padding: 1.2rem 1rem; }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eef1f5;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1a4b6d;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0a2a43;
+    }
+
+    /* ===== PRINT STYLE ===== */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; border: none; padding: 1.5rem; margin: 0; }
+      .hero { border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGE 1 – HERO / COVER -->
+<!-- ============================================================ -->
+<div class="page" style="padding: 0; overflow: hidden; border-radius: 6px;">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="badge"><i class="fas fa-graduation-cap"></i> NIELIT O Level</div>
+        <h1>M2-R5 <span>Web Designing</span> &amp; Publishing</h1>
+        <p class="subtitle">
+          NIELIT O Level M2-R5 Web Designing &amp; Publishing का पूरा सिलेबस हिंदी में। Chapter wise deep analysis, HTML, CSS, JavaScript, AngularJS, Multimedia, Web Publishing, Exam Pattern, Study Strategy के साथ complete guide।
+        </p>
+        <div class="hero-meta">
+          <span><i class="fas fa-user"></i> O Level Sarathi</span>
+          <span><i class="fas fa-calendar-alt"></i> May 24, 2026</span>
+          <span><i class="fas fa-clock"></i> 15 min read</span>
+          <span><i class="fas fa-tag"></i> Guide</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3><i class="fas fa-tablet-alt"></i> M2-R5 SYLLABUS</h3>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> WEBSITE DESIGNING</li>
+          <li><i class="fas fa-check-circle"></i> HTML &amp; CSS</li>
+          <li><i class="fas fa-check-circle"></i> JAVASCRIPT</li>
+          <li><i class="fas fa-check-circle"></i> GRAPHICS</li>
+          <li><i class="fas fa-check-circle"></i> PROJECT</li>
+          <li><i class="fas fa-check-circle"></i> PRACTICAL</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Decorative avatar -->
+    <div class="hero-avatar"><i class="fas fa-user-tie"></i></div>
+  </div>
+  <div class="page-num">Page 1</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 2 – MODULE INTRODUCTION -->
+<!-- ============================================================ -->
+<div class="page">
+  <h2>M2-R5 Module का परिचय – Web Designing &amp; Publishing</h2>
+
+  <p>
+    M2-R5 जिसका पूरा नाम <strong>Web Designing &amp; Publishing</strong> है यह NIELIT O Level Course का दूसरा और सबसे रचनात्मक Module है। इस Module को सफलतापूर्वक Clear करना अनिवार्य है क्योंकि यह <strong>Web Designer, UI Designer, और Web Publication Assistant</strong> जैसे Job Roles के लिए Essential Skills Provide करता है। M2-R5 Module में कुल <strong>10 मुख्य Chapters</strong> हैं जो Web Design की Basic Concepts से लेकर Advanced Web Publishing तक सभी Topics Cover करते हैं।
+  </p>
+
+  <p>
+    इस Module का मुख्य उद्देश्य छात्रों को <strong>World Wide Web</strong> की Structure और Functionality समझाना, <strong>HTML, CSS, JavaScript, और AngularJS</strong> का उपयोग करके Professional Web Pages बनाना सिखाना, <strong>Multimedia Objects</strong> को Website में Integrate करना, और Website को <strong>Publish और Manage</strong> करना सिखाना है। यह Module उन छात्रों के लिए बनाया गया है जो <strong>Web Development Field</strong> में अपना Career बनाना चाहते हैं।
+  </p>
+
+  <div class="info-box">
+    <i class="fas fa-lightbulb" style="color: #f9a826;"></i>
+    <strong>मुख्य बिंदु:</strong> M2-R5 Module 10 Chapters में विभाजित है जो Web Design की Basic Concepts से Advanced Web Publishing तक सभी Topics Cover करता है।
+  </div>
+
+  <div class="page-num">Page 2</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 3 – EXAM PATTERN -->
+<!-- ============================================================ -->
+<div class="page">
+  <h2>M2-R5 Module की परीक्षा</h2>
+
+  <p>
+    M2-R5 Module की परीक्षा <strong>100 अंकों</strong> की होती है जिसमें <strong>Theory 60 अंक</strong> और <strong>Practical 40 अंक</strong> होते हैं। Theory Exam <strong>2 घंटे</strong> का होता है जिसमें <strong>100 Objective MCQ Questions</strong> आते हैं। Practical Exam <strong>3 घंटे</strong> का होता है जिसमें HTML, CSS, JavaScript, और Web Page Design पर Hands-on Test लिया जाता है। Pass होने के लिए कुल <strong>50% अंक</strong> लाने अनिवार्य हैं जिसमें Theory में कम से कम <strong>33%</strong> और Practical में कम से कम <strong>33%</strong> अंक जरूरी हैं।
+  </p>
+
+  <h3>M2-R5 Module की मुख्य जानकारी</h3>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th style="width: 35%;">विवरण</th><th>जानकारी</th></tr>
+      <tr><td>Module Code</td><td>M2-R5.1</td></tr>
+      <tr><td>Module Name</td><td>Web Designing &amp; Publishing</td></tr>
+      <tr><td>Total Chapters</td><td>10 Chapters</td></tr>
+      <tr><td>Theory Marks</td><td>100 Marks (MCQ Pattern)</td></tr>
+      <tr><td>Practical Marks</td><td>100 Marks (80 Practical + 20 Viva)</td></tr>
+      <tr><td>Total Marks Weightage</td><td>Theory 60% + Practical 40%</td></tr>
+      <tr><td>Passing Marks</td><td>50% Total (Theory 33% + Practical 33%)</td></tr>
+      <tr><td>Theory Exam Duration</td><td>2 Hours (100 MCQs)</td></tr>
+      <tr><td>Practical Exam Duration</td><td>3 Hours</td></tr>
+      <tr><td>Exam Language</td><td>Hindi and English Both</td></tr>
+      <tr><td>Exam Mode</td><td>Online/OMR (Theory) + Lab Session (Practical)</td></tr>
+      <tr><td>Learning Hours</td><td>120 Hours (Theory 48 + Practical 72)</td></tr>
+      <tr><td>Job Roles</td><td>Web Designer, UI Designer, Web Publication Assistant</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 3</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 4 – CHAPTER 1 (Part 1) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h2>Chapter 1: Introduction to Web Design — Complete Syllabus</h2>
+
+  <h3>1.1 Introduction to World Wide Web (WWW)</h3>
+  <p>
+    World Wide Web (WWW) एक Information System है जहाँ Documents और Resources Internet पर Hyperlinks के माध्यम से जुड़े होते हैं। इसे Tim Berners-Lee ने 1989 में Invent किया था। Web Pages HTML में लिखे जाते हैं और Web Browsers के माध्यम से Access किए जाते हैं।
+  </p>
+
+  <h3>1.2 Web Page vs Website vs Web Server</h3>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Term</th><th>Definition</th><th>Example</th></tr>
+      <tr><td>Web Page</td><td>Single HTML Document जो Browser में Display होता है</td><td>index.html, about.html</td></tr>
+      <tr><td>Website</td><td>Related Web Pages का Collection जो Single Domain के Under होते हैं</td><td>www.nielit.gov.in</td></tr>
+      <tr><td>Web Server</td><td>Computer जो Websites को Host करता है और User Requests को Respond करता है</td><td>Apache, Nginx, IIS</td></tr>
+      <tr><td>Web Browser</td><td>Software जो Web Pages को Render और Display करता है</td><td>Chrome, Firefox, Edge</td></tr>
+      <tr><td>Web Portal</td><td>Gateway जो Multiple Services और Links Provide करता है</td><td>Yahoo, MSN, Rediff</td></tr>
+    </table>
+  </div>
+
+  <h3>1.3 Types of Websites</h3>
+
+  <ul>
+    <li><strong>Static Website:</strong> Fixed Content वाली Website जो Server से Directly Serve होती है। HTML, CSS से बनती है। Fast Loading लेकिन Less Interactive। Examples: Portfolio, Brochure Sites</li>
+    <li><strong>Dynamic Website:</strong> Database-driven Content वाली Website जो User Input के अनुसार Change होती है। PHP, ASP.NET, Node.js से बनती है। Interactive और Personalized। Examples: Facebook, Amazon, Flipkart</li>
+  </ul>
+
+  <div class="page-num">Page 4</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 5 – CHAPTER 1 (Part 2) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>1.3 Types of Websites (Continued)</h3>
+
+  <ul>
+    <li><strong>E-Commerce Website:</strong> Online Buying और Selling की सुविधा देने वाली Website | Payment Gateway, Shopping Cart, User Accounts होते हैं | Examples: Amazon, Flipkart, Myntra</li>
+    <li><strong>Blog Website:</strong> Regularly Updated Content वाली Website जहां Articles, Posts Publish होते हैं। WordPress, Blogger पर बनती है। Examples: TechCrunch, Mashable</li>
+    <li><strong>Social Networking Website:</strong> People को Connect करने वाली Platform | Profiles, Friends, Messages, Posts होते हैं। Examples: Facebook, LinkedIn, Twitter</li>
+    <li><strong>Educational Website:</strong> Learning और Training Provide करने वाली Website | Courses, Videos, Quizzes, Certificates होते हैं। Examples: NPTEL, Coursera, Unacademy</li>
+    <li><strong>Government Website:</strong> e-Governance Services Provide करने वाली Official Website | Forms, Information, Online Services होते हैं। Examples: nielit.gov.in, india.gov.in</li>
+  </ul>
+
+  <h3>1.4 Web Design Principles</h3>
+  <p>Effective Web Design के लिए निम्नलिखित Principles को Follow करना आवश्यक है:</p>
+
+  <ul>
+    <li><strong>Balance:</strong> Page Elements को Symmetrical या Asymmetrical तरीके से Arrange करना ताकि Visual Harmony बनी रहे</li>
+    <li><strong>Contrast:</strong> Colors, Sizes, Fonts में Difference Create करना ताकि Important Elements Highlight हों</li>
+    <li><strong>Emphasis:</strong> Key Content को Attention Draw करने के लिए Bold, Color, Size का उपयोग</li>
+    <li><strong>Consistency:</strong> पूरी Website में Same Design Pattern Follow करना — Colors, Fonts, Layout, Navigation</li>
+    <li><strong>Unity:</strong> सभी Elements को Organized और Connected रूप में रखना ताकि Cohesive Experience मिले</li>
+    <li><strong>Proximity:</strong> Related Elements को पास में रखना और Unrelated Elements को अलग</li>
+    <li><strong>Alignment:</strong> Elements को Left, Right, Center, या Justify करके Clean Look देना</li>
+    <li><strong>White Space:</strong> Empty Space का Smart Use करना ताकि Content Readable रहे</li>
+    <li><strong>Navigation:</strong> Easy और Intuitive Menu System ताकि User कहीं भी जा सके</li>
+    <li><strong>Accessibility:</strong> Disabled Users के लिए भी Website Usable हों</li>
+  </ul>
+
+  <div class="page-num">Page 5</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 6 – CHAPTER 1 (Part 3) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>1.5 Web Design Tools</h3>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Tool Category</th><th>Tools</th><th>Purpose</th></tr>
+      <tr><td>Text Editors</td><td>Notepad, Notepad++, Sublime Text, VS Code, Atom</td><td>Code Writing और Editing</td></tr>
+      <tr><td>IDE</td><td>Visual Studio Code, WebStorm, Dreamweaver</td><td>Complete Development Environment</td></tr>
+      <tr><td>Graphic Design</td><td>Adobe Photoshop, GIMP, Canva, Figma</td><td>Images, Logos, UI Design</td></tr>
+      <tr><td>Prototyping</td><td>Figma, Adobe XD, Sketch, Balsamiq</td><td>Wireframes और Mockups</td></tr>
+      <tr><td>Version Control</td><td>Git, GitHub, GitLab, Bitbucket</td><td>Code Management और Collaboration</td></tr>
+      <tr><td>Browser DevTools</td><td>Chrome DevTools, Firefox Developer Tools</td><td>Debugging और Testing</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 6</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 7 – CHAPTER 2 (Part 1) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h2>Chapter 2: HTML Basics — Complete Syllabus</h2>
+
+  <h3>2.1 Introduction to HTML</h3>
+  <p>
+    HTML (HyperText Markup Language) Web Pages बनाने की Standard Markup Language है। HTML Tim Berners-Lee द्वारा 1991 में Develop की गई। HTML Tags का उपयोग करके Content को Structure और Format करती है। HTML5 Latest Version है जो Multimedia Support, Semantic Elements, और APIs Provide करता है।
+  </p>
+
+  <h4>HTML की मुख्य विशेषताएं:</h4>
+  <ul>
+    <li><strong>Platform Independent:</strong> किसी भी OS पर Run होती है</li>
+    <li><strong>Easy to Learn:</strong> Simple Tags और Syntax</li>
+    <li><strong>Case Insensitive:</strong> &lt;html&gt;, &lt;HTML&gt;, &lt;Html&gt; सभी Valid है</li>
+    <li><strong>Free and Open:</strong> No License Required</li>
+    <li><strong>Browser Compatible:</strong> सभी Modern Browsers Support करते हैं</li>
+    <li><strong>Extensible:</strong> CSS और JavaScript के साथ Extend की जा सकती है</li>
+  </ul>
+
+  <h3>2.2 HTML Document Structure</h3>
+  <p>Basic HTML Document की Structure निम्नलिखित है:</p>
+
+  <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;This is a Heading&lt;/h1&gt;
+  &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+  </div>
+
+  <h4>Structure Explanation:</h4>
+  <ul>
+    <li><strong>&lt;!DOCTYPE html&gt;:</strong> Document Type Declaration जो Browser को बताता है कि यह HTML5 Document है</li>
+    <li><strong>&lt;html&gt;:</strong> Root Element जो पूरे HTML Document को Wrap करता है</li>
+    <li><strong>&lt;head&gt;:</strong> Meta Information जैसे Title, Charset, Styles, Scripts रखता है। Browser में Display नहीं होता</li>
+    <li><strong>&lt;body&gt;:</strong> Visible Content जो User को Browser में दिखता है</li>
+  </ul>
+
+  <div class="page-num">Page 7</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 8 – CHAPTER 2 (Part 2) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>2.3 HTML Head Elements</h3>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Tag</th><th>Function</th><th>Example</th></tr>
+      <tr><td>&lt;title&gt;</td><td>Browser Tab पर Display होने वाला Title</td><td>&lt;title&gt;My Website&lt;/title&gt;</td></tr>
+      <tr><td>&lt;meta&gt;</td><td>Meta Data — Charset, Description, Keywords, Author, Viewport</td><td>&lt;meta charset="UTF-8"&gt;</td></tr>
+      <tr><td>&lt;link&gt;</td><td>External Resources जोड़ना — CSS Files, Favicon</td><td>&lt;link rel="stylesheet" href="style.css"&gt;</td></tr>
+      <tr><td>&lt;style&gt;</td><td>Internal CSS Define करना</td><td>&lt;style&gt;body{color:red;}&lt;/style&gt;</td></tr>
+      <tr><td>&lt;script&gt;</td><td>JavaScript Code Embed करना</td><td>&lt;script src="app.js"&gt;&lt;/script&gt;</td></tr>
+    </table>
+  </div>
+
+  <h3>2.4 HTML Text Formatting Tags</h3>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Tag</th><th>Function</th><th>Visual Output</th></tr>
+      <tr><td>&lt;h1&gt; to &lt;h6&gt;</td><td>Headings — h1 सबसे बड़ा, h6 सबसे छोटा</td><td>Bold, Different Sizes</td></tr>
+      <tr><td>&lt;p&gt;</td><td>Paragraph</td><td>Normal Text Block</td></tr>
+      <tr><td>&lt;br&gt;</td><td>Line Break</td><td>New Line</td></tr>
+      <tr><td>&lt;hr&gt;</td><td>Horizontal Rule — Thematic Break</td><td>Horizontal Line</td></tr>
+      <tr><td>&lt;b&gt;</td><td>Bold Text</td><td>Bold</td></tr>
+      <tr><td>&lt;strong&gt;</td><td>Strong Importance (Semantic Bold)</td><td>Bold</td></tr>
+      <tr><td>&lt;i&gt;</td><td>Italic Text</td><td>Italic</td></tr>
+      <tr><td>&lt;em&gt;</td><td>Emphasis (Semantic Italic)</td><td>Italic</td></tr>
+      <tr><td>&lt;u&gt;</td><td>Underlined Text</td><td>Underline</td></tr>
+      <tr><td>&lt;mark&gt;</td><td>Highlighted/Marked Text</td><td>Highlight</td></tr>
+      <tr><td>&lt;small&gt;</td><td>Smaller Text</td><td>Small</td></tr>
+      <tr><td>&lt;big&gt;</td><td>Bigger Text (Deprecated in HTML5)</td><td>Big</td></tr>
+      <tr><td>&lt;sub&gt;</td><td>Subscript</td><td>H₂O</td></tr>
+      <tr><td>&lt;sup&gt;</td><td>Superscript</td><td>x²</td></tr>
+      <tr><td>&lt;del&gt;</td><td>Deleted Text — Strikethrough</td><td><del>Deleted</del></td></tr>
+      <tr><td>&lt;ins&gt;</td><td>Inserted Text — Underline</td><td><ins>Inserted</ins></td></tr>
+      <tr><td>&lt;pre&gt;</td><td>Preformatted Text — Spaces और Lines Preserve</td><td>Monospace, As-is</td></tr>
+      <tr><td>&lt;code&gt;</td><td>Computer Code</td><td>Monospace</td></tr>
+      <tr><td>&lt;blockquote&gt;</td><td>Block Quotation — Indented</td><td>Indented Block</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 8</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 9 – CHAPTER 2 (Part 3) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>2.5 HTML Lists</h3>
+
+  <h4>Ordered List (Numbered)</h4>
+  <div class="code-block">
+&lt;ol type="1|A|a|I|i" start="5"&gt;
+  &lt;li&gt;First Item&lt;/li&gt;
+  &lt;li&gt;Second Item&lt;/li&gt;
+  &lt;li&gt;Third Item&lt;/li&gt;
+&lt;/ol&gt;
+  </div>
+
+  <h4>Unordered List (Bulleted)</h4>
+  <div class="code-block">
+&lt;ul type="disc|circle|square"&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+  &lt;li&gt;Cherry&lt;/li&gt;
+&lt;/ul&gt;
+  </div>
+
+  <h4>Definition List</h4>
+  <div class="code-block">
+&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;
+  </div>
+
+  <h4>Nested List</h4>
+  <div class="code-block">
+&lt;ul&gt;
+  &lt;li&gt;Frontend
+    &lt;ul&gt;
+      &lt;li&gt;HTML&lt;/li&gt;
+      &lt;li&gt;CSS&lt;/li&gt;
+      &lt;li&gt;JavaScript&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Backend&lt;/li&gt;
+&lt;/ul&gt;
+  </div>
+
+  <div class="page-num">Page 9</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 10 – CHAPTER 2 (Part 4) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>2.6 HTML Links (Anchor Tag)</h3>
+  <p>&lt;a&gt; Tag Hyperlinks Create करने के लिए उपयोग होता है।</p>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Link Type</th><th>Syntax</th><th>Description</th></tr>
+      <tr><td>External Link</td><td>&lt;a href="https://www.google.com"&gt;Google&lt;/a&gt;</td><td>External Website पर Navigate</td></tr>
+      <tr><td>Internal Link</td><td>&lt;a href="about.html"&gt;About Us&lt;/a&gt;</td><td>Same Website के Other Page पर Navigate</td></tr>
+      <tr><td>Bookmark Link</td><td>&lt;a href="#section1"&gt;Go to Section&lt;/a&gt;</td><td>Same Page के Specific Section पर Jump</td></tr>
+      <tr><td>Email Link</td><td>&lt;a href="mailto:email@example.com"&gt;Email Me&lt;/a&gt;</td><td>Email Client Open करना</td></tr>
+      <tr><td>Phone Link</td><td>&lt;a href="tel:+911234567890"&gt;Call Now&lt;/a&gt;</td><td>Mobile पर Dial करना</td></tr>
+      <tr><td>Download Link</td><td>&lt;a href="file.pdf" download&gt;Download&lt;/a&gt;</td><td>File Download करना</td></tr>
+      <tr><td>New Tab Link</td><td>&lt;a href="url" target="_blank"&gt;Open&lt;/a&gt;</td><td>New Tab में Open करना</td></tr>
+    </table>
+  </div>
+
+  <h4>Target Attribute Values:</h4>
+  <ul>
+    <li><strong>_self:</strong> Same Tab में Open (Default)</li>
+    <li><strong>_blank:</strong> New Tab/Window में Open</li>
+    <li><strong>_parent:</strong> Parent Frame में Open</li>
+    <li><strong>_top:</strong> Full Body of Window में Open</li>
+  </ul>
+
+  <div class="page-num">Page 10</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 11 – CHAPTER 2 (Part 5) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>2.7 HTML Images</h3>
+
+  <div class="code-block">
+&lt;img src="image.jpg" alt="Description" width="300" height="200" title="Tooltip Text" border="2" align="left|right|center"&gt;
+  </div>
+
+  <h4>Image Attributes:</h4>
+  <ul>
+    <li><strong>src:</strong> Image File का Path (Required)</li>
+    <li><strong>alt:</strong> Alternative Text — Image Load न होने पर Display होता है। SEO और Accessibility के लिए Important</li>
+    <li><strong>width/height:</strong> Image की Dimensions Pixel में</li>
+    <li><strong>title:</strong> Mouse Hover पर Tooltip दिखाना</li>
+    <li><strong>border:</strong> Image के Around Border की Thickness</li>
+    <li><strong>align:</strong> Image का Alignment — left, right, center, top, middle, bottom</li>
+  </ul>
+
+  <h4>Image Formats for Web:</h4>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Format</th><th>Extension</th><th>Features</th><th>Best For</th></tr>
+      <tr><td>JPEG/JPG</td><td>.jpg, .jpeg</td><td>Lossy Compression, Millions of Colors, Small Size</td><td>Photographs, Complex Images</td></tr>
+      <tr><td>PNG</td><td>.png</td><td>Lossless, Transparency Support, Better Quality</td><td>Logos, Icons, Graphics with Transparency</td></tr>
+      <tr><td>GIF</td><td>.gif</td><td>256 Colors, Animation Support, Transparency</td><td>Simple Animations, Small Icons</td></tr>
+      <tr><td>SVG</td><td>.svg</td><td>Vector, Scalable, XML Based, Small Size</td><td>Logos, Icons, Illustrations</td></tr>
+      <tr><td>WebP</td><td>.webp</td><td>Modern Format, Better Compression, Animation</td><td>All Web Images (Modern Browsers)</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 11</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 12 – CHAPTER 3 (Part 1) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h2>Chapter 3: HTML Advanced — Complete Syllabus</h2>
+
+  <h3>3.1 HTML Tables</h3>
+  <p>Table Data को <strong>Rows और Columns</strong> में Organize करने के लिए उपयोग होता है।</p>
+
+  <div class="code-block">
+&lt;table border="1" cellpadding="10" cellspacing="5" width="100%"&gt;
+  &lt;caption&gt;Student Marks&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Math&lt;/th&gt;
+      &lt;th&gt;Science&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ram&lt;/td&gt;
+      &lt;td&gt;85&lt;/td&gt;
+      &lt;td&gt;90&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Shyam&lt;/td&gt;
+      &lt;td&gt;78&lt;/td&gt;
+      &lt;td&gt;88&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;b&gt;Average&lt;/b&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;b&gt;81.5&lt;/b&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;b&gt;89&lt;/b&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+  </div>
+
+  <div class="page-num">Page 12</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 13 – CHAPTER 3 (Part 2) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>Table Tags:</h3>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Tag</th><th>Function</th></tr>
+      <tr><td>&lt;table&gt;</td><td>Table Container</td></tr>
+      <tr><td>&lt;caption&gt;</td><td>Table Title/Description</td></tr>
+      <tr><td>&lt;thead&gt;</td><td>Table Header Section</td></tr>
+      <tr><td>&lt;tbody&gt;</td><td>Table Body Section</td></tr>
+      <tr><td>&lt;tfoot&gt;</td><td>Table Footer Section</td></tr>
+      <tr><td>&lt;tr&gt;</td><td>Table Row</td></tr>
+      <tr><td>&lt;th&gt;</td><td>Table Header Cell — Bold और Centered</td></tr>
+      <tr><td>&lt;td&gt;</td><td>Table Data Cell</td></tr>
+      <tr><td>colspan</td><td>Multiple Columns Merge करना</td></tr>
+      <tr><td>rowspan</td><td>Multiple Rows Merge करना</td></tr>
+    </table>
+  </div>
+
+  <h4>Table Attributes:</h4>
+  <ul>
+    <li><strong>border:</strong> Border की Thickness</li>
+    <li><strong>cellpadding:</strong> Cell Content और Border के बीच Space</li>
+    <li><strong>cellspacing:</strong> Cells के बीच Space</li>
+    <li><strong>width/height:</strong> Table की Dimensions</li>
+    <li><strong>align:</strong> Table का Page पर Alignment</li>
+    <li><strong>bgcolor:</strong> Background Color</li>
+    <li><strong>bordercolor:</strong> Border का Color</li>
+  </ul>
+
+  <h3>3.2 HTML Forms</h3>
+  <p>Forms User से Data Input लेने के लिए उपयोग होते हैं — Login, Registration, Contact, Search, Feedback, etc.</p>
+
+  <div class="page-num">Page 13</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 14 – CHAPTER 3 (Part 3) -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="code-block">
+&lt;label for="name"&gt;Name:&lt;/label&gt;
+&lt;input type="text" id="name" name="name" placeholder="Enter Name" required maxlength="50"&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;label for="email"&gt;Email:&lt;/label&gt;
+&lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;label for="password"&gt;Password:&lt;/label&gt;
+&lt;input type="password" id="password" name="password" minlength="8"&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;label&gt;Gender:&lt;/label&gt;
+&lt;input type="radio" name="gender" value="male"&gt; Male
+&lt;input type="radio" name="gender" value="female"&gt; Female
+&lt;input type="radio" name="gender" value="other"&gt; Other&lt;br&gt;&lt;br&gt;
+
+&lt;label&gt;Hobbies:&lt;/label&gt;
+&lt;input type="checkbox" name="hobby" value="reading"&gt; Reading
+&lt;input type="checkbox" name="hobby" value="gaming"&gt; Gaming
+&lt;input type="checkbox" name="hobby" value="travel"&gt; Travel&lt;br&gt;&lt;br&gt;
+
+&lt;label for="country"&gt;Country:&lt;/label&gt;
+&lt;select id="country" name="country"&gt;
+  &lt;option value=""&gt;Select&lt;/option&gt;
+  &lt;option value="india"&gt;India&lt;/option&gt;
+  &lt;option value="usa"&gt;USA&lt;/option&gt;
+  &lt;option value="uk"&gt;UK&lt;/option&gt;
+&lt;/select&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;label for="message"&gt;Message:&lt;/label&gt;&lt;br&gt;
+&lt;textarea id="message" name="message" rows="5" cols="40" placeholder="Your message ..."&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;input type="submit" value="Submit"&gt;
+&lt;input type="reset" value="Reset"&gt;
+&lt;input type="button" value="Click Me" onclick="alert('Hello!')"&gt;
+&lt;/form&gt;
+  </div>
+
+  <div class="page-num">Page 14</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 15 – CHAPTER 3 (Part 4) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h4>Input Types (HTML5):</h4>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+      <tr><td>text</td><td>Single Line Text Input</td><td>Name, Username</td></tr>
+      <tr><td>password</td><td>Hidden Characters (Dots/Asterisks)</td><td>Password Field</td></tr>
+      <tr><td>email</td><td>Email Validation</td><td>user@example.com</td></tr>
+      <tr><td>number</td><td>Numeric Input with Spinner</td><td>Age, Quantity</td></tr>
+      <tr><td>tel</td><td>Telephone Number Input</td><td>+91 1234567890</td></tr>
+      <tr><td>url</td><td>URL Validation</td><td>https://example.com</td></tr>
+      <tr><td>date</td><td>Date Picker</td><td>2026-05-24</td></tr>
+      <tr><td>time</td><td>Time Picker</td><td>14:30</td></tr>
+      <tr><td>color</td><td>Color Picker</td><td>#FF0000</td></tr>
+      <tr><td>range</td><td>Slider Control</td><td>0 to 100</td></tr>
+      <tr><td>file</td><td>File Upload</td><td>Choose File</td></tr>
+      <tr><td>submit</td><td>Form Submit Button</td><td>Submit Form</td></tr>
+      <tr><td>reset</td><td>Form Reset Button</td><td>Clear Form</td></tr>
+      <tr><td>button</td><td>Clickable Button — Custom Action</td><td>JavaScript Trigger</td></tr>
+      <tr><td>image</td><td>Image as Submit Button</td><td>Custom Submit Image</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 15</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 16 – CHAPTER 3 (Part 5) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h4>Form Attributes:</h4>
+  <ul>
+    <li><strong>action:</strong> Form Data Submit होने वाली URL</li>
+    <li><strong>method:</strong> GET (URL में Data) या POST (Body में Data)</li>
+    <li><strong>name:</strong> Form का Name — JavaScript और Server-side Processing के लिए</li>
+    <li><strong>target:</strong> Response कहाँ Display हो — _self, _blank, _parent, _top</li>
+    <li><strong>enctype:</strong> multipart/form-data File Upload के लिए</li>
+    <li><strong>autocomplete:</strong> on/off — Browser Auto-fill</li>
+    <li><strong>novalidate:</strong> HTML5 Validation Disable करना</li>
+  </ul>
+
+  <h4>Form Validation Attributes:</h4>
+  <ul>
+    <li><strong>required:</strong> Field को compulsory बनाना</li>
+    <li><strong>placeholder:</strong> Hint Text दिखाना</li>
+    <li><strong>min/max:</strong> Numeric Range</li>
+    <li><strong>minlength/maxlength:</strong> Text Length Limit</li>
+    <li><strong>pattern:</strong> Regular Expression for Validation</li>
+    <li><strong>readonly:</strong> Read-only Field</li>
+    <li><strong>disabled:</strong> Disabled Field — Submit नहीं होता</li>
+    <li><strong>autofocus:</strong> Page Load पर Auto-focus</li>
+  </ul>
+
+  <h3>3.3 HTML5 Semantic Elements</h3>
+  <p>Semantic Elements Content की Meaning Describe करते हैं न कि सिर्फ Presentation | SEO और Accessibility के लिए Important।</p>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Tag</th><th>Purpose</th></tr>
+      <tr><td>&lt;header&gt;</td><td>Page or Section Header</td></tr>
+      <tr><td>&lt;nav&gt;</td><td>Navigation Links</td></tr>
+      <tr><td>&lt;main&gt;</td><td>Main Content Area</td></tr>
+      <tr><td>&lt;article&gt;</td><td>Independent, Self-contained Content</td></tr>
+      <tr><td>&lt;section&gt;</td><td>Thematic Grouping of Content</td></tr>
+      <tr><td>&lt;aside&gt;</td><td>Sidebar / Tangential Content</td></tr>
+      <tr><td>&lt;footer&gt;</td><td>Page or Section Footer</td></tr>
+      <tr><td>&lt;figure&gt;</td><td>Image / Diagram with Caption</td></tr>
+      <tr><td>&lt;figcaption&gt;</td><td>Caption for &lt;figure&gt;</td></tr>
+      <tr><td>&lt;details&gt;</td><td>Expandable Details Widget</td></tr>
+      <tr><td>&lt;summary&gt;</td><td>Visible Heading for &lt;details&gt;</td></tr>
+      <tr><td>&lt;mark&gt;</td><td>Highlighted Text</td></tr>
+      <tr><td>&lt;time&gt;</td><td>Date/Time Representation</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 16</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 17 – CHAPTER 3 (Part 6) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>3.4 HTML Multimedia Elements</h3>
+
+  <h4>Audio</h4>
+  <div class="code-block">
+&lt;audio controls autoplay loop muted preload="auto"&gt;
+  &lt;source src="music.mp3" type="audio/mpeg"&gt;
+  &lt;source src="music.ogg" type="audio/ogg"&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+  </div>
+
+  <h4>Video</h4>
+  <div class="code-block">
+&lt;video width="640" height="360" controls autoplay loop muted poster="thumbnail.jpg" preload="auto"&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;source src="movie.webm" type="video/webm"&gt;
+  &lt;track src="subtitles.vtt" kind="subtitles" srclang="en" label="English"&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+  </div>
+
+  <h4>Audio/Video Attributes:</h4>
+  <ul>
+    <li><strong>controls:</strong> Play, Pause, Volume Controls</li>
+    <li><strong>autoplay:</strong> Automatically Start Playing</li>
+    <li><strong>loop:</strong> Repeat After End</li>
+    <li><strong>muted:</strong> Start Muted</li>
+    <li><strong>poster:</strong> Preview Image for Video</li>
+    <li><strong>preload:</strong> auto / metadata / none</li>
+  </ul>
+
+  <h4>Embed (External Content)</h4>
+  <div class="code-block">
+&lt;embed src="flashfile.swf" width="400" height="300"&gt;
+
+&lt;object data="pdf.pdf" type="application/pdf" width="800" height="600"&gt;
+  &lt;p&gt;PDF cannot be displayed&lt;/p&gt;
+&lt;/object&gt;
+
+&lt;iframe src="https://www.google.com" width="800" height="600" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+  </div>
+
+  <div class="page-num">Page 17</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 18 – CHAPTER 3 (Part 7) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>3.5 HTML5 APIs</h3>
+
+  <ul>
+    <li><strong>Geolocation API:</strong> User की Location Track — Latitude, Longitude, Accuracy</li>
+    <li><strong>Local Storage:</strong> Key-Value Pairs — Data Store 5-10 MB Limit, Persistent</li>
+    <li><strong>Session Storage:</strong> Tab Close — Data Delete — Temporary Storage</li>
+    <li><strong>Canvas API:</strong> 2D Graphics Draw — Charts, Games, Animations</li>
+    <li><strong>Drag and Drop API:</strong> Elements को Drag करके Drop करना</li>
+    <li><strong>WebSocket:</strong> Real-time Bi-directional Communication — Chat, Live Updates</li>
+  </ul>
+
+  <div class="page-num">Page 18</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 19 – CHAPTER 4 (Part 1) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h2>Chapter 4: CSS (Cascading Style Sheets) — Complete Syllabus</h2>
+
+  <h3>4.1 Introduction to CSS</h3>
+  <p>
+    CSS (Cascading Style Sheets) Web Pages को Style और Design देने की Language है। CSS Håkon Wium Lie द्वारा 1994 में Propose की गई। CSS HTML Elements की Color, Font, Size, Position, Layout, Animation Control करती है। CSS3 Latest Version है जो Animations, Transitions, Flexbox, Grid, Media Queries जैसे Advanced Features Provide करता है।
+  </p>
+
+  <h4>CSS की मुख्य विशेषताएं:</h4>
+  <ul>
+    <li><strong>Separation of Concerns:</strong> Content (HTML) और Presentation (CSS) अलग-अलग</li>
+    <li><strong>Reusability:</strong> एक CSS File Multiple HTML Pages में Link की जा सकती है</li>
+    <li><strong>Consistency:</strong> पूरी Website में Uniform Design</li>
+    <li><strong>Easy Maintenance:</strong> एक जगह Change करने से पूरा Site Update होता है</li>
+    <li><strong>Faster Loading:</strong> Browser CSS File Cache करता है</li>
+    <li><strong>Responsive Design:</strong> Mobile, Tablet, Desktop सभी Devices पर अच्छा दिखना</li>
+  </ul>
+
+  <h3>4.2 Types of CSS</h3>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Type</th><th>Syntax</th><th>Priority</th><th>Use Case</th></tr>
+      <tr><td>Inline CSS</td><td>&lt;p style="color:red;"&gt;Text&lt;/p&gt;</td><td>Highest</td><td>Single Element के लिए Quick Style</td></tr>
+      <tr><td>Internal CSS</td><td>&lt;style&gt;p{color:red;}&lt;/style&gt; in &lt;head&gt;</td><td>Medium</td><td>Single Page के लिए Styles</td></tr>
+      <tr><td>External CSS</td><td>&lt;link rel="stylesheet" href="style.css"&gt;</td><td>Lowest</td><td>Multiple Pages के लिए Common Styles — Recommended</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 19</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 20 – CHAPTER 4 (Part 2) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>4.3 CSS Selectors</h3>
+  <p>Selectors HTML Elements को Target करने के लिए उपयोग होते हैं।</p>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Selector Type</th><th>Syntax</th><th>Description</th></tr>
+      <tr><td>Universal Selector</td><td>* {}</td><td>सभी Elements को Select करता है</td></tr>
+      <tr><td>Type/Element Selector</td><td>p {}, h1 {}</td><td>Specific Tag Name के सभी Elements</td></tr>
+      <tr><td>Class Selector</td><td>.classname {}</td><td>Class Attribute वाले Elements — Multiple Elements पर Same Class</td></tr>
+      <tr><td>ID Selector</td><td>#idname {}</td><td>Unique ID वाला Single Element — Page में सिर्फ एक बार</td></tr>
+      <tr><td>Group Selector</td><td>h1, h2, p {}</td><td>Multiple Selectors को एक साथ Style</td></tr>
+      <tr><td>Descendant Selector</td><td>div p {}</td><td>Parent के अंदर के Specific Child Elements</td></tr>
+      <tr><td>Child Selector</td><td>div &gt; p {}</td><td>Direct Child Elements Only</td></tr>
+      <tr><td>Adjacent Sibling</td><td>h1 + p {}</td><td>Immediately Following Sibling</td></tr>
+      <tr><td>General Sibling</td><td>h1 ~ p {}</td><td>All Following Siblings</td></tr>
+      <tr><td>Attribute Selector</td><td>[type="text"] {}</td><td>Specific Attribute वाले Elements</td></tr>
+      <tr><td>Pseudo-class</td><td>a:hover {}, li:first-child {}</td><td>Special State पर Style — Hover, Focus, Active, First, Last, nth</td></tr>
+      <tr><td>Pseudo-element</td><td>p::before {}, p::after {}</td><td>Element के Specific Part पर Style — Before, After, First-line, First-letter</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 20</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 21 – CHAPTER 4 (Part 3) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>4.4 CSS Box Model</h3>
+  <p>Box Model हर HTML Element को Rectangular Box के रूप में Treat करता है। Layout और Spacing समझने के लिए Essential</p>
+
+  <div class="code-block">
+/* Box Model Components */
+element {
+  content: "Actual Content";  /* Text, Image, etc. */
+  padding: 20px;              /* Content और Border के बीच Space */
+  border: 5px solid black;    /* Border Line */
+  margin: 30px;               /* Border के बाहर Space - Other Elements से Distance */
+}
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Component</th><th>Description</th><th>Properties</th></tr>
+      <tr><td>Content</td><td>Element का Actual Content — Text, Image, Video</td><td>width, height, min-width, min-height, max-width, max-height</td></tr>
+      <tr><td>Padding</td><td>Content के Around Internal Space — Background Color Include</td><td>padding, padding-top, padding-right, padding-bottom, padding-left</td></tr>
+      <tr><td>Border</td><td>Padding के Around Line</td><td>border, border-width, border-style, border-color, border-radius</td></tr>
+      <tr><td>Margin</td><td>Border के Around External Space — Transparent, Background नहीं</td><td>margin, margin-top, margin-right, margin-bottom, margin-left</td></tr>
+    </table>
+  </div>
+
+  <h4>Box-sizing Property:</h4>
+  <ul>
+    <li><strong>content-box (Default):</strong> Width/Height सिर्फ Content को Include करता है। Padding और Border Add होने पर Total Size बढ़ता है</li>
+    <li><strong>border-box:</strong> Width/Height Content + Padding + Border सबको Include करता है। Recommended — Predictable Sizing</li>
+  </ul>
+
+  <div class="page-num">Page 21</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 22 – CHAPTER 4 (Part 4) -->
+<!-- ============================================================ -->
+<div class="page">
+  <h3>4.5 CSS Color and Background</h3>
+
+  <h4>Color Values:</h4>
+  <ul>
+    <li><strong>Color Name:</strong> red, blue, green, black, white, orange</li>
+    <li><strong>Hexadecimal:</strong> #FF0000 (Red), #00FF00 (Green), #0000FF (Blue), #000000 (Black), #FFFFFF (White)</li>
+    <li><strong>RGB:</strong> rgb(255, 0, 0) — Red, Green, Blue (0-255)</li>
+    <li><strong>RGBA:</strong> rgba(255, 0, 0, 0.5) — RGB + Alpha (Transparency 0-1)</li>
+    <li><strong>HSL:</strong> hsl(0, 100%, 50%) — Hue, Saturation, Lightness</li>
+    <li><strong>HSLA:</strong> hsla(0, 100%, 50%, 0.5) — HSL + Alpha</li>
+  </ul>
+
+  <h4>Background Properties:</h4>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Property</th><th>Values</th><th>Description</th></tr>
+      <tr><td>background-color</td><td>red, #FF0000, rgb(255,0,0)</td><td>Element का Background Color</td></tr>
+      <tr><td>background-image</td><td>url('image.jpg')</td><td>Background में Image Set करना</td></tr>
+      <tr><td>background-repeat</td><td>repeat, repeat-x, repeat-y, no-repeat</td><td>Image Repeat Behavior</td></tr>
+      <tr><td>background-position</td><td>top, bottom, left, right, center, 50% 50%</td><td>Image की Position</td></tr>
+      <tr><td>background-size</td><td>cover, contain, 100% 100%, auto</td><td>Image की Size</td></tr>
+      <tr><td>background-attachment</td><td>scroll, fixed, local</td><td>Image Scroll Behavior — Fixed for Parallax</td></tr>
+      <tr><td>background (Shorthand)</td><td>color image repeat position / size attachment</td><td>All Properties एक साथ</td></tr>
+    </table>
+  </div>
+
+  <h3>4.6 CSS Text and Font Properties</h3>
+
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Property</th><th>Values</th><th>Description</th></tr>
+      <tr><td>color</td><td>Any Color Value</td><td>Text Color</td></tr>
+      <tr><td>font-family</td><td>Arial, 'Times New Roman', sans-serif</td><td>Font Name — Fallback List</td></tr>
+      <tr><td>font-size</td><td>16px, 1.2em, 120%, 1rem</td><td>Text Size</td></tr>
+      <tr><td>font-weight</td><td>normal, bold, 100-900</td><td>Text Thickness</td></tr>
+      <tr><td>font-style</td><td>normal, italic, oblique</td><td>Text Style</td></tr>
+      <tr><td>font-variant</td><td>normal, small-caps</td><td>Small Capital Letters</td></tr>
+      <tr><td>line-height</td><td>1.5, 150%, 24px</td><td>Lines के बीच Space</td></tr>
+      <tr><td>text-align</td><td>left, right, center, justify</td><td>Horizontal Alignment</td></tr>
+      <tr><td>text-decoration</td><td>none, underline, overline, line-through</td><td>Text Decoration</td></tr>
+    </table>
+  </div>
+
+  <div class="page-num">Page 22</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- FOOTER – CONTINUATION NOTE -->
+<!-- ============================================================ -->
+<div class="page" style="text-align: center; padding: 2rem;">
+  <p style="font-size: 1.1rem; color: #1a4b6d; font-weight: 600;">
+    <i class="fas fa-book-open" style="color: #f9a826;"></i>
+    आगे के Chapters: JavaScript, AngularJS, Multimedia, Web Publishing, Tools, Project &amp; Career
+  </p>
+  <p style="color: #5a6f84; font-size: 0.9rem;">
+    National Computer Institute – M2-R5 Complete Guide | All content as per NIELIT syllabus
+  </p>
+</div>
+
+</body>
+</html>
