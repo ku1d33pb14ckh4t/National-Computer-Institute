@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>html Practical</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f9f9f9; color: #222; margin: 0; padding: 0; line-height: 1.7; }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+  h1 { background: #1e3c72; color: #fff; padding: 20px; text-align: center; margin: 0 0 20px; }
+  h2 { color: #1e3c72; border-bottom: 2px solid #2a5298; padding-bottom: 6px; margin-top: 40px; }
+  h3 { color: #2a5298; margin-top: 25px; }
+  h4 { color: #2a5298; }
+  pre { background: #1e1e1e; color: #dcdcdc; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: Consolas, monospace; font-size: 14px; }
+  code { font-family: Consolas, monospace; background: #eef1f5; padding: 2px 5px; border-radius: 3px; color: #c7254e; }
+  pre code { background: none; color: inherit; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  th, td { border: 1px solid #ccc; padding: 9px; text-align: left; font-size: 15px; }
+  th { background: #2a5298; color: #fff; }
+  tr:nth-child(even) { background: #f2f6fc; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 25px 0; }
+</style>
+</head>
+<body>
+
+<h1>Aapka Naam - Complete HTML Notes in Hindi</h1>
+<div class="container">
+
+<p>हैलो दोस्तों, आप सभी का इस वेबसाईट पर स्वागत है। यदि आप भी वेब डिजाइन सीखना चाहते हैं तो आप बिल्कुल सही जगह हैं। इस पेज मे आप वेब डिजाइन के अंतर्गत एचटीएमएल को बहुत ही ईजी वे (Easy Way) समझाया गया है, आप एचटीएमएल के सम्पूर्ण नोट्स स्टेप बाई स्टेप सरल हिन्दी भाषा मे (HTML Notes in Hindi) प्राप्त करेंगे। इन सभी नोट्स की आप आसानी से प्रैक्टिस कर सकते हैं, जो आपको एचटीएमएल सीखने और समझने में बहुत हेल्प करेंगे। तो चलिए HTML Notes in Hindi का यह चैप्टर स्टार्ट करते हैं।</p>
+
+<h2>HTML Basics Overview : HTML Notes in Hindi</h2>
+<p>HTML का पूरा नाम Hyper Text Markup language है। यह एक मार्कप लैंग्वेज है इसका इस्तेमाल वेबपेज (Webpage) डेवलप करने के लिए किया जाता है। HTML का पहला संस्करण 1993 में टिम बर्नर्स-ली (Tim Berners-Lee) द्वारा लिखा गया था। इस लैंग्वेज मे वेबपेज को लिखने के लिए विभिन्न टैग्स (Tags) का उपयोग किया जाता है। HTML कोड को Notepad जैसे टेक्सट एडिटर अप्लीकेशन पर लिखा जा सकता है तथा लिखे गए कोड का आउटपुट किसी भी वेबब्राउजर जैसे Chrome या Microsoft Edge पर देखा जा सकता है। HTML फाइल को सेव (Save) करने के लिए फाइल नेम के अंत मे .htm या .html लगाना जरूरी होता है, जैसे – myfile.html या myfile.htm आदि।</p>
+
+<h3>HTML Elements</h3>
+<p>HTML एलिमेंट्स वेबपेज पर सूचनाओं को प्रदर्शित कराने के लिए उपयोग किए जाते हैं, जैसे – हेडिंग, पैराग्राफ, टेबल आदि। एचटीएमएल एलिमेंट्स से संबंधित बातें निम्न प्रकार हैं।</p>
+<p>HTML Tags – वेबपेज पर विभिन्न जानकारियां जैसे – हेडिंग, पैराग्राफ, लिस्ट, इमेज आदि को प्रदर्शित कराने के लिए एचटीएमएल टैग (Tag) का प्रयोग किया जाता है। किस टैग को &lt; से प्रारंभ तथा &gt; से समाप्त किया जाता है, जैसे – &lt;html&gt;, &lt;body&gt; आदि। टैग दो प्रकार के होते हैं, सिंगल और जोड़ा। सिंगल टैग चालू तो किया जाता है लेकिन इसे बंद करने की आवश्यकता नहीं होती है। जोड़ा टैग (Paired Tag) को चालू किया जाता है तो बंद भी किया जाता है। इन्हे ओपनिंग/क्लोज़िंग टैग भी कहते हैं। इनके उदाहरण हैं-</p>
+<p>Single Tag – &lt;br&gt;, &lt;hr&gt;<br>Paired Tag – &lt;h1&gt;…&lt;/h1&gt;, &lt;p&gt;…&lt;/p&gt;</p>
+<p>Tag Attributes – ऐट्रब्यूट यानि टैग के गुण, इनका उपयोग किसी टैग की प्रॉपर्टी को निर्धारित करने के लिए किया जाता है, जैसे – &lt;body&gt; टैग मे bgcolor प्रॉपर्टी का इस्तेमाल करके बॉडी का बैकग्राउंड कलर सेट सकते है। इसी प्रकार &lt;p&gt; यानि पैराग्राफ टैग मे align प्रॉपर्टी का इस्तेमाल कर पैराग्राफ को right, left या center मे सेट कर सकते हैं।</p>
+<p>Attributes Value – किसी टैग की प्रॉपर्टी जैसे – bgcolor, इसमे जो भी रंग का नाम दिया जाएगा वह वैल्यू (Value) कहलाएगा। इसी प्रकार align प्रॉपर्टी मे right, left आदि value हैं।</p>
+
+<h2>HTML Document Structure</h2>
+<p>HTML डॉक्यूमेंट स्ट्रक्चर यह बताता है कि HTML पेज बनाने के लिए कौन से टैग (Tag) किस पोजीशन मे रखे जाएंगे। नीचे दिए गए सोर्स कोड मे यह बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Notes in Hindi&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+HTML stands for Hyper Text Markup Language. It's the standard markup language for creating web pages and web applications.
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>HTML stands for Hyper Text Markup Language. It's the standard markup language for creating web pages and web applications.</p>
+<p>&lt;html&gt; Tag – इस टैग को कोड के प्रारंभ मे लगाया जाता है, तथा इसे &lt;/html&gt; टैग द्वारा डाक्यूमेंट के अंत मे बंद किया जाता है। यह टैग ब्राउजर को यह बताता है कि इन दोनों टैग के बीच मे HTML कोड लिखा गया है।</p>
+<p>&lt;head&gt; Tag – इस टैग में हेडर इनफार्मेशन जैसे टाइटल बार मे नजर आने वाला टेक्सट, CSS स्टाइल तथा मेटा (Meta) जानकारी लिखी जाती है। यह टैग &lt;body&gt; टैग से पूर्व ही इस्तेमाल किया जाता है। इसे भी &lt;head&gt; टैग से ओपन और &lt;/head&gt; टैग से क्लोज़ करते है।</p>
+
+<h2>HTML Body</h2>
+<p>HTML मे &lt;body&gt; टैग का इस्तेमाल वेबपेज की इनफार्मेशन को प्रदर्शित के लिए किया जाता है, जैसे – हेडिंग, पैराग्राफ, पिक्चर्स आदि। जो भी इनफार्मेशन बॉडी (Body) टैग के अंदर लिखी जाती है वही ब्राउजर मे आउटपुट के रूप मे प्रदर्शित होती है। &lt;body&gt; टैग के विभिन्न ऐट्रब्यूट भी होते हैं जिनका इस्तेमाल करके बॉडी का कलर, बैकग्राउंड, टेक्सट कलर, मार्जिन आदि सेट की जा सकती है। नीचे &lt;body&gt; टैग का इस्तेमाल उदाहरण सहित Source Code के साथ बताया गया है।</p>
+
+<table>
+<tr><th>Body Attributes</th><th>Description</th></tr>
+<tr><td>background</td><td>पेज मे बैकग्राउंड इमेज सेट करने के लिए &lt;body background="image.jpg"&gt;</td></tr>
+<tr><td>bgcolor</td><td>पेज मे बैकग्राउंड कलर सेट करने के लिए &lt;body bgcolor="red"&gt;</td></tr>
+<tr><td>text</td><td>टेक्सट का कलर सेट करने के लिए &lt;body text="white"&gt;</td></tr>
+<tr><td>topmargin</td><td>टॉप से जगह छोड़ने के लिए &lt;body topmargin="20"&gt;</td></tr>
+<tr><td>leftmargin</td><td>लेफ्ट से जगह छोड़ने के लिए &lt;body leftmargin="10"&gt;</td></tr>
+</table>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Body&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="red" text="white" topmargin="20" leftmargin="20"&gt;
+&lt;h2&gt;What is CPU?&lt;/h2&gt;
+&lt;p&gt;The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.&lt;p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.</p>
+
+<h2>HTML Heading</h2>
+<p>HTML मे किसी टेक्सट को हेडिंग बनाने के लिए H1 से H6 तक 6 लेवल होते हैं, इसमे H1 हेडिंग का साइज़ सबसे बड़ा तथा H6 साइज़ मे सबसे छोटा होता है। नीचे हेडिंग के उदाहरण तथा उसका Source Code बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Heading&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;This is Heading Level 1&lt;/h1&gt;
+&lt;h2&gt;This is Heading Level 2&lt;/h2&gt;
+&lt;h3&gt;This is Heading Level 3&lt;/h3&gt;
+&lt;h4&gt;This is Heading Level 4&lt;/h4&gt;
+&lt;h5&gt;This is Heading Level 5&lt;/h5&gt;
+&lt;h6&gt;This is Heading Level 6&lt;/h6&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<h1>This is Heading Level 1</h1>
+<h2>This is Heading Level 2</h2>
+<h3>This is Heading Level 3</h3>
+<h4>This is Heading Level 4</h4>
+<h5>This is Heading Level 5</h5>
+<h6>This is Heading Level 6</h6>
+
+<h2>HTML Paragraph</h2>
+<p>HTML मे टेक्सट को पैराग्राफ बनाने के लिए &lt;p&gt; टैग का इस्तेमाल किया जाता है। प्रत्येक पैराग्राफ नई लाइन से स्टार्ट होता है। नीचे पैराग्राफ का उदाहरण तथा उसका Source Code बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Paragraph&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;What is CPU?&lt;/h3&gt;
+&lt;p&gt;The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.&lt;/p&gt;
+&lt;p&gt;The CPU works by repeatedly fetching instructions from memory, decoding them, executing them, and then storing the results back in memory. This cycle happens billions of times per second, making your computer fast and responsive.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<h3>What is CPU?</h3>
+<p>The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.</p>
+<p>The CPU works by repeatedly fetching instructions from memory, decoding them, executing them, and then storing the results back in memory. This cycle happens billions of times per second, making your computer fast and responsive.</p>
+
+<h2>HTML Alignment</h2>
+<p>HTML मे टेक्सट/पैराग्राफ या हेडिंग को अलाइनमेंट किया जा सकता है। नीचे पैराग्राफ व हेडिंग के लिए अलाइनमेंट उदाहरण Source Code सहित बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Paragraph&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2 align="center"&gt;What is CPU?&lt;/h2&gt;
+&lt;p align="left"&gt;The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.&lt;/p&gt;
+&lt;p align="right"&gt;The CPU works by repeatedly fetching instructions from memory, decoding them, executing them, and then storing the results back in memory. This cycle happens billions of times per second, making your computer fast and responsive.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<h2 align="center">What is CPU?</h2>
+<p align="left">The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.</p>
+<p align="right">The CPU works by repeatedly fetching instructions from memory, decoding them, executing them, and then storing the results back in memory. This cycle happens billions of times per second, making your computer fast and responsive.</p>
+
+<h2>HTML Formatting</h2>
+<p>HTML मे टेक्सट को फॉर्मैट करने के लिए विभिन्न टैग का इस्तेमाल किया जाता है। जैसे – टेक्सट को बोल्ड करने के लिए &lt;b&gt; टैग, इटैलिक करने के लिए &lt;i&gt; टैग, अंडरलाइन करने के लिए &lt;u&gt; टैग आदि। नीचे टेक्सट को फॉर्मैट करने के लिए विभिन्न टैग का इस्तेमाल उदाहरण सहित Source Code के साथ बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Formatting&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;This is normal paragraph text&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;This is bold paragraph text&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;This is italic paragraph text&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;This is underline paragraph text&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strike&gt;This is underline paragraph text&lt;/strike&gt;&lt;/p&gt;
+&lt;p&gt;&lt;big&gt;This is big paragraph text&lt;/big&gt;&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;This is small paragraph text&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This is strong paragraph text&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is &lt;sup&gt;superscript&lt;/sup&gt; text&lt;/p&gt;
+&lt;p&gt;This is &lt;sub&gt;subscript&lt;/sub&gt; text&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>This is normal paragraph text</p>
+<p><b>This is bold paragraph text</b></p>
+<p><i>This is italic paragraph text</i></p>
+<p><u>This is underline paragraph text</u></p>
+<p><strike>This is underline paragraph text</strike></p>
+<p><big>This is big paragraph text</big></p>
+<p><small>This is small paragraph text</small></p>
+<p><strong>This is strong paragraph text</strong></p>
+<p>This is <sup>superscript</sup> text</p>
+<p>This is <sub>subscript</sub> text</p>
+
+<h2>HTML Pre-formatted Text</h2>
+<p>HTML मे पैराग्राफ या टेक्सट लिखते समय एक से अधिक स्पेस (Multiple Spaces) या न्यू लाइन (New line) मान्य नहीं है, इसका मतलब यदि आप दो शब्दों के बीच एक से अधिक स्पेस देते है तो एक ही स्पेस काउन्ट (Count) होगा। इसी प्रकार यदि आप नई लाइन से टेक्सट लिखते हैं तो आउटपुट मे टेक्सट नई लाइन से नहीं आएगा। यदि आप जैसा लिखते है वैसा ही आउटपुट चाहते है तो &lt;pre&gt; टैग का इस्तेमाल करना होगा। नीचे &lt;pre&gt; टैग का इस्तेमाल उदाहरण सहित Source Code के साथ बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Pre&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;The       CPU, or Central Processing         Unit, is the "brain" of your computer. 
+It's a tiny chip inside your computer that carries out 
+all the instructions of the programs you use.&lt;/p&gt;
+&lt;pre&gt;The       CPU, or Central Processing         Unit, is the "brain" of your computer. 
+It's a tiny chip inside your computer that carries out 
+all the instructions of the programs you use.&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.</p>
+<pre>The       CPU, or Central Processing         Unit, is the "brain" of your computer. 
+It's a tiny chip inside your computer that carries out 
+all the instructions of the programs you use.</pre>
+
+<h2>HTML Font</h2>
+<p>HTML मे &lt;font&gt; टैग का इस्तेमाल टेक्सट का फॉन्ट स्टाइल बदलने के लिए, फॉन्ट साइज़, फॉन्ट कलर बदलने के लिए किया जाता है। नीचे फॉन्ट (Font) टैग का इस्तेमाल उदाहरण सहित Source Code के साथ बताया गया है।</p>
+
+<table>
+<tr><th>Font Attributes</th><th>Description</th></tr>
+<tr><td>face</td><td>फॉन्ट टाइप चेंज करने के लिए &lt;font face="arial black"&gt;</td></tr>
+<tr><td>color</td><td>फॉन्ट का रंग चेंज करने के लिए &lt;font color="red"&gt;</td></tr>
+<tr><td>size</td><td>फॉन्ट का साइज़ चेंज करने के लिए &lt;font size="10"&gt;</td></tr>
+</table>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Font&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;This is default text font&lt;/p&gt;
+&lt;p&gt;&lt;font face="arial black"&gt;This is arial black font&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size="5"&gt;This is 5 size font&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color="red"&gt;This is red color font&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font face="arial black" size="5" color="red"&gt;This is arial black, 5 size and red color font&lt;/font&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>This is default text font</p>
+<p><font face="arial black">This is arial black font</font></p>
+<p><font size="5">This is 5 size font</font></p>
+<p><font color="red">This is red color font</font></p>
+<p><font face="arial black" size="5" color="red">This is arial black, 5 size and red color font</font></p>
+
+<h2>HTML &lt;br&gt; and &lt;hr&gt; Tag</h2>
+<p>HTML मे &lt;br&gt; टैग का इस्तेमाल टेक्सट को नई लाइन (New Line) से लिखने के लिए तथा &lt;hr&gt; टैग का इस्तेमाल एक होरीजॉन्टल लाइन जोड़ने के लिए किया जाता है। नीचे &lt;br&gt; और &lt;hr&gt; टैग का इस्तेमाल उदाहरण सहित Source Code के साथ बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML New Line&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;The CPU, or Central Processing Unit, is the "brain" of your computer. &lt;br&gt; It's a tiny chip inside your computer that carries out all the instructions of the programs you use.&lt;hr&gt;
+The CPU works by repeatedly fetching instructions from memory, decoding them, executing them, and then storing the results back in memory. &lt;br&gt; This cycle happens billions of times per second, making your computer fast and responsive.&lt;/p&gt;
+&lt;hr size="20" width="50%" color="red" align="left"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;p&gt;This is HTML Language&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>The CPU, or Central Processing Unit, is the "brain" of your computer. <br> It's a tiny chip inside your computer that carries out all the instructions of the programs you use.</p>
+<hr>
+<p>The CPU works by repeatedly fetching instructions from memory, decoding them, executing them, and then storing the results back in memory. <br> This cycle happens billions of times per second, making your computer fast and responsive.</p>
+<hr size="20" width="50%" color="red" align="left">
+<br><br>
+<p>This is HTML Language</p>
+
+<h2>HTML Comments</h2>
+<p>HTML मे कमेन्ट का इस्तेमाल किसी कोड को इक्स्प्लैन करने के लिए किया जाता है, कमेन्ट टैग के अंदर लिखी गई जानकारी आउटपुट मे प्रदर्शित नहीं होती है। नीचे कमेन्ट टैग का इस्तेमाल उदाहरण सहित Source Code के साथ बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML New Line&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!This is Paragraph one&gt;
+&lt;p&gt;The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.
+&lt;!This is Paragraph two&gt;
+&lt;p&gt;The CPU works by repeatedly fetching instructions from memory, decoding them, executing them, and then storing the results back in memory. This cycle happens billions of times per second, making your computer fast and responsive.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>The CPU, or Central Processing Unit, is the "brain" of your computer. It's a tiny chip inside your computer that carries out all the instructions of the programs you use.</p>
+<p>The CPU works by repeatedly fetching instructions from memory, decoding them, executing them, and then storing the results back in memory. This cycle happens billions of times per second, making your computer fast and responsive.</p>
+
+<h2>HTML Images</h2>
+<p>HTML डॉक्यूमेंट मे किसी फोटो या इमेज को इन्सर्ट कराने के लिए &lt;image&gt; टैग का उपयोग किया जाता है। जिस इमेज को पेज मे इन्सर्ट करना है, उस इमेज को वही स्टोर करें जहां फाइल सेव की गई है। इसके बाद इमेज का नाम src ऐट्रब्यूट मे टाइप करें। ध्यान रखें इमेज फाइल टाइप जो है वही टाइप करें, जैसे – image.jpg, image.png इत्यादि। नीचे &lt;image&gt; टैग का इस्तेमाल उदाहरण सहित Source Code के साथ बताया गया है।</p>
+
+<table>
+<tr><th>Image Attributes</th><th>Value</th><th>Description</th></tr>
+<tr><td>src</td><td>image name</td><td>इमेज का पाथ (Path)/लोकैशन देने के लिए</td></tr>
+<tr><td>width</td><td>number or pixel</td><td>इमेज की चौड़ाई सेट करने के लिए</td></tr>
+<tr><td>height</td><td>number or pixel</td><td>इमेज की ऊंचाई सेट करने के लिए</td></tr>
+<tr><td>align</td><td>right, left, center</td><td>इमेज का अलाइनमेंट सेट करने के लिए</td></tr>
+<tr><td>border</td><td>number or pixel</td><td>इमेज बॉर्डर सेट करने के लिए</td></tr>
+<tr><td>hspace</td><td>number</td><td>इमेज के बीच होरीजॉन्टल स्पेस देने के लिए</td></tr>
+<tr><td>vspace</td><td>number</td><td>इमेज के बीच वर्टिकल स्पेस देने के लिए</td></tr>
+<tr><td>alt</td><td>text</td><td>इमेज लोड न हो पाने की स्थिति मे ऑल्टरनेट टेक्सट दिखाने के लिए</td></tr>
+</table>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Images&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4&gt;Windows Images&lt;/h4&gt;
+&lt;img src="ImageName.jpg" height="170" width="250" hspace="10" vspace="10" alt="Image not found" border="1"&gt;
+&lt;img src="ImageName.jpg" height="170" width="250" hspace="10" vspace="10" alt="Image not found" border="1"&gt;
+&lt;img src="ImageName.jpg" height="170" width="250" hspace="10" vspace="10" alt="Image not found" border="1"&gt;
+&lt;img src="ImageName.jpg" height="170" width="250" hspace="10" vspace="10" alt="Image not found" border="1"&gt;
+&lt;img src="ImageName.jpg" height="170" width="250" hspace="10" vspace="10" alt="Image not found" border="1"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p><em>(Image not found - क्योंकि ImageName.jpg फाइल मौजूद नहीं है)</em></p>
+
+<h2>HTML Audio</h2>
+<p>HTML पेज मे &lt;audio&gt; टैग का उपयोग म्यूजिक या ऑडिओ फाइल जोड़ने के लिए किया जाता है। औडियो &lt;audio&gt; टैग के विभिन्न ऐट्रब्यूट द्वारा औडियो प्ले को कंट्रोल भी कर सकते हैं। जैसे – Volume Control, Play Back Speed, loop इत्यादि। HTML मे तीन तरह के औडियो फाइल फॉर्मैट (MP3, WAV, and OGG) सपोर्ट करते हैं। नीचे दिए गए सोर्स कोड मे Audio टैग का उपयोग आउटपुट के साथ बताया गया है।</p>
+
+<table>
+<tr><th>Audio Attributes</th><th>Value</th><th>Description</th></tr>
+<tr><td>autoplay</td><td>autoplay</td><td>कंट्रोल्स लोड होते ही औडियो प्ले होना चालू</td></tr>
+<tr><td>controls</td><td>controls</td><td>औडियो कंट्रोल लोड करने के लिए</td></tr>
+<tr><td>loop</td><td>loop</td><td>औडियो समाप्त होने पर पुनः चालू</td></tr>
+<tr><td>muted</td><td>muted</td><td>औडियो को म्यूट (Mute) करने के लिए</td></tr>
+<tr><td>src</td><td>url/path/filename</td><td>औडियो फाइल का सोर्स एड्रैस देने के लिए</td></tr>
+<tr><td>preload</td><td>none, metadata, auto</td><td>None- मेटाडाटा लोड न करना, Metadata- मेटाडाटा लोड करना जैसे समय, Auto- डिफ़ॉल्ट वैल्यू।</td></tr>
+</table>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Images&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;This is Audio Example&lt;/p&gt;
+&lt;audio controls&gt;
+  &lt;source src="fileName.ogg" type="audio/ogg"&gt;
+  &lt;source src="fileName.mp3" type="audio/mpeg"&gt;
+  Your browser does not support the audio tag.
+&lt;/audio&gt;
+&lt;p&gt;Audio AutoPlay Muted&lt;/p&gt;
+&lt;audio controls autoplay muted&gt;
+  &lt;source src="fileName.ogg" type="audio/ogg"&gt;
+  &lt;source src="fileName.mp3" type="audio/mpeg"&gt;
+  Your browser does not support the audio tag.
+&lt;/audio&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>This is Audio Example</p>
+<p><em>(Audio player यहाँ दिखेगा अगर fileName.mp3 मौजूद हो)</em></p>
+
+<h2>HTML Video</h2>
+<p>HTML पेज मे &lt;audio&gt; टैग की तरह ही &lt;video&gt; टैग का उपयोग विडिओ फाइल जोड़ने के लिए किया जाता है। विडिओ &lt;video&gt; टैग के विभिन्न ऐट्रब्यूट द्वारा विडिओ प्ले को कंट्रोल भी कर सकते हैं। जैसे – Volume Control, Play Back Speed, AutoPlay इत्यादि। HTML मे तीन तरह के विडिओ फाइल फॉर्मैट (MP4, WebM, and OGG) सपोर्ट करते हैं। नीचे दिए गए सोर्स कोड मे Video टैग का उपयोग आउटपुट के साथ बताया गया है।</p>
+
+<table>
+<tr><th>Video Attributes</th><th>Value</th><th>Description</th></tr>
+<tr><td>autoplay</td><td>autoplay</td><td>कंट्रोल्स लोड होते ही विडिओ प्ले होना चालू करें</td></tr>
+<tr><td>controls</td><td>controls</td><td>विडिओ कंट्रोल लोड करने के लिए</td></tr>
+<tr><td>loop</td><td>loop</td><td>विडिओ समाप्त होने पर पुनः चालू</td></tr>
+<tr><td>muted</td><td>muted</td><td>विडिओ की आवाज को म्यूट (Mute) करें</td></tr>
+<tr><td>src</td><td>url/path/filename</td><td>विडिओ फाइल का सोर्स एड्रैस देने के लिए</td></tr>
+<tr><td>preload</td><td>none, metadata, auto</td><td>None- मेटाडाटा लोड न करना, Metadata- मेटाडाटा लोड करना जैसे समय व अन्य जानकारी, Auto- डिफ़ॉल्ट वैल्यू।</td></tr>
+<tr><td>height</td><td>pixel</td><td>विडिओ प्लेयर की हाइट सेट करने के लिए</td></tr>
+<tr><td>width</td><td>pixel</td><td>विडिओ प्लेयर की चौड़ाई सेट करने के लिए</td></tr>
+<tr><td>poster</td><td>url</td><td>वीडियो डाउनलोड होते समय या यूजर द्वारा प्ले बटन दबाने पर दिखाई जाने वाली पिक्चर निर्दिष्ट करने के लिए</td></tr>
+</table>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Images&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;This is Video Example&lt;/p&gt;
+&lt;video width="600" height="300" controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;source src="movie.ogg" type="video/ogg"&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;p&gt;This Video AutoPlay with Muted&lt;/p&gt;
+&lt;video width="600" height="300" controls autoplay muted&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;source src="movie.ogg" type="video/ogg"&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<p>This is Video Example</p>
+<p><em>(Video player यहाँ दिखेगा अगर movie.mp4 मौजूद हो)</em></p>
+
+<h2>HTML Marquee</h2>
+<p>HTML मे &lt;marquee&gt; टैग के द्वारा विभिन्न एचटीएमएल एलेमेन्ट (HTML Element) जैसे – हेडिंग, पैराग्राफ, इमेज आदि को डिफरेंट डिरेक्शिन मे स्क्रॉल या मूव करा सकते हैं। &lt;marquee&gt; टैग के विभिन्न ऐट्रब्यूट का उपयोग करके एलेमेन्ट को कंट्रोल भी कर सकते हैं। नीचे &lt;marquee&gt; मार्की टैग का उपयोग उदाहरण सहित Source Code मे बताया गया है।</p>
+
+<table>
+<tr><th>Marquee Attributes</th><th>Value</th><th>Description</th></tr>
+<tr><td>bgcolor</td><td>color name</td><td>बैकग्राउंड मे कलर सेट करने के लिए</td></tr>
+<tr><td>direction</td><td>right, left, up, down</td><td>एलेमेन्ट को चारों दिशाओं मे स्क्रॉल कराने के लिए</td></tr>
+<tr><td>loop</td><td>number</td><td>नंबर ऑफ टाइम्स स्क्रॉल कराने के लिए</td></tr>
+<tr><td>height</td><td>pixel or %</td><td>मार्की हाइट सेट करने के लिए</td></tr>
+<tr><td>width</td><td>pixel or %</td><td>मार्की चौड़ाई सेट करने के लिए</td></tr>
+<tr><td>hspace</td><td>pixel</td><td>दो एलेमेन्ट के बीच होरीजॉन्टल स्पेस देने के लिए</td></tr>
+<tr><td>vspace</td><td>pixel</td><td>दो एलेमेन्ट के बीच वर्टिकल स्पेस देने के लिए</td></tr>
+<tr><td>behavior</td><td>alternate, scroll, slide</td><td>Alternate- स्क्रॉल और फिर विपरीत दिशा में वापस, Scroll- यह डिफ़ॉल्ट वैल्यू है एक ही दिशा मे स्क्रॉल, Slide- एक बार स्क्रॉल</td></tr>
+</table>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Images&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;marquee&gt;This text will scroll from right to left&lt;/marquee&gt;
+&lt;marquee direction="up" hspace="40"&gt;This text will scroll from bottom to top&lt;/marquee&gt;
+&lt;marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid"&gt;
+&lt;marquee &gt;This text will bounce&lt;/marquee&gt;
+&lt;/marquee&gt;
+&lt;marquee behavior="alternate" bgcolor="pink"&gt;
+&lt;img src="image.jpg"&gt;
+&lt;/marquee&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<marquee>This text will scroll from right to left</marquee>
+<marquee direction="up" hspace="40">This text will scroll from bottom to top</marquee>
+<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+<marquee>This text will bounce</marquee>
+</marquee>
+<marquee behavior="alternate" bgcolor="pink">(Image यहाँ स्क्रॉल करेगी अगर मौजूद हो)</marquee>
+
+<h2>HTML List</h2>
+<p>HTML पेज मे लिस्ट बनाने के लिए &lt;ul&gt; तथा &lt;ol&gt; टैग का उपयोग किया जाता है। &lt;ul&gt; टैग द्वारा अनऑर्डर लिस्ट (Un-order List) बना सकते हैं। अनऑर्डर लिस्ट मे लिस्ट आइटम्स का कोई क्रम नहीं होता है यानि लिस्ट आइटम किसी भी क्रम मे हो सकते हैं, अनऑर्डर लिस्ट आइटम्स को सिम्बल जैसे – ब्लॉक, सर्कल आदि का उपयोग करके दर्शाते हैं। &lt;ol&gt; टैग द्वारा ऑर्डर लिस्ट (Order List) बना सकते हैं, इसमे प्रत्येक लिस्ट आइटम को दर्शाने के लिए एक ऑर्डर नंबर होता है। जैसे – (1,2,3), (A,B,C) या (I,II,III,IV) इत्यादि। नीचे &lt;ol&gt;तथा &lt;ul&gt; टैग का उपयोग उदाहरण व सोर्स कोड (Source Code) सहित बताया गया है।</p>
+
+<table>
+<tr><th>&lt;ol&gt; Attributes</th><th>Value</th><th>Description</th></tr>
+<tr><td>reversed</td><td>reversed</td><td>लिस्ट ऑर्डर को रीवर्स करने के लिए</td></tr>
+<tr><td>start</td><td>number</td><td>स्टार्टिंग वैल्यू डिफाइन करने के लिए</td></tr>
+<tr><td>type</td><td>1,A,a,I,i</td><td>लिस्ट टाइप डिफाइन करने के लिए</td></tr>
+<tr><th>&lt;ul&gt; Attributes</th><th>Value</th><th>Description</th></tr>
+<tr><td>type</td><td>circle, square, disk, none</td><td>लिस्ट टाइप डिफाइन करने के लिए</td></tr>
+</table>
+
+<h4>Source Code : Order List and Un-order List</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML List&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4&gt;Order List Example&lt;/h4&gt;
+&lt;p&gt;Default list style&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ol&gt;
+&lt;h4&gt;Un-order List Example&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<h4>Order List Example</h4>
+<p>Default list style</p>
+<ol>
+<li>Cheese Pizza</li>
+<li>Veggie Pizza</li>
+<li>Margherita Pizza</li>
+<li>Meat Pizza</li></ol>
+<h4>Un-order List Example</h4>
+<ul>
+<li>Cheese Pizza</li>
+<li>Veggie Pizza</li>
+<li>Margherita Pizza</li>
+<li>Meat Pizza</li></ul>
+
+<h4>Source Code : Other Order List Example</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML List Style&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4&gt;Order List Example&lt;/h4&gt;&lt;hr&gt;
+&lt;p&gt;Alphabetic list style&lt;/p&gt;
+&lt;ol type="A"&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;Roman list style&lt;/p&gt;
+&lt;ol type="i"&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;Specific number list style&lt;/p&gt;
+&lt;ol type="4"&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;Reverse list example&lt;/p&gt;
+&lt;ol type="4" reversed&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Source Code : Other Un-order List Example</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML List Style&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4&gt;Un-order List Example&lt;/h4&gt;&lt;hr&gt;
+&lt;p&gt;Default bullet list style (Disc)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Square box list style&lt;/p&gt;
+&lt;ul type="square"&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Circle bullet list style&lt;/p&gt;
+&lt;ul type="circle"&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;None list example&lt;/p&gt;
+&lt;ul type="none"&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Multi Level List</h4>
+<p>इस प्रकार की लिस्ट स्टाइल के अंतर्गत किसी लिस्ट (Order or Un-order List) के अंदर दूसरी Order/Un-order List स्टार्ट कर सकते हैं, और उस लिस्ट के अंदर फिर से एक नई लिस्ट स्टार्ट कर सकते हैं। नीचे मल्टी लेवल लिस्ट स्टाइल का उदाहरण सोर्स कोड सहित बताया गया है।</p>
+
+<h4>Source Code : Multi Level List</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Multi Level List&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ol&gt;
+&lt;li&gt;Veggie Pizza&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;Cheese Pizza&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;Haff Pizza&lt;/li&gt;
+&lt;li&gt;Full Pizza&lt;/li&gt;
+&lt;/ol&gt;
+&lt;li&gt;Vegetables Pizza&lt;/li&gt;
+&lt;li&gt;Vegetables and Cheese Pizza&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;Margherita Pizza&lt;/li&gt;
+&lt;li&gt;Meat Pizza&lt;/li&gt;&lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<ol>
+<li>Veggie Pizza</li>
+<ul>
+<li>Cheese Pizza</li>
+<ol>
+<li>Haff Pizza</li>
+<li>Full Pizza</li>
+</ol>
+<li>Vegetables Pizza</li>
+<li>Vegetables and Cheese Pizza</li>
+</ul>
+<li>Margherita Pizza</li>
+<li>Meat Pizza</li></ol>
+
+<h4>Description Lists</h4>
+<p>डिस्क्रिप्शन लिस्ट टर्म्स की एक लिस्ट है, जिसमें प्रत्येक टर्म का डिस्क्रिप्शन होता है। इस लिस्ट मे उपयोग होने वाले टैग्स का विवरण निम्न प्रकार है।</p>
+<ul>
+<li>&lt;dl&gt; यह टैग Description List डिफाइन करता है।</li>
+<li>&lt;dt&gt; यह टैग Term डिफाइन करता है।</li>
+<li>&lt;dd&gt; यह टैग प्रत्येक टर्म (Term) का डिस्क्रिप्शन डिफाइन करता है।</li>
+</ul>
+
+<h4>Source Code : Description List</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Description List&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;dl&gt;
+&lt;dt&gt;Coffee&lt;/dt&gt;
+&lt;dd&gt;Hot coffee&lt;/dd&gt;
+&lt;dd&gt;Cold coffee&lt;/dd&gt;
+&lt;dt&gt;Tea&lt;/dt&gt;
+&lt;dd&gt;Black Tea&lt;/dd&gt;
+&lt;dd&gt;Milk Tea&lt;/dd&gt;
+&lt;dd&gt;Green Tea&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<dl>
+<dt>Coffee</dt>
+<dd>Hot coffee</dd>
+<dd>Cold coffee</dd>
+<dt>Tea</dt>
+<dd>Black Tea</dd>
+<dd>Milk Tea</dd>
+<dd>Green Tea</dd>
+</dl>
+
+<h2>HTML Table</h2>
+<p>HTML पेज मे टेबल बनाने के लिए &lt;table&gt; टैग का उपयोग किया जाता है, किसी डाटा को रो (Row) और कॉलम (Column) मे लिखने के लिए टेबल का उपयोग किया जाता है। टेबल बनाने के लिए &lt;table&gt; टैग के साथ अन्य टैग भी इस्तेमाल किए जाते हैं, जिनका विवरण निम्न प्रकार है।</p>
+<ul>
+<li>&lt;tr&gt; इस टैग का प्रयोग टेबल रो बनाने के लिए किया जाता है।</li>
+<li>&lt;th&gt; इस टैग का प्रयोग टेबल हेडिंग बनाने के लिए किया जाता है।</li>
+<li>&lt;td&gt; इस टैग का प्रयोग टेबल सेल बनाने के लिए किया जाता है, टेबल मे जो भी डाटा लिखना होता है वह इसी टैग मे लिखते हैं।</li>
+<li>&lt;caption&gt; इस टैग का प्रयोग टेबल का कैप्शन देने के लिए किया जाता है।</li>
+<li>&lt;thead&gt;इस टैग का प्रयोग टेबल हेडर डिफाइन करने के लिए किया जाता है।</li>
+<li>&lt;tbody&gt; इस टैग का प्रयोग टेबल बॉडी डिफाइन करने के लिए किया जाता है।</li>
+<li>&lt;tfoot&gt; इस टैग का प्रयोग टेबल फूटर डिफाइन करने के लिए किया जाता है।</li>
+</ul>
+
+<table>
+<tr><th>Table Attributes</th><th>Value</th><th>Description</th></tr>
+<tr><td>bgcolor</td><td>color name</td><td>टेबल का बैकग्राउंड कलर डिफाइन करने के लिए</td></tr>
+<tr><td>border</td><td>number</td><td>टेबल का बॉर्डर सेट करने के लिए</td></tr>
+<tr><td>bordercolor</td><td>color name</td><td>टेबल व सेल बॉर्डर कलर डिफाइन करने के लिए</td></tr>
+<tr><td>width</td><td>number or %</td><td>टेबल की चौड़ाई सेट करने के लिए</td></tr>
+<tr><td>height</td><td>number or %</td><td>टेबल की ऊंचाई सेट करने के लिए</td></tr>
+<tr><td>align</td><td>right, left, center</td><td>टेबल का अलाइनमेंट सेट करने के लिए</td></tr>
+<tr><td>cellspacing</td><td>number</td><td>टेबल मे दो सेल के बीच स्पेस देने के लिए</td></tr>
+<tr><td>cellpadding</td><td>number</td><td>सेल बॉर्डर और सेल इनफार्मेशन के बीच स्पेस देने के लिए</td></tr>
+</table>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Table&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table border="1" bordercolor="red"&gt;
+&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;th&gt;Qualification&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Kajal Verma&lt;/td&gt;&lt;td&gt;32&lt;/td&gt;&lt;td&gt;MBA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Lalit Mehta&lt;/td&gt;&lt;td&gt;40&lt;/td&gt;&lt;td&gt;Phd.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Rahul Verma&lt;/td&gt;&lt;td&gt;31&lt;/td&gt;&lt;td&gt;M.Sc&lt;/td&gt;&lt;/tr&gt;
+&lt;caption&gt;Employee Records&lt;/caption&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<table border="1" bordercolor="red">
+<tr><th>Name</th><th>Age</th><th>Qualification</th></tr>
+<tr><td>Kajal Verma</td><td>32</td><td>MBA</td></tr>
+<tr><td>Lalit Mehta</td><td>40</td><td>Phd.</td></tr>
+<tr><td>Rahul Verma</td><td>31</td><td>M.Sc</td></tr>
+<caption>Employee Records</caption>
+</table>
+
+<h4>Table &lt;thead&gt;, &lt;tbody&gt; &amp; &lt;tfoot&gt; Property</h4>
+<p>HTML टेबल मे &lt;thead&gt; टैग का इस्तेमाल टेबल हेडर के लिए, &lt;tbody&gt; टैग का इस्तेमाल टेबल बॉडी के लिए तथा &lt;tfoot&gt; का इस्तेमाल टेबल फूटर डिफाइन करने के लिए किया जाता है। इस तीनों टैग मे समान प्रॉपर्टी इस्तेमाल की जाती हैं, जैसे – bgcolor, align आदि। नीचे तीनों टैग का इस्तेमाल करना उदाहरण सहित सोर्स कोड के साथ बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Table&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table border="1" bordercolor="red" width="50%"&gt;
+&lt;caption&gt;Employee Records&lt;/caption&gt;
+&lt;thead bgcolor="cyan" align="center"&gt;
+&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;th&gt;Qualification&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody bgcolor="yellow" align="center"&gt;
+&lt;tr&gt;&lt;td&gt;Kajal Verma&lt;/td&gt;&lt;td&gt;32&lt;/td&gt;&lt;td&gt;MBA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Lalit Mehta&lt;/td&gt;&lt;td&gt;40&lt;/td&gt;&lt;td&gt;Phd.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Rahul Verma&lt;/td&gt;&lt;td&gt;31&lt;/td&gt;&lt;td&gt;M.Sc&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;tfoot bgcolor="megenta" align="center"&gt;
+&lt;tr&gt;&lt;td colspan="3"&gt;ABC Company&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<table border="1" bordercolor="red" width="50%">
+<caption>Employee Records</caption>
+<thead bgcolor="cyan" align="center">
+<tr><th>Name</th><th>Age</th><th>Qualification</th></tr></thead>
+<tbody bgcolor="yellow" align="center">
+<tr><td>Kajal Verma</td><td>32</td><td>MBA</td></tr>
+<tr><td>Lalit Mehta</td><td>40</td><td>Phd.</td></tr>
+<tr><td>Rahul Verma</td><td>31</td><td>M.Sc</td></tr></tbody>
+<tfoot bgcolor="megenta" align="center">
+<tr><td colspan="3">ABC Company</td></tr></tfoot>
+</table>
+
+<h4>Table Cellspacing &amp; Cellpadding</h4>
+<p>टेबल मे यदि दो सेल (Cell) के बीच गैप दिखाना है तो cellspacing प्रॉपर्टी का इस्तेमाल किया जाता है, और यदि सेल मे लिखे डाटा और सेल बॉर्डर के बीच गैप (space) यानि पैडिंग लाना है तो cellpadding का इस्तेमाल किया जाता है। नीचे Cellspacing और Cellpadding का उदाहरण सोर्स कोड सहित बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Table&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table border="1" bordercolor="red" width="50%" bgcolor="yellow" cellspacing="10" cellpadding="10"&gt;
+&lt;thead&gt;
+&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;th&gt;Qualification&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Kajal Verma&lt;/td&gt;&lt;td&gt;32&lt;/td&gt;&lt;td&gt;MBA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Lalit Mehta&lt;/td&gt;&lt;td&gt;40&lt;/td&gt;&lt;td&gt;Phd.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Rahul Verma&lt;/td&gt;&lt;td&gt;31&lt;/td&gt;&lt;td&gt;M.Sc&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Table Rowspan &amp; Colspan</h4>
+<p>एचटीएमएल टेबल मे रोस्पैन (Rowspan) और कॉल्सपैन (Colspan) प्रॉपर्टी द्वारा टेबल सेल्स को आपस मे मर्ज (Merge) करा सकते हैं। यह प्रॉपर्टी &lt;td&gt;, &lt;th&gt; टैग के लिए वर्क करती हैं। Colspan टेबल सेल्स को होरीजॉन्टल (Horizontally) तथा Rowspan सेल्स को वर्टिकली (Vertically) मर्ज करता हैं। नीचे रोस्पैन तथा कॉल्सपैन का उदाहरण सोर्स कोड सहित बताया गया है।</p>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Table&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table border="1" bordercolor="red" width="50%" cellspacing="10" cellpadding="10"&gt;
+&lt;tr&gt;&lt;th colspan="5" bgcolor="cyan"&gt;Employee Records&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;Sr&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;th&gt;Qualification&lt;/th&gt;&lt;th rowspan="4"&gt;U&lt;br&gt;N&lt;br&gt;I&lt;br&gt;T&lt;br&gt; 2&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Kajal Verma&lt;/td&gt;&lt;td&gt;32&lt;/td&gt;&lt;td&gt;MBA&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Lalit Mehta&lt;/td&gt;&lt;td&gt;40&lt;/td&gt;&lt;td&gt;Phd.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;Rahul Verma&lt;/td&gt;&lt;td&gt;31&lt;/td&gt;&lt;td&gt;M.Sc&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output 👇</h4>
+<table border="1" bordercolor="red" width="50%" cellspacing="10" cellpadding="10">
+<tr><th colspan="5" bgcolor="cyan">Employee Records</th></tr>
+<tr><th>Sr</th><th>Name</th><th>Age</th><th>Qualification</th><th rowspan="4">U<br>N<br>I<br>T<br> 2</th></tr>
+<tr><td>1</td><td>Kajal Verma</td><td>32</td><td>MBA</td></tr>
+<tr><td>2</td><td>Lalit Mehta</td><td>40</td><td>Phd.</td></tr>
+<tr><td>3</td><td>Rahul Verma</td><td>31</td><td>M.Sc</td></tr>
+</table>
+
+<h2>HTML Links</h2>
+<p>HTML पेज मे किसी टेक्सट या इमेज पर किसी अन्य डॉक्यूमेंट या वेबपेज का लिंक लगाने के लिए &lt;a&gt; Anchor टैग का उपयोग किया जाता है। &lt;a&gt; टैग हाइपरलिंक को परिभाषित करता है, जिसका उपयोग एक पेज से दूसरे पेज पर लिंक करने के लिए किया जाता है।</p>
+<p>&lt;a&gt; की सबसे महत्वपूर्ण विशेषता href है, जो लिंक के गंतव्य को इंगित करती है। डिफ़ॉल्ट रूप से, लिंक सभी ब्राउज़रों में इस प्रकार दिखाई देते हैं:</p>
+<ul>
+<li>एक Unvisited लिंक Underline और Blue होता है</li>
+<li>एक Visited लिंक Underline और Purple होता है</li>
+<li>एक Active लिंक Underline और Red होता है</li>
+</ul>
+
+<table>
+<tr><th>Anchor Attributes</th><th>Value</th><th>Description</th></tr>
+<tr><td>href</td><td>url</td><td>उस पृष्ठ का URL डालें जिसपर लिंक द्वारा पहुंचना है</td></tr>
+<tr><td>target</td><td>_bank, _self, _top, _parent</td><td>डॉक्यूमेंट को कहां खोलना है यह निर्दिष्ट करता है। _blank (Open link in new window), _self (Open link in same window), _top (Open link on top window), _parent (Open link in parent window)</td></tr>
+<tr><td>download</td><td>file_name</td><td>जब कोई उपयोगकर्ता हाइपरलिंक पर क्लिक करेगा तो टारगेट डाउनलोड हो जाएगा</td></tr>
+<tr><td>rel</td><td>alternate, author, bookmark, nofollow, search, tag</td><td>वर्तमान पेज और लिंक किए गए पेज के बीच संबंध निर्दिष्ट करता है</td></tr>
+<tr><td>type</td><td>media_type</td><td>लिंक किए गए डॉक्यूमेंट का मीडिया प्रकार निर्दिष्ट करता है</td></tr>
+</table>
+
+<h4>Source Code</h4>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Links&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Link of Webpage on text&lt;/p&gt;
+&lt;a href="https://www.google.co.in"&gt;Click on this link to open Google homepage.&lt;/a&gt;&lt;hr&gt;
+&lt;p&gt;Open link in new window&lt;/p&gt;
+&lt;a href="https://www.google.co.in" target="_blank"&gt;Click on this link to open Google homepage.&lt;/a&gt;&lt;hr&gt;
+&lt;/p&gt;Open link in new window&lt;/p&gt;
+&lt;a href="https://www.google.co.in" target="_self"&gt;Click on this link to open Google homepage.&lt;/a&gt;&lt;hr&gt;
+&lt;p&gt;Link on an Image&lt;/p&gt;
+&lt;a href="https://www.google.co.in"&gt;&lt;img src="https://digitaltaiyari.com/wp-content/uploads/2025/02/music-cover-image.jpg"&gt;&lt;/a&gt;&lt;hr&gt;
+&lt;p&gt;Link to another HTML document&lt;/p&gt;
+&lt;a href="Filename.html"&gt;Click to open another page&lt;/a&gt;&lt;hr&gt;
+&lt;p&gt;Link to Download a music file&lt;/p&gt;
+&lt;a href="Filename.mp3" download&gt;Click to Download File&lt;/a&gt;&lt;hr&gt;
+&lt;p&gt;Link to Email someone&lt;/p&gt;
+&lt;a href="mailto:someone@example.com"&gt;Send email&lt;/a&gt;&lt;hr&gt;
+&lt;p&gt;Link to Call someone&lt;/p&gt;
+&lt;a href="tel:+5732478901"&gt;+57 324 78 901&lt;/a&gt;&lt;hr&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h4>Code Output👇</h4>
+<p>Link of Webpage on text<br><a href="https://www.google.co.in">Click on this link to open Google homepage.</a></p><hr>
+<p>Open link in new window<br><a href="https://www.google.co.in" target="_blank">Click on this link to open Google homepage.</a></p><hr>
+<p><a href="https://www.google.co.in" target="_self">Click on this link to open Google homepage.</a></p><hr>
+<p>Link on an Image<br><a href="https://www.google.co.in">(Image Link)</a></p><hr>
+<p>Link to another HTML document<br><a href="Filename.html">Click to open another page</a></p><hr>
+<p>Link to Download a file<br><a href="Filename.mp3" download>Click to Download File</a></p><hr>
+<p>Link to Email someone<br><a href="mailto:someone@example.com">Send email</a></p><hr>
+<p>Link to Call someone<br><a href="tel:+5732478901">+57 324 78 901</a></p><hr>
+
+<h4>HTML Cross Reference Link</h4>
+<p>HTML क्रॉस-रेफरेंस एक लिंक है जो रीडर्स को किसी पेज के विशिष्ट भागों, जैसे पैराग्राफ, आंकड़े या तालिकाओं (Tables) तक ले जाता है। ऐसा करने का एक तरीका हाइपरलिंक और क्रॉस-रेफरेंस का उपयोग करना है, ये दो प्रकार के लिंक हैं जो आपकी जानकारी के विभिन्न हिस्सों को जोड़ते हैं। हाइपरलिंक वे लिंक होते हैं जो अन्य वेब पेजों या संसाधनों की ओर ले जाते हैं, जबकि क्रॉस-रेफरेंस वे लिंक होते हैं जो उसी पेज के भीतर अन्य सेक्शन या एलिमेंट्स (Sections or elements) की ओर इशारा करते हैं।</p>
+<pre><code>&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;HTML Links&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;a href="#sec1"&gt;&lt;h5&gt;Goto cross-reference 1&lt;/h5&gt;&lt;/a&gt;
+&lt;a href="#sec2"&gt;&lt;h5&gt;Goto cross-reference 2&lt;/h5&gt;&lt;/a&gt;
+&lt;a href="#sec3"&gt;&lt;h5&gt;Goto cross-reference 3&lt;/h5&gt;&lt;/a&gt;
+&lt;hr&gt;
+&lt;a id="sec1"&gt;&lt;h4&gt;This cross-reference 1&lt;/h4&gt;&lt;/a&gt;
+&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry...&lt;/p&gt;
+&lt;a id="sec2"&gt;&lt;h4&gt;This is cross-reference 2&lt;/h4&gt;&lt;/a&gt;
+&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry...&lt;/p&gt;
+&lt;a id="sec3"&gt;&lt;h4&gt;This is cross-reference 3&lt;/h4&gt;&lt;/a&gt;
+&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h2>HTML Form</h2>
+<p>एचटीएमएल मे यूजर एंट्री फॉर्म पेज बनाने के लिए &lt;form&gt; टैग का उपयोग होता है। रजिस्ट्रेशन फॉर्म, कान्टैक्ट फॉर्म, किसी भी प्रकार का एंट्री फॉर्म &lt;form&gt; टैग की मदद से क्रीऐट कर सकते हैं।</p>
+
+<h4>action</h4>
+<pre><code>&lt;form action="filename.html" method="post"&gt;</code></pre>
+
+<h4>autocomplete</h4>
+<pre><code>&lt;form action="filename.html" method="get" autocomplete="on"&gt;
+&lt;form action="filename.html" method="get" autocomplete="off"&gt;</code></pre>
+
+<h4>method</h4>
+<ul>
+<li>get – फ़ॉर्म सबमिशन के लिए डिफ़ॉल्ट मेथड</li>
+<li>post – HTTP Request बॉडी के अंदर फ़ॉर्म डेटा भेजने के लिए</li>
+</ul>
+<pre><code>&lt;form action="filename.html" method="get"&gt;
+&lt;form action="filename.html" method="post"&gt;</code></pre>
+
+<h4>target</h4>
+<ul>
+<li>_blank – नई विंडो या टैब में</li>
+<li>_self – उसी विंडो में</li>
+<li>_parent – मूल विंडो में</li>
+<li>_top – विंडो के पूर्ण भाग में</li>
+</ul>
+<pre><code>&lt;form action="filename.html" method="get" target="_blank"&gt;
+&lt;form action="filename.html" method="get" target="_self"&gt;
+&lt;form action="filename.html" method="get" target="_parent"&gt;
+&lt;form action="filename.html" method="get" target="_top"&gt;</code></pre>
+
+<h4>novalidate</h4>
+<pre><code>&lt;form action="filename.html" method="get" novalidate&gt;</code></pre>
+
+<h4>name</h4>
+<pre><code>&lt;form action="filename" method="get"&gt;
+     Enter name:&lt;br&gt;&lt;input type="name" name="uname"&gt;&lt;br&gt;
+     Enter age:&lt;br&gt;&lt;input type="number" name="age"&gt;&lt;br&gt;
+     Enter email:&lt;br&gt;&lt;input type="email"&gt;&lt;br&gt;
+     &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+
+<h4>enctype</h4>
+<ul>
+<li>application/x-www-form-urlencoded – डिफ़ॉल्ट एन्कोडिंग प्रकार</li>
+<li>multipart/form-data – फ़ाइल-अपलोड कंट्रोल के लिए</li>
+<li>text/plain – केवल स्पेस को + चिन्ह में एनकोड करता है</li>
+</ul>
+<pre><code>&lt;form action="filename" method="post" enctype="application/x-www-form-urlencoded"&gt;
+&lt;form action="filename.html" method="post" enctype="multipart/form-data"&gt;
+&lt;form action="filename.html" method="post" enctype="text/plain"&gt;</code></pre>
+
+<p><strong>नोट</strong> – इस पेज मे अभी नोट्स पोस्ट किए जाने बाकी हैं। रुकावट के लिए माफी🙏आगे के नोट्स जल्द ही पब्लिश किए जाएंगे।</p>
+<p>इस वेबसाईट पर आने के लिए आपका धन्यवाद!🙏</p>
+
+</div>
+</body>
+</html>
