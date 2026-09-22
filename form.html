@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📖 Registration Form — Animated Notes</title>
+  <!-- Font Awesome for icons (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- GLOBAL RESET & THEME ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      min-height: 100vh;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #e0e0ff;
+      animation: bgShift 18s infinite alternate ease-in-out;
+    }
+
+    @keyframes bgShift {
+      0% { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+      50% { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); }
+      100% { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+    }
+
+    /* ----- MAIN CONTAINER ----- */
+    .notes-container {
+      max-width: 1200px;
+      width: 100%;
+      background: rgba(20, 20, 40, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 40px;
+      padding: 40px 30px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 0 2px rgba(138, 120, 255, 0.2);
+      border: 1px solid rgba(150, 130, 255, 0.3);
+      transition: all 0.4s;
+      animation: floatIn 0.9s ease-out;
+    }
+
+    @keyframes floatIn {
+      0% { opacity: 0; transform: translateY(50px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ----- HEADINGS ----- */
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      animation: glowPulse 2.5s infinite alternate;
+      text-shadow: 0 0 30px rgba(167, 139, 250, 0.5);
+    }
+
+    @keyframes glowPulse {
+      0% { filter: drop-shadow(0 0 5px #8b5cf6); }
+      100% { filter: drop-shadow(0 0 25px #a78bfa); }
+    }
+
+    .subhead {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #b0b0ff;
+      margin-bottom: 40px;
+      border-bottom: 2px dashed #4c4c8a;
+      padding-bottom: 20px;
+      animation: fadeSlide 1s ease;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(-15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ----- PART CARDS ----- */
+    .part {
+      background: rgba(30, 30, 60, 0.6);
+      border-radius: 30px;
+      padding: 25px 25px 15px 25px;
+      margin-bottom: 40px;
+      border-left: 6px solid #8b5cf6;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideUp 0.7s ease backwards;
+    }
+
+    .part:nth-child(2) { animation-delay: 0.1s; }
+    .part:nth-child(3) { animation-delay: 0.2s; }
+    .part:nth-child(4) { animation-delay: 0.3s; }
+    .part:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .part:hover {
+      transform: scale(1.01);
+      box-shadow: 0 25px 45px rgba(139, 92, 246, 0.3);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #c4b5fd;
+      border-bottom: 3px solid #7c3aed;
+      display: inline-block;
+      padding-bottom: 8px;
+      letter-spacing: 1px;
+      animation: borderPulse 2s infinite alternate;
+    }
+
+    @keyframes borderPulse {
+      0% { border-color: #7c3aed; }
+      100% { border-color: #a78bfa; }
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin: 25px 0 12px 0;
+      color: #93c5fd;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeIn 0.6s;
+    }
+
+    h3 i {
+      color: #fbbf24;
+      font-size: 1.6rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(-10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ----- CODE BLOCKS ----- */
+    pre, .code-block {
+      background: #0d0d1a;
+      padding: 18px 20px;
+      border-radius: 18px;
+      border-left: 5px solid #a78bfa;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      margin: 15px 0;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s;
+      animation: codeAppear 0.5s ease;
+    }
+
+    @keyframes codeAppear {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    pre:hover {
+      border-left-color: #f472b6;
+      box-shadow: inset 0 0 30px rgba(167, 139, 250, 0.2), 0 8px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    /* inline code */
+    code {
+      background: #1e1e3a;
+      color: #f0abfc;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      border: 1px solid #3b3b6b;
+    }
+
+    /* ----- TABLES (fully responsive & animated) ----- */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: 20px;
+      background: rgba(10, 10, 25, 0.6);
+      padding: 5px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.8s;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      min-width: 500px;
+    }
+
+    th {
+      background: #2a1f5e;
+      color: #ddd6fe;
+      font-weight: 700;
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 3px solid #7c3aed;
+      letter-spacing: 0.5px;
+      font-size: 0.95rem;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #2e2e5a;
+      color: #cfcfff;
+      transition: background 0.2s;
+    }
+
+    tr {
+      transition: all 0.2s;
+      animation: rowFade 0.4s ease backwards;
+    }
+
+    tr:hover {
+      background: rgba(124, 58, 237, 0.15);
+      transform: scale(1.005);
+    }
+
+    @keyframes rowFade {
+      from { opacity: 0; transform: translateX(-5px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ----- LISTS & TEXT ----- */
+    ul, .list {
+      list-style: none;
+      padding-left: 5px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 28px;
+      position: relative;
+      color: #d8d8ff;
+      animation: fadeIn 0.5s;
+    }
+
+    li::before {
+      content: "▹";
+      position: absolute;
+      left: 5px;
+      color: #a78bfa;
+      font-size: 1.2rem;
+      animation: blink 1.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #fbbf24 0%, #fbbf24 40%, transparent 80%);
+      background-repeat: no-repeat;
+      background-size: 0% 40%;
+      background-position: 0 80%;
+      transition: background-size 0.5s;
+      font-weight: 600;
+      color: #fff;
+      padding: 0 3px;
+      animation: highlightSweep 2s infinite alternate;
+    }
+
+    @keyframes highlightSweep {
+      0% { background-size: 0% 40%; }
+      100% { background-size: 100% 40%; }
+    }
+
+    /* ----- PRACTICE TASK / SUMMARY ----- */
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .task-item {
+      background: rgba(45, 35, 80, 0.7);
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid #5b4b9a;
+      transition: all 0.3s;
+      animation: popIn 0.6s backwards;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .task-item:hover {
+      background: rgba(80, 60, 140, 0.8);
+      transform: translateY(-5px) scale(1.02);
+      border-color: #a78bfa;
+      box-shadow: 0 15px 25px rgba(139, 92, 246, 0.4);
+    }
+
+    .task-item i {
+      color: #fbbf24;
+      margin-right: 12px;
+      font-size: 1.2rem;
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* ----- AUDIO PLAYER (floating) ----- */
+    .audio-fab {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #1e1b4b, #0f0c29);
+      border-radius: 60px;
+      padding: 12px 22px 12px 16px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 0 2px #7c3aed, 0 0 25px #8b5cf6;
+      cursor: pointer;
+      transition: all 0.3s;
+      animation: floatAudio 3s infinite alternate ease-in-out;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      gap: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .audio-fab:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 20px 40px black, 0 0 0 3px #a78bfa, 0 0 35px #a78bfa;
+    }
+
+    .audio-fab i {
+      font-size: 1.6rem;
+      color: #c084fc;
+      animation: spinDisc 4s linear infinite;
+    }
+
+    @keyframes spinDisc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes floatAudio {
+      0% { bottom: 30px; }
+      100% { bottom: 45px; }
+    }
+
+    /* ----- SCROLLBAR ----- */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1a1a2e;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #7c3aed;
+      border-radius: 10px;
+      border: 2px solid #1a1a2e;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a78bfa;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 600px) {
+      .notes-container { padding: 20px 15px; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      pre { font-size: 0.8rem; padding: 12px; }
+      th, td { padding: 8px; font-size: 0.8rem; }
+      .audio-fab { bottom: 20px; right: 15px; padding: 8px 15px 8px 12px; }
+      .audio-fab span { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating music player button — auto plays on load -->
+  <button class="audio-fab" id="musicToggle" title="Background Music (auto-play)">
+    <i class="fas fa-compact-disc" id="discIcon"></i>
+    <span id="musicText">♫ Playing</span>
+  </button>
+
+  <!-- Audio element with a soothing piano track (royalty free) -->
+  <audio id="bgAudio" loop autoplay>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+    <!-- fallback if the above fails -->
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="notes-container">
+    <h1>📖 Registration Form</h1>
+    <div class="subhead">हर एक Line, Property और Value की पूरी Explanation — Fully Animated Notes</div>
+
+    <!-- ========== PART 1 : HTML LINES ========== -->
+    <div class="part">
+      <h2>🔷 PART 1: HTML की हर Line</h2>
+
+      <!-- Line 1 -->
+      <h3><i class="fas fa-code"></i> Line 1: &lt;!DOCTYPE html&gt;</h3>
+      <pre>&lt;!DOCTYPE html&gt;</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>भाग</th><th>मतलब</th></tr>
+          <tr><td><code>&lt;!DOCTYPE&gt;</code></td><td>यह browser को बताता है कि document किस version का है</td></tr>
+          <tr><td><code>html</code></td><td>HTML5 version को represent करता है</td></tr>
+        </table>
+      </div>
+      <p>💡 <span class="highlight">क्यों ज़रूरी है?</span> अगर यह न लिखें तो browser "quirks mode" में चलता है और CSS अलग तरह से render होती है।</p>
+
+      <!-- Line 2 -->
+      <h3><i class="fas fa-code"></i> Line 2: &lt;html&gt;</h3>
+      <pre>&lt;html&gt;</pre>
+      <ul>
+        <li><code>html</code> = <strong>root element</strong> — पूरे webpage का सबसे बड़ा container।</li>
+        <li>इसके अंदर <code>&lt;head&gt;</code> और <code>&lt;body&gt;</code> दोनों आते हैं।</li>
+      </ul>
+
+      <!-- Line 3 -->
+      <h3><i class="fas fa-code"></i> Line 3: &lt;head&gt;</h3>
+      <pre>&lt;head&gt;</pre>
+      <ul>
+        <li><code>head</code> = वह section जो <strong>user को दिखता नहीं</strong>, लेकिन browser को ज़रूरी जानकारी देता है।</li>
+        <li>इसमें meta tags, title, CSS links आदि होते हैं।</li>
+      </ul>
+
+      <!-- Line 4 -->
+      <h3><i class="fas fa-code"></i> Line 4: &lt;meta charset="UTF-8"&gt;</h3>
+      <pre>&lt;meta charset="UTF-8"&gt;</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>भाग</th><th>मतलब</th></tr>
+          <tr><td><code>meta</code></td><td>Metadata (जानकारी) के लिए tag</td></tr>
+          <tr><td><code>charset</code></td><td>Character encoding set करने वाली property</td></tr>
+          <tr><td><code>UTF-8</code></td><td>सबसे universal encoding — Hindi, English, Emoji सब support करती है</td></tr>
+        </table>
+      </div>
+      <p>💡 <span class="highlight">क्यों ज़रूरी?</span> अगर UTF-8 न हो, तो हिन्दी text <code>√†¬§¬є√†¬§¬њ√†¬§¬®√†¬•√†¬§¬¶√†¬•вВђ</code> जैसा दिखेगा।</p>
+
+      <!-- Line 5 -->
+      <h3><i class="fas fa-code"></i> Line 5: &lt;meta name="viewport" ...&gt;</h3>
+      <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>भाग</th><th>मतलब</th></tr>
+          <tr><td><code>name="viewport"</code></td><td>Mobile screen के बारे में बताता है</td></tr>
+          <tr><td><code>width=device-width</code></td><td>Page की width = device की width</td></tr>
+          <tr><td><code>initial-scale=1.0</code></td><td>शुरुआत में zoom level 100%</td></tr>
+        </table>
+      </div>
+      <p>💡 <span class="highlight">क्यों ज़रूरी?</span> इसके बिना mobile पर page बहुत छोटा दिखेगा।</p>
+
+      <!-- Line 6 -->
+      <h3><i class="fas fa-code"></i> Line 6: &lt;title&gt;Registration Form&lt;/title&gt;</h3>
+      <pre>&lt;title&gt;Registration Form&lt;/title&gt;</pre>
+      <ul>
+        <li>Browser <strong>tab</strong> पर यह text दिखता है।</li>
+        <li>SEO के लिए भी ज़रूरी है।</li>
+      </ul>
+
+      <!-- Line 7-9 -->
+      <h3><i class="fas fa-code"></i> Line 7-9: &lt;style&gt; ... &lt;/style&gt;</h3>
+      <pre>&lt;style&gt;
+  /* CSS यहाँ लिखते हैं */
+&lt;/style&gt;</pre>
+      <ul>
+        <li><code>&lt;style&gt;</code> tag के अंदर CSS code लिखते हैं (internal CSS)।</li>
+      </ul>
+    </div>
+
+    <!-- ========== PART 2 : CSS LINES ========== -->
+    <div class="part">
+      <h2>🎨 PART 2: CSS की हर Line</h2>
+
+      <!-- Reset -->
+      <h3><i class="fas fa-undo-alt"></i> Reset Section</h3>
+      <pre>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Property</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>*</code></td><td>—</td><td>Universal selector — <strong>सभी elements</strong> को select करता है</td></tr>
+          <tr><td><code>margin</code></td><td><code>0</code></td><td>बाहर की खाली जगह हटा दी</td></tr>
+          <tr><td><code>padding</code></td><td><code>0</code></td><td>अंदर की खाली जगह हटा दी</td></tr>
+          <tr><td><code>box-sizing</code></td><td><code>border-box</code></td><td>padding + border को width/height में <strong>शामिल</strong> करता है</td></tr>
+          <tr><td><code>font-family</code></td><td><code>'Segoe UI', Arial, sans-serif</code></td><td>पहले Segoe UI, न मिले तो Arial, न मिले तो कोई भी sans-serif</td></tr>
+        </table>
+      </div>
+      <p><strong>box-sizing: border-box example:</strong> बिना border-box: width:200px + padding:20px = <strong>240px total</strong> | border-box के साथ: width:200px + padding:20px = <strong>200px total</strong></p>
+
+      <!-- Body -->
+      <h3><i class="fas fa-paint-brush"></i> Body Section</h3>
+      <pre>body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Property</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>min-height</code></td><td><code>100vh</code></td><td>कम से कम पूरी screen की height (vh = viewport height)</td></tr>
+          <tr><td><code>background</code></td><td><code>linear-gradient(...)</code></td><td>दो colors का gradient</td></tr>
+          <tr><td><code>135deg</code></td><td>—</td><td>Gradient की direction (कोने से कोने तक)</td></tr>
+          <tr><td><code>#667eea</code></td><td>—</td><td>नीला-बैंगनी (शुरुआत)</td></tr>
+          <tr><td><code>#764ba2</code></td><td>—</td><td>गहरा बैंगनी (अंत)</td></tr>
+          <tr><td><code>display</code></td><td><code>flex</code></td><td>Flexbox layout चालू</td></tr>
+          <tr><td><code>justify-content</code></td><td><code>center</code></td><td>Horizontal (X-axis) में बीच में</td></tr>
+          <tr><td><code>align-items</code></td><td><code>center</code></td><td>Vertical (Y-axis) में बीच में</td></tr>
+          <tr><td><code>padding</code></td><td><code>20px</code></td><td>छोटी screen पर किनारे से जगह</td></tr>
+        </table>
+      </div>
+
+      <!-- Form Box -->
+      <h3><i class="fas fa-box"></i> Form Box</h3>
+      <pre>.form-box {
+  background: #ffffff;
+  width: 100%;
+  max-width: 520px;
+  padding: 35px 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Property</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>background</code></td><td><code>#ffffff</code></td><td>सफ़ेद background</td></tr>
+          <tr><td><code>width</code></td><td><code>100%</code></td><td>Parent की पूरी width</td></tr>
+          <tr><td><code>max-width</code></td><td><code>520px</code></td><td>520px से ज़्यादा नहीं बढ़ेगा</td></tr>
+          <tr><td><code>padding</code></td><td><code>35px 30px</code></td><td>ऊपर-नीचे 35px, बाएँ-दाएँ 30px</td></tr>
+          <tr><td><code>border-radius</code></td><td><code>15px</code></td><td>कोने गोल</td></tr>
+          <tr><td><code>box-shadow</code></td><td><code>0 15px 40px rgba(0,0,0,0.25)</code></td><td>नीचे shadow</td></tr>
+        </table>
+      </div>
+      <pre>box-shadow breakdown:
+0        15px      40px      rgba(0,0,0,0.25)
+↑         ↑         ↑              ↑
+X-offset Y-offset  Blur       Shadow का रंग
+(0=सीधा)  (नीचे)   (धुंधलापन) (काला 25% opacity)</pre>
+
+      <!-- Heading -->
+      <h3><i class="fas fa-heading"></i> Heading</h3>
+      <pre>.form-box h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 26px;
+  border-bottom: 3px solid #667eea;
+  display: inline-block;
+  padding-bottom: 8px;
+}</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Property</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>text-align</code></td><td><code>center</code></td><td>Text बीच में</td></tr>
+          <tr><td><code>color</code></td><td><code>#333</code></td><td>गहरा ग्रे text</td></tr>
+          <tr><td><code>margin-bottom</code></td><td><code>25px</code></td><td>नीचे 25px खाली जगह</td></tr>
+          <tr><td><code>font-size</code></td><td><code>26px</code></td><td>Font का size</td></tr>
+          <tr><td><code>border-bottom</code></td><td><code>3px solid #667eea</code></td><td>नीचे 3px की नीली line</td></tr>
+          <tr><td><code>display</code></td><td><code>inline-block</code></td><td>Width सिर्फ text जितनी (ताकि border सिर्फ text के नीचे दिखे)</td></tr>
+          <tr><td><code>padding-bottom</code></td><td><code>8px</code></td><td>Text और border के बीच जगह</td></tr>
+        </table>
+      </div>
+
+      <!-- Head Container -->
+      <h3><i class="fas fa-align-center"></i> Head Container</h3>
+      <pre>.head {
+  text-align: center;
+  margin-bottom: 20px;
+}</pre>
+      <ul>
+        <li><code>text-align: center</code> → अंदर का content बीच में।</li>
+        <li><code>margin-bottom: 20px</code> → नीचे 20px जगह।</li>
+      </ul>
+
+      <!-- Form Group -->
+      <h3><i class="fas fa-layer-group"></i> Form Group</h3>
+      <pre>.group {
+  margin-bottom: 18px;
+}</pre>
+      <ul><li><code>margin-bottom: 18px</code> → हर field के नीचे 18px की जगह।</li></ul>
+
+      <!-- Labels -->
+      <h3><i class="fas fa-tag"></i> Labels</h3>
+      <pre>.group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #313336;
+  font-weight: 600;
+  font-size: 15px;
+}</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Property</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>display</code></td><td><code>block</code></td><td>Label अपनी पूरी line ले (input नीचे आए)</td></tr>
+          <tr><td><code>margin-bottom</code></td><td><code>7px</code></td><td>Label और input के बीच जगह</td></tr>
+          <tr><td><code>color</code></td><td><code>#313336</code></td><td>Dark grey</td></tr>
+          <tr><td><code>font-weight</code></td><td><code>600</code></td><td>Semi-bold (600 = normal और bold के बीच)</td></tr>
+          <tr><td><code>font-size</code></td><td><code>15px</code></td><td>Font size</td></tr>
+        </table>
+      </div>
+      <p><strong>font-weight values:</strong> 100-300 Light | 400 Normal | 500 Medium | 600 Semi-bold | 700 Bold</p>
+
+      <!-- Input, Select, Textarea -->
+      <h3><i class="fas fa-keyboard"></i> Input, Select, Textarea</h3>
+      <pre>.group input,
+.group select,
+.group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+  background: #fafafa;
+}</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Property</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>width</code></td><td><code>100%</code></td><td>पूरी width ले</td></tr>
+          <tr><td><code>padding</code></td><td><code>12px 14px</code></td><td>ऊपर-नीचे 12px, बाएँ-दाएँ 14px</td></tr>
+          <tr><td><code>border</code></td><td><code>2px solid #ddd</code></td><td>2px हल्का grey border</td></tr>
+          <tr><td><code>border-radius</code></td><td><code>8px</code></td><td>कोने गोल</td></tr>
+          <tr><td><code>font-size</code></td><td><code>15px</code></td><td>Font size</td></tr>
+          <tr><td><code>outline</code></td><td><code>none</code></td><td>Default blue outline हटा दी</td></tr>
+          <tr><td><code>transition</code></td><td><code>0.3s</code></td><td>0.3 सेकंड में smooth change</td></tr>
+          <tr><td><code>background</code></td><td><code>#fafafa</code></td><td>बहुत हल्का grey</td></tr>
+        </table>
+      </div>
+
+      <!-- Focus State -->
+      <h3><i class="fas fa-mouse-pointer"></i> Focus State</h3>
+      <pre>.group input:focus,
+.group select:focus,
+.group textarea:focus {
+  border-color: #667eea;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+}</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Property</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>:focus</code></td><td>—</td><td>जब user field पर click करे</td></tr>
+          <tr><td><code>border-color</code></td><td><code>#667eea</code></td><td>Border नीला</td></tr>
+          <tr><td><code>background</code></td><td><code>#fff</code></td><td>पूरा सफ़ेद</td></tr>
+          <tr><td><code>box-shadow</code></td><td><code>0 0 8px rgba(102,126,234,0.3)</code></td><td>नीली glow</td></tr>
+        </table>
+      </div>
+      <p><strong>box-shadow breakdown:</strong> X=0, Y=0, Blur=8px, नीला 30% opacity — चारों तरफ़ फैलती है (glow effect)।</p>
+
+      <!-- Textarea -->
+      <h3><i class="fas fa-paragraph"></i> Textarea</h3>
+      <pre>.group textarea {
+  resize: vertical;
+  min-height: 80px;
+}</pre>
+      <ul>
+        <li><code>resize: vertical</code> → सिर्फ ऊपर-नीचे resize कर सकते हैं (left-right नहीं)।</li>
+        <li><code>min-height: 80px</code> → कम से कम 80px ऊँचा।</li>
+      </ul>
+
+      <!-- Row -->
+      <h3><i class="fas fa-ellipsis-h"></i> Row (Radio / Checkbox)</h3>
+      <pre>.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 5px;
+}</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Property</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>display</code></td><td><code>flex</code></td><td>Items एक line में</td></tr>
+          <tr><td><code>flex-wrap</code></td><td><code>wrap</code></td><td>जगह कम हो तो अगली line में</td></tr>
+          <tr><td><code>gap</code></td><td><code>15px</code></td><td>Items के बीच 15px जगह</td></tr>
+          <tr><td><code>margin-top</code></td><td><code>5px</code></td><td>ऊपर 5px जगह</td></tr>
+        </table>
+      </div>
+
+      <h3><i class="fas fa-check-circle"></i> Row Labels & Input</h3>
+      <pre>.row label {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.row input {
+  width: auto;
+  cursor: pointer;
+  accent-color: #667eea;
+}</pre>
+      <p><code>accent-color</code> — modern browsers में radio/checkbox का default color बदल देता है।</p>
+
+      <!-- Buttons -->
+      <h3><i class="fas fa-play"></i> Button Group & Styles</h3>
+      <pre>.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+.btn {
+  flex: 1;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-submit {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+}
+.btn-reset {
+  background: #eee;
+  color: #444;
+}
+.btn-reset:hover {
+  background: #ddd;
+}
+.star { color: red; }</pre>
+      <ul>
+        <li><code>flex: 1</code> → दोनों buttons बराबर width लें (50% - 50%)।</li>
+        <li><code>translateY(-2px)</code> → Negative value = ऊपर की तरफ।</li>
+      </ul>
+    </div>
+
+    <!-- ========== PART 3 : HTML BODY LINES ========== -->
+    <div class="part">
+      <h2>📄 PART 3: HTML Body की हर Line</h2>
+
+      <h3><i class="fas fa-archive"></i> Form Container</h3>
+      <pre>&lt;div class="form-box"&gt;</pre>
+      <ul><li><code>div</code> → Block container. <code>class="form-box"</code> → CSS से जोड़ता है।</li></ul>
+
+      <h3><i class="fas fa-file-signature"></i> Form Tag</h3>
+      <pre>&lt;form action="#" method="post"&gt;</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Attribute</th><th>Value</th><th>मतलब</th></tr>
+          <tr><td><code>action</code></td><td><code>#</code></td><td>Data कहाँ भेजना है (# = वही page)</td></tr>
+          <tr><td><code>method</code></td><td><code>post</code></td><td>Data भेजने का तरीका (URL में नहीं, body में)</td></tr>
+        </table>
+      </div>
+
+      <h3><i class="fas fa-font"></i> Text Input</h3>
+      <pre>&lt;input type="text" id="name" name="name" placeholder="अपना नाम लिखें" required&gt;</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Attribute</th><th>मतलब</th></tr>
+          <tr><td><code>type="text"</code></td><td>Normal text input</td></tr>
+          <tr><td><code>id="name"</code></td><td>Unique ID (CSS/JS के लिए)</td></tr>
+          <tr><td><code>name="name"</code></td><td>Backend पर भेजे जाने वाला नाम</td></tr>
+          <tr><td><code>placeholder</code></td><td>अंदर दिखने वाला hint</td></tr>
+          <tr><td><code>required</code></td><td>भरना ज़रूरी है</td></tr>
+        </table>
+      </div>
+
+      <h3><i class="fas fa-envelope"></i> Email Input</h3>
+      <pre>&lt;input type="email" ... required&gt;</pre>
+      <p><code>type="email"</code> → Browser ख़ुद check करता है कि <code>@</code> और <code>.</code> हैं।</p>
+
+      <h3><i class="fas fa-lock"></i> Password Input</h3>
+      <pre>&lt;input type="password" ... minlength="6" required&gt;</pre>
+      <ul>
+        <li><code>type="password"</code> → Dots में दिखता है।</li>
+        <li><code>minlength="6"</code> → कम से कम 6 characters।</li>
+      </ul>
+
+      <h3><i class="fas fa-phone-alt"></i> Phone Input</h3>
+      <pre>&lt;input type="tel" ... pattern="[0-9]{10}"&gt;</pre>
+      <ul>
+        <li><code>type="tel"</code> → Mobile पर numeric keypad।</li>
+        <li><code>pattern="[0-9]{10}"</code> → सिर्फ 10 digits allowed।</li>
+      </ul>
+      <p><strong>Pattern breakdown:</strong> <code>[0-9]</code> = कोई भी digit 0 से 9, <code>{10}</code> = ठीक 10 बार</p>
+
+      <h3><i class="fas fa-calendar-alt"></i> Date Input</h3>
+      <pre>&lt;input type="date" id="dob" name="dob"&gt;</pre>
+      <p><code>type="date"</code> → Calendar picker।</p>
+
+      <h3><i class="fas fa-dot-circle"></i> Radio Buttons</h3>
+      <pre>&lt;input type="radio" name="gender" value="male" checked&gt;</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Attribute</th><th>मतलब</th></tr>
+          <tr><td><code>type="radio"</code></td><td>एक ही चुन सकते हैं</td></tr>
+          <tr><td><code>name="gender"</code></td><td>Same name वाले radios में से <strong>एक ही</strong> select होगा</td></tr>
+          <tr><td><code>value="male"</code></td><td>Submit होने पर भेजी जाने वाली value</td></tr>
+          <tr><td><code>checked</code></td><td>Default selected</td></tr>
+        </table>
+      </div>
+
+      <h3><i class="fas fa-caret-square-down"></i> Select Dropdown</h3>
+      <pre>&lt;select id="city" name="city"&gt;
+  &lt;option value=""&gt;-- चुनें --&lt;/option&gt;
+  &lt;option value="delhi"&gt;दिल्ली&lt;/option&gt;
+&lt;/select&gt;</pre>
+      <ul>
+        <li><code>&lt;select&gt;</code> → Dropdown।</li>
+        <li><code>&lt;option&gt;</code> → हर choice।</li>
+        <li><code>value=""</code> → खाली value (default placeholder)।</li>
+      </ul>
+
+      <h3><i class="fas fa-file-upload"></i> File Upload</h3>
+      <pre>&lt;input type="file" id="photo" name="photo" accept="image/*"&gt;</pre>
+      <ul>
+        <li><code>type="file"</code> → File chooser।</li>
+        <li><code>accept="image/*"</code> → सिर्फ images (image/png, image/jpeg आदि)।</li>
+      </ul>
+
+      <h3><i class="fas fa-check-double"></i> Submit & Reset Buttons</h3>
+      <pre>&lt;button type="submit" class="btn btn-submit"&gt;Submit&lt;/button&gt;
+&lt;button type="reset" class="btn btn-reset"&gt;Reset&lt;/button&gt;</pre>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>Attribute</th><th>मतलब</th></tr>
+          <tr><td><code>type="submit"</code></td><td>Form भेजता है</td></tr>
+          <tr><td><code>type="reset"</code></td><td>सारे fields खाली करता है</td></tr>
+          <tr><td><code>class="btn btn-submit"</code></td><td>दो classes (space से अलग)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ========== QUICK SUMMARY & TASKS ========== -->
+    <div class="part">
+      <h2>🎯 Quick Summary & Practice</h2>
+
+      <h3><i class="fas fa-table"></i> Common CSS Properties</h3>
+      <div class="table-wrapper">
+        <table>
+          <tr><th>CSS Property</th><th>Common Values</th><th>काम</th></tr>
+          <tr><td><code>display</code></td><td>flex, block, inline-block</td><td>Layout</td></tr>
+          <tr><td><code>justify-content</code></td><td>center, space-between</td><td>Horizontal align (flex)</td></tr>
+          <tr><td><code>align-items</code></td><td>center, flex-start</td><td>Vertical align (flex)</td></tr>
+          <tr><td><code>padding</code></td><td>10px / 10px 20px</td><td>अंदर जगह</td></tr>
+          <tr><td><code>margin</code></td><td>10px / auto</td><td>बाहर जगह</td></tr>
+          <tr><td><code>border-radius</code></td><td>8px / 50%</td><td>गोल कोने</td></tr>
+          <tr><td><code>box-shadow</code></td><td>x y blur color</td><td>Shadow</td></tr>
+          <tr><td><code>transition</code></td><td>0.3s</td><td>Smooth change</td></tr>
+          <tr><td><code>font-weight</code></td><td>400, 600, 700</td><td>Text मोटाई</td></tr>
+          <tr><td><code>cursor</code></td><td>pointer</td><td>Hand cursor</td></tr>
+        </table>
+      </div>
+
+      <h3><i class="fas fa-flask"></i> Practice Task</h3>
+      <div class="task-grid">
+        <div class="task-item"><i class="fas fa-circle"></i> <strong>border-radius: 15px → 50px</strong> — क्या बदलता है?</div>
+        <div class="task-item"><i class="fas fa-palette"></i> <strong>#667eea → #ff6b6b</strong> — gradient लाल हो जाएगा।</div>
+        <div class="task-item"><i class="fas fa-clock"></i> <strong>transition: 0.3s → 1s</strong> — animation धीमी हो जाएगी।</div>
+        <div class="task-item"><i class="fas fa-cloud"></i> <strong>box-shadow blur 40px → 100px</strong> — shadow फैलेगी।</div>
+        <div class="task-item"><i class="fas fa-arrows-alt-h"></i> <strong>gap: 15px → 50px</strong> — items दूर होंगे।</div>
+      </div>
+      <p style="margin-top: 20px; text-align: center; color: #c4b5fd;">हर change के बाद browser refresh करके देखें! 🔍</p>
+      <p style="text-align: center; margin-top: 10px;">अगर किसी specific line पर और detail चाहिए, तो बताइए! 🚀</p>
+    </div>
+  </div>
+
+  <!-- JavaScript for audio autoplay and toggle -->
+  <script>
+    (function() {
+      const audio = document.getElementById('bgAudio');
+      const toggleBtn = document.getElementById('musicToggle');
+      const musicText = document.getElementById('musicText');
+      const discIcon = document.getElementById('discIcon');
+
+      // Try to autoplay when page loads (browsers may block until interaction, but we try)
+      document.addEventListener('DOMContentLoaded', function() {
+        // Set volume to a pleasant background level
+        audio.volume = 0.35;  // 35% volume, not too loud
+        // Attempt to play
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log('Autoplay blocked by browser. User interaction needed.');
+            // Update UI to show it's paused
+            musicText.textContent = '♫ Paused';
+            discIcon.style.animationPlayState = 'paused';
+          });
+        }
+      });
+
+      // Toggle play/pause on button click
+      toggleBtn.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play().then(() => {
+            musicText.textContent = '♫ Playing';
+            discIcon.style.animationPlayState = 'running';
+          }).catch(err => {
+            console.log('Play failed:', err);
+          });
+        } else {
+          audio.pause();
+          musicText.textContent = '♫ Paused';
+          discIcon.style.animationPlayState = 'paused';
+        }
+      });
+
+      // Sync icon animation with audio state (in case of external changes)
+      audio.addEventListener('play', function() {
+        musicText.textContent = '♫ Playing';
+        discIcon.style.animationPlayState = 'running';
+      });
+      audio.addEventListener('pause', function() {
+        musicText.textContent = '♫ Paused';
+        discIcon.style.animationPlayState = 'paused';
+      });
+
+      // Also try to play on any user interaction if initially blocked
+      function enableAudioOnInteraction() {
+        if (audio.paused) {
+          audio.play().then(() => {
+            musicText.textContent = '♫ Playing';
+            discIcon.style.animationPlayState = 'running';
+          }).catch(e => {});
+        }
+        document.removeEventListener('click', enableAudioOnInteraction);
+        document.removeEventListener('touchstart', enableAudioOnInteraction);
+        document.removeEventListener('keydown', enableAudioOnInteraction);
+      }
+      document.addEventListener('click', enableAudioOnInteraction);
+      document.addEventListener('touchstart', enableAudioOnInteraction);
+      document.addEventListener('keydown', enableAudioOnInteraction);
+    })();
+  </script>
+</body>
+</html>
