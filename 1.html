@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AccounTech | Tally Prime Exam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: #6366f1;      /* indigo */
+    --primary-glow: #818cf8;
+    --accent: #22d3ee;        /* cyan */
+    --accent-2: #a855f7;      /* purple */
+    --pink: #ec4899;
+    --dark: #0a0a1f;
+    --dark-2: #14142b;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+  }
+
+  /* ===== ANIMATED MESH GRADIENT BACKGROUND ===== */
+  .bg-mesh {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.4), transparent 55%),
+      radial-gradient(ellipse at 80% 30%, rgba(168, 85, 247, 0.35), transparent 55%),
+      radial-gradient(ellipse at 50% 90%, rgba(34, 211, 238, 0.3), transparent 55%),
+      radial-gradient(ellipse at 90% 80%, rgba(236, 72, 153, 0.25), transparent 55%),
+      #0a0a1f;
+    animation: meshMove 18s ease-in-out infinite;
+    filter: blur(20px);
+  }
+
+  @keyframes meshMove {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    33% { transform: scale(1.1) rotate(2deg); }
+    66% { transform: scale(1.05) rotate(-2deg); }
+  }
+
+  /* ===== ANIMATED GRID OVERLAY ===== */
+  .bg-grid {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: 
+      linear-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+    animation: gridScroll 20s linear infinite;
+  }
+
+  @keyframes gridScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+  }
+
+  /* ===== FLOATING ORBS ===== */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .orb-1 {
+    width: 400px; height: 400px;
+    background: var(--primary);
+    top: -100px; left: -100px;
+    animation: orbFloat1 15s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 350px; height: 350px;
+    background: var(--accent-2);
+    bottom: -100px; right: -80px;
+    animation: orbFloat2 18s ease-in-out infinite;
+  }
+
+  .orb-3 {
+    width: 300px; height: 300px;
+    background: var(--accent);
+    top: 40%; right: 10%;
+    animation: orbFloat3 20s ease-in-out infinite;
+  }
+
+  @keyframes orbFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(100px, 80px) scale(1.2); }
+  }
+  @keyframes orbFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-80px, -60px) scale(1.15); }
+  }
+  @keyframes orbFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-60px, 60px) scale(0.9); }
+  }
+
+  /* ===== MAIN CARD ===== */
+  .exam-card {
+    max-width: 1100px;
+    width: 100%;
+    background: rgba(20, 20, 43, 0.55);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 2rem;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 
+      0 30px 80px -20px rgba(0, 0, 0, 0.8),
+      0 0 0 1px rgba(99, 102, 241, 0.15) inset,
+      0 0 100px -30px rgba(99, 102, 241, 0.5);
+    animation: cardEnter 1s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  @keyframes cardEnter {
+    from { opacity: 0; transform: translateY(50px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Animated glow border */
+  .exam-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 2rem;
+    padding: 2px;
+    background: conic-gradient(from 0deg, 
+      var(--primary), var(--accent-2), var(--accent), var(--pink), var(--primary));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateBorder 6s linear infinite;
+    opacity: 0.7;
+  }
+  @keyframes rotateBorder {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ===== LEFT: IMAGE ===== */
+  .image-side {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    box-shadow: 
+      0 25px 50px -15px rgba(0, 0, 0, 0.9),
+      0 0 0 1px rgba(99, 102, 241, 0.4);
+    animation: imageEnter 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  }
+
+  @keyframes imageEnter {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(1.05) contrast(1.1) saturate(1.2);
+  }
+
+  .image-side:hover img {
+    transform: scale(1.1);
+  }
+
+  .image-side::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      rgba(99, 102, 241, 0.25) 0%, 
+      rgba(168, 85, 247, 0.15) 50%,
+      rgba(34, 211, 238, 0.2) 100%);
+    pointer-events: none;
+  }
+
+  /* Floating chips on image */
+  .chip {
+    position: absolute;
+    background: rgba(10, 10, 31, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.5);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #c7d2fe;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    z-index: 3;
+    white-space: nowrap;
+  }
+
+  .chip i { color: var(--accent); }
+
+  .chip-1 { top: 1.2rem; left: 1.2rem; animation: chipFloat 3s ease-in-out infinite; }
+  .chip-2 { bottom: 1.2rem; right: 1.2rem; animation: chipFloat 3s ease-in-out infinite 1.5s; }
+
+  @keyframes chipFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* ===== RIGHT: CONTENT ===== */
+  .content-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: contentEnter 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  }
+
+  @keyframes contentEnter {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    width: fit-content;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #a5b4fc;
+    text-transform: uppercase;
+  }
+
+  .tag i { color: var(--accent); animation: pulse 1.5s ease-in-out infinite; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 40%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  h1 span {
+    display: block;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 95%;
+  }
+
+  /* Info pills */
+  .info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(20, 20, 43, 0.7);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 130px;
+  }
+
+  .pill:hover {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.15);
+    transform: translateY(-3px);
+  }
+
+  .pill i {
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  /* Timer/urgency */
+  .urgency {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.1));
+    border: 1px solid rgba(236, 72, 153, 0.35);
+    border-radius: 14px;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.85rem;
+    color: #fbcfe8;
+  }
+
+  .urgency i {
+    color: var(--pink);
+    font-size: 1.2rem;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .urgency strong { color: #fff; }
+
+  /* ===== EXAM BUTTON ===== */
+  .exam-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-2) 50%, var(--primary) 100%);
+    background-size: 200% 200%;
+    box-shadow: 
+      0 15px 40px -10px rgba(99, 102, 241, 0.7),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    animation: gradientShift 4s ease infinite;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .exam-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transition: left 0.7s;
+  }
+
+  .exam-btn:hover::before { left: 100%; }
+
+  .exam-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+      0 25px 55px -10px rgba(168, 85, 247, 0.9),
+      0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  }
+
+  .exam-btn:active { transform: translateY(-2px) scale(0.99); }
+
+  .exam-btn i { font-size: 1.3rem; transition: transform 0.3s; }
+  .exam-btn:hover i:last-child { transform: translateX(6px); }
+
+  .exam-btn.loading {
+    pointer-events: none;
+  }
+
+  .exam-btn.loading .btn-text::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .secure-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #64748b;
+    justify-content: center;
+  }
+
+  .secure-note i { color: var(--accent); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .exam-card {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+      gap: 2rem;
+      border-radius: 1.5rem;
+    }
+    .exam-card::before { border-radius: 1.5rem; }
+    h1 { font-size: 2.4rem; }
+    .content-side { text-align: center; align-items: center; }
+    .tag { margin: 0 auto; }
+    .subtitle { max-width: 100%; }
+    .info-row { justify-content: center; }
+    .image-side { max-width: 380px; margin: 0 auto; }
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 1rem 0.8rem; }
+    .exam-card { padding: 1.5rem 1.2rem; }
+    h1 { font-size: 1.9rem; }
+    .subtitle { font-size: 0.9rem; }
+    .exam-btn { font-size: 1rem; padding: 1rem 1.5rem; }
+    .pill { font-size: 0.75rem; padding: 0.6rem 0.8rem; }
+    .chip { font-size: 0.65rem; padding: 0.4rem 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Background layers -->
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- Main card -->
+<div class="exam-card">
+
+  <!-- LEFT: Image -->
+  <div class="image-side">
+    <img 
+      src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2072&auto=format&fit=crop" 
+      alt="Tally Prime Accounting Exam">
+    <div class="chip chip-1">
+      <i class="fas fa-shield-halved"></i> Proctored Exam
+    </div>
+    <div class="chip chip-2">
+      <i class="fas fa-bolt"></i> Instant Result
+    </div>
+  </div>
+
+  <!-- RIGHT: Content -->
+  <div class="content-side">
+
+    <div class="tag">
+      <i class="fas fa-circle"></i> Live Now
+    </div>
+
+    <h1>
+      Tally Prime
+      <span>Exam Portal</span>
+    </h1>
+
+    <p class="subtitle">
+      Test your accounting & Tally Prime skills with our certification exam. 
+      Get instant results and a verifiable digital certificate.
+    </p>
+
+    <div class="info-row">
+      <div class="pill">
+        <i class="fas fa-clock"></i> 90 Minutes
+      </div>
+      <div class="pill">
+        <i class="fas fa-list-check"></i> 100 Questions
+      </div>
+      <div class="pill">
+        <i class="fas fa-award"></i> Certificate
+      </div>
+    </div>
+
+    <div class="urgency">
+      <i class="fas fa-fire"></i>
+      <span>Limited seats this week — <strong>Only ₹149 pay in your institute</strong> exam fee</span>
+    </div>
+
+    <!-- EXAM BUTTON -->
+    <button class="exam-btn" id="examBtn" onclick="startExam()">
+      <i class="fas fa-pen-to-square"></i>
+      <span class="btn-text">Start Exam</span>
+      <i class="fas fa-arrow-right"></i>
+    </button>
+
+    <div class="secure-note">
+      <i class="fas fa-lock"></i>
+      Secure payment powered by Razorpay
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+/* ============================================================
+   RAZORPAY LINK — APNA LINK YAHAN DAALEIN
+   ============================================================ */
+const RAZORPAY_LINK = "https://www.nationalcomputerinstitute.com/t0.html";
+
+/* ============================================================
+   START EXAM — Redirect to Razorpay
+   ============================================================ */
+function startExam() {
+  const btn = document.getElementById('examBtn');
+  const btnText = btn.querySelector('.btn-text');
+
+  // Loading state
+  btn.classList.add('loading');
+  btnText.textContent = 'Redirecting';
+
+  // Small delay for smooth UX
+  setTimeout(() => {
+    window.open(RAZORPAY_LINK, '_blank');
+
+    // Reset after redirect
+    setTimeout(() => {
+      btn.classList.remove('loading');
+      btnText.textContent = 'Start Exam';
+    }, 1500);
+  }, 500);
+}
+
+/* ============================================================
+   MOUSE-FOLLOW GLOW ON CARD (Parallax subtle effect)
+   ============================================================ */
+const card = document.querySelector('.exam-card');
+
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 10;
+  const y = (e.clientY / window.innerHeight - 0.5) * 10;
+  card.style.transform = `perspective(1200px) rotateX(${-y * 0.4}deg) rotateY(${x * 0.4}deg)`;
+});
+
+document.addEventListener('mouseleave', () => {
+  card.style.transform = 'perspective(1200px) rotateX(0) rotateY(0)';
+});
+
+/* ============================================================
+   IMAGE PARALLAX TILT
+   ============================================================ */
+const imageSide = document.querySelector('.image-side');
+
+imageSide.addEventListener('mousemove', (e) => {
+  const rect = imageSide.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width - 0.5;
+  const y = (e.clientY - rect.top) / rect.height - 0.5;
+  imageSide.style.transform = `scale(1.02) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+});
+
+imageSide.addEventListener('mouseleave', () => {
+  imageSide.style.transform = 'scale(1) rotateY(0) rotateX(0)';
+});
+
+/* ============================================================
+   ENTRANCE ANIMATION STAGGER FOR PILLS
+   ============================================================ */
+window.addEventListener('load', () => {
+  const pills = document.querySelectorAll('.pill');
+  pills.forEach((pill, i) => {
+    pill.style.opacity = '0';
+    pill.style.transform = 'translateY(15px)';
+    setTimeout(() => {
+      pill.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      pill.style.opacity = '1';
+      pill.style.transform = 'translateY(0)';
+    }, 700 + i * 100);
+  });
+});
+</script>
+
+</body>
+</html>
