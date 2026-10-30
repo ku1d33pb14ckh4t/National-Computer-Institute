@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>National Computer Institute | Learn Today, Lead Tomorrow</title>
+<meta name="description" content="NATIONAL COMPUTER INSTITUTE, Madhupur Pokhara: ADCA, CCC, O Level, Tally, Cyber Security aur Web Development courses.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#f6f8ff;--bg2:#eaf0ff;--card:#fff;--ink:#0b1b3a;--mut:#5a6785;--line:#dde4f5;--b:#1d4ed8;--b2:#3b82f6;--a:#f59e0b;--sh:0 18px 50px #1d4ed81f;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070d1f;--bg2:#0c1530;--card:#101a3a;--ink:#eef3ff;--mut:#9fb0d6;--line:#1f2d5c;--sh:0 18px 50px #0008;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#070d1f;--bg2:#0c1530;--card:#101a3a;--ink:#eef3ff;--mut:#9fb0d6;--line:#1f2d5c;--sh:0 18px 50px #0008;color-scheme:dark}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{font-family:"Plus Jakarta Sans",system-ui,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:auto;padding:0 22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;font:700 .95rem inherit;font-family:inherit;border:0;cursor:pointer;transition:.3s}
+.btn.p{background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;box-shadow:0 12px 28px #1d4ed855}.btn.p:hover{transform:translateY(-3px);box-shadow:0 18px 36px #1d4ed877}
+.btn.o{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}.btn.o:hover{border-color:var(--b);color:var(--b)}.btn.s{padding:9px 18px;font-size:.85rem;border-radius:11px}
+.btn.a{background:var(--a);color:#2a1700;box-shadow:0 12px 28px #f59e0b55}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:40;transition:.3s}nav.sc{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:var(--bg)}
+.nv{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;gap:11px;align-items:center;font-weight:800;line-height:1.1;font-size:1rem}.logo small{display:block;font-weight:600;color:var(--b2);font-size:.62rem;letter-spacing:.2em}
+.mark{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,#1d4ed8,#3b82f6);display:grid;place-items:center;font-size:1.25rem;box-shadow:0 8px 20px #1d4ed855}
+.links{display:flex;gap:2px;align-items:center}.links a:not(.btn){padding:9px 15px;font-size:.92rem;font-weight:600;color:var(--mut);border-radius:10px}.links a:not(.btn):hover{color:var(--b);background:var(--bg2)}.links .btn{margin-left:10px}
+.bg{display:none;background:none;border:0;width:42px;height:42px;cursor:pointer}.bg i{display:block;width:24px;height:2.5px;border-radius:3px;background:var(--ink);margin:5px auto;transition:.3s}
+.bg.x i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.bg.x i:nth-child(2){opacity:0}.bg.x i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(900px 500px at 85% 20%,color-mix(in srgb,var(--b2) 24%,transparent),transparent),radial-gradient(700px 400px at 5% 90%,color-mix(in srgb,var(--a) 20%,transparent),transparent),var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.35;mask-image:radial-gradient(ellipse at 70% 40%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000,transparent 70%)}
+#gl{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.hero .wrap{position:relative;z-index:2;pointer-events:none;padding-top:110px;padding-bottom:80px;width:100%}.hero .wrap>*{pointer-events:auto}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:7px 16px;border-radius:99px;background:var(--card);border:1px solid var(--line);font-size:.82rem;font-weight:600;box-shadow:0 6px 18px #1d4ed814;margin-bottom:22px}.badge i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #22c55e33;animation:pl 1.8s infinite}@keyframes pl{50%{box-shadow:0 0 0 9px #22c55e00}}
+h1{font-size:clamp(2.4rem,6.2vw,4.4rem);line-height:1.07;font-weight:800;letter-spacing:-.03em;max-width:620px}
+h1 em{font-style:normal;background:linear-gradient(90deg,#1d4ed8,#3b82f6 55%,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:500px;margin:22px 0 34px;color:var(--mut);font-size:1.08rem}.row{display:flex;gap:14px;flex-wrap:wrap}
+.trust{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap}.trust div{font-size:.82rem;color:var(--mut)}.trust b{display:block;font-size:1.4rem;color:var(--ink)}
+.fc{position:absolute;z-index:3;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:12px 16px;box-shadow:var(--sh);font-size:.82rem;font-weight:700;display:flex;gap:10px;align-items:center;animation:fy 5s ease-in-out infinite}
+.fc span{font-size:1.4rem}.fc small{display:block;font-weight:500;color:var(--mut);font-size:.72rem}@keyframes fy{50%{transform:translateY(-14px)}}
+.f1{right:6%;top:24%}.f2{right:30%;bottom:14%;animation-delay:-2s}.f3{right:4%;bottom:26%;animation-delay:-3.5s}
+/* sections */
+section{padding:96px 0}.tag{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--b2)}
+h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15;letter-spacing:-.025em;margin:10px 0 12px;font-weight:800}.lead{color:var(--mut);margin-bottom:46px;max-width:540px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:24px;perspective:1100px}
+.card{--c:#1d4ed8;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;transform-style:preserve-3d;transition:transform .15s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.card:hover{box-shadow:var(--sh);border-color:color-mix(in srgb,var(--c) 50%,var(--line))}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c) 14%,transparent),transparent 55%);pointer-events:none}
+.ic{font-size:1.8rem;width:60px;height:60px;display:grid;place-items:center;border-radius:18px;margin-bottom:16px;transform:translateZ(36px);background:color-mix(in srgb,var(--c) 14%,var(--card));border:1px solid color-mix(in srgb,var(--c) 35%,transparent)}
+.card h3{transform:translateZ(24px);font-size:1.15rem}.card p{color:var(--mut);font-size:.9rem;margin:6px 0 16px;transform:translateZ(12px)}
+.card .d{display:inline-block;font-size:.74rem;font-weight:700;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent);padding:3px 12px;border-radius:99px;margin-bottom:8px}
+.card .btn{transform:translateZ(28px);background:var(--ink);color:var(--bg)}.card .btn:hover{background:var(--c);color:#fff}
+.alt{background:var(--bg2)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.wy{padding:30px;border-radius:22px;background:var(--card);border:1px solid var(--line);transition:.4s}.wy:hover{transform:translateY(-8px);box-shadow:var(--sh)}.wy .e{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:1.6rem;background:linear-gradient(135deg,#1d4ed8,#3b82f6);margin-bottom:14px}.wy:nth-child(even) .e{background:linear-gradient(135deg,#f59e0b,#fbbf24)}.wy h3{margin-bottom:4px}.wy p{color:var(--mut);font-size:.92rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;counter-reset:s}.step{position:relative;padding:28px;border-radius:22px;background:var(--card);border:1px solid var(--line)}.step::before{counter-increment:s;content:"0" counter(s);display:block;font-size:2.6rem;font-weight:800;line-height:1;background:linear-gradient(135deg,#1d4ed8,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}.step p{color:var(--mut);font-size:.92rem}
+.cta{border-radius:32px;padding:56px 26px;text-align:center;position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#0b2a8a,#1d4ed8 55%,#3b82f6);box-shadow:0 30px 70px #1d4ed855}
+.cta::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:#f59e0b44;filter:blur(40px);top:-120px;right:-80px;animation:fy 8s ease-in-out infinite}.cta .tag{color:#fcd34d}.cta p{opacity:.9;position:relative}.cta h2{position:relative}
+form{display:grid;gap:12px;max-width:520px;margin:28px auto 0;text-align:left;position:relative}
+input,select,textarea{font:inherit;padding:14px 18px;border:1.5px solid #ffffff44;background:#ffffff1f;color:#fff;width:100%;border-radius:14px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#fcd34d;background:#ffffff2e}input::placeholder,textarea::placeholder{color:#ffffffb8}select option{color:#000}
+.err{background:#fff;color:#b91c1c;font-size:.78rem;padding:2px 12px;border-radius:99px;justify-self:start;font-weight:600}.note{font-size:.76rem;opacity:.9}
+footer{background:#050b1f;color:#9fb0d6;padding:60px 0 26px}.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}footer h4{color:#fff;margin-bottom:12px}footer a{display:block;margin-bottom:7px;font-size:.92rem}footer a:hover{color:#fbbf24}footer .logo{color:#fff;margin-bottom:12px}
+.soc{display:flex;gap:10px;margin-top:18px}.soc a{width:42px;height:42px;border-radius:12px;background:#ffffff14;display:grid;place-items:center;margin:0;color:#fff;transition:.3s}.soc a svg{width:20px;height:20px}.soc a:hover{transform:translateY(-4px);color:#fff}.soc a[data-n=facebook]:hover{background:#1877f2}.soc a[data-n=instagram]:hover{background:linear-gradient(45deg,#f9a825,#e1306c,#833ab4)}.soc a[data-n=youtube]:hover{background:#ff0000}.soc a[data-n=linkedin]:hover{background:#0a66c2}
+.cp{text-align:center;margin-top:36px;padding-top:20px;border-top:1px solid #ffffff1a;font-size:.82rem}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+#toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,90px);background:var(--ink);color:var(--bg);font-weight:600;padding:12px 22px;border-radius:14px;opacity:0;transition:.3s;z-index:80;max-width:90vw;text-align:center}#toast.on{opacity:1;transform:translate(-50%,0)}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45;width:58px;height:58px;border-radius:50%;background:#22c55e;display:grid;place-items:center;font-size:1.7rem;box-shadow:0 10px 28px #22c55e88}
+@media(max-width:900px){.bg{display:block}.links{position:fixed;inset:calc(72px + env(safe-area-inset-top,0px)) 0 auto 0;background:var(--bg);flex-direction:column;align-items:stretch;padding:14px 22px 20px;max-height:0;overflow:hidden;opacity:0;transition:.35s;border-bottom:1px solid var(--line)}.links.open{max-height:80vh;opacity:1}.links .btn{margin:8px 0 0;justify-content:center}.fg{grid-template-columns:1fr}section{padding:64px 0}.fc{display:none}.hero .wrap{padding-top:96px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap nv">
+  <a class="logo" href="#top"><span class="mark">🎓</span><span>NATIONAL<small>COMPUTER INSTITUTE</small></span></a>
+  <button class="bg" id="bg" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  <div class="links" id="links"><a href="#courses">Courses</a><a href="#why">Why Us</a><a href="#how">How to Join</a><a href="#contact">Contact</a><a class="btn p s" href="#admission">Admission Enquiry</a></div>
+</div></nav>
+
+<header class="hero" id="top">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="fc f1"><span>🏆</span><div>Certified Courses<small>NIELIT &amp; Institute</small></div></div>
+  <div class="fc f2"><span>👩‍🎓</span><div>5000+ Students<small>Trained successfully</small></div></div>
+  <div class="fc f3"><span>💼</span><div>Placement Support<small>Job-ready skills</small></div></div>
+  <div class="wrap">
+    <span class="badge"><i></i> Admissions Open</span>
+    <h1>Learn Today,<br><em>Lead Tomorrow</em></h1>
+    <p>Madhupur Pokhara ka bharosemand computer institute. ADCA, CCC, Tally, Web aur Cyber Security: practical training, expert teachers.</p>
+    <div class="row"><a class="btn p" href="#courses">Courses Dekhein →</a><a class="btn o" href="#admission">Free Enquiry</a></div>
+    <div class="trust"><div><b data-n="5000" data-s="+">0</b>Students</div><div><b data-n="15">0</b>Courses</div><div><b data-n="10" data-s="+">0</b>Years</div></div>
+  </div>
+</header>
+
+<section id="courses" class="alt"><div class="wrap">
+  <span class="tag rv">Our Courses</span><h2 class="rv">Apne career ka <em style="font-style:normal;color:var(--b2)">sahi course</em> chuniye</h2><p class="lead rv">Card par mouse le jaiye, halka 3D tilt dikhega.</p>
+  <div class="grid" id="cg"></div>
+</div></section>
+
+<section id="why"><div class="wrap">
+  <span class="tag rv">Why Us</span><h2 class="rv">Kyun chunein hamein</h2><p class="lead rv">Aapki seekhne ki journey ko aasan aur asardar banate hain.</p>
+  <div class="why rv">
+    <div class="wy"><div class="e">👨‍🏫</div><h3>Expert Faculty</h3><p>Anubhavi aur friendly teachers jo har doubt saaf karte hain.</p></div>
+    <div class="wy"><div class="e">🖥️</div><h3>Practical Labs</h3><p>Har topic par hands-on computer practice.</p></div>
+    <div class="wy"><div class="e">📜</div><h3>Certificates</h3><p>Course complete hone par recognised certificate.</p></div>
+    <div class="wy"><div class="e">💰</div><h3>Affordable Fees</h3><p>Kam fees mein quality education.</p></div>
+  </div>
+</div></section>
+
+<section id="how" class="alt"><div class="wrap">
+  <span class="tag rv">How to Join</span><h2 class="rv">Admission sirf 3 steps mein</h2><p class="lead rv">Bahut simple process.</p>
+  <div class="steps rv"><div class="step"><h3>Enquiry bhejein</h3><p>Neeche form bharein ya WhatsApp karein.</p></div><div class="step"><h3>Counselling</h3><p>Hum aapko sahi course aur batch batayenge.</p></div><div class="step"><h3>Class shuru</h3><p>Admission lijiye aur seekhna shuru karein.</p></div></div>
+</div></section>
+
+<section id="admission"><div class="wrap">
+  <div class="cta rv">
+    <span class="tag">Admission</span><h2>Admission Enquiry</h2><p>Form bhariye, hum aapse sampark karenge.</p>
+    <form id="f" novalidate>
+      <input name="name" placeholder="Student ka naam" autocomplete="name">
+      <input name="mobile" placeholder="Mobile number (10 digit)" inputmode="numeric" autocomplete="tel">
+      <select name="course" id="cs"></select>
+      <textarea name="msg" rows="3" placeholder="Message (optional)"></textarea>
+      <button class="btn a" style="justify-content:center">Enquiry Submit Karein</button>
+      <p class="note">Demo: data sirf aapke browser mein save hota hai, institute ko apne aap nahi jaata. Submit ke baad WhatsApp khulega, wahan se bhejiye.</p>
+    </form>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <div class="fg">
+    <div><a class="logo" href="#top"><span class="mark">🎓</span><span>NATIONAL<small>COMPUTER INSTITUTE</small></span></a><p>Quality computer education for students, job seekers aur professionals.</p><div class="soc" id="soc"></div></div>
+    <div><h4>Quick Links</h4><a href="#courses">Courses</a><a href="#why">Why Us</a><a href="#how">How to Join</a><a href="#admission">Admission</a></div>
+    <div><h4>Contact</h4><a href="#contact">📍 Madhupur Pokhara (In front of Jio Tower)</a><a href="mailto:nationalcomputer012@gmail.com">✉️ nationalcomputer012@gmail.com</a><a href="#top">🌐 www.nationalcomputerinstitute.com</a></div>
+  </div>
+  <div class="cp">© <span id="yr"></span> NATIONAL COMPUTER INSTITUTE. All rights reserved.</div>
+</div></footer>
+
+<a class="wa" id="wa" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<div id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+var WA_NUMBER="7398926485"; // yahan apna WhatsApp number daalein (country code ke saath)
+var COURSES=[["ADCA","12 Months","💻","Office, accounting aur design ka complete diploma.","#1d4ed8"],["CCC","3 Months","📜","NIELIT computer concepts, sarkari exam ke liye.","#f59e0b"],["O Level","12 Months","🎓","NIELIT IT foundation: programming aur web.","#7c3aed"],["Tally Prime","3 Months","🧮","Accounting aur GST Tally ke saath.","#059669"],["Advance Excel","2 Months","📊","Formulas, pivot table aur dashboard.","#16a34a"],["Cyber Security","6 Months","🛡️","Ethical hacking basics aur network safety.","#0891b2"],["Web Development","6 Months","🌐","HTML, CSS, JavaScript se website banana.","#e11d48"],["Photoshop","2 Months","🎨","Photo editing aur graphic design.","#ea580c"]];
+var $=function(s){return document.querySelector(s)};
+function toast(m){var t=$("#toast");t.textContent=m;t.className="on";setTimeout(function(){t.className=""},2800)}
+function wa(msg){return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg)}
+$("#wa").href=wa("Namaste, mujhe National Computer Institute ke courses ke baare mein jaankari chahiye.");
+$("#yr").textContent=new Date().getFullYear();
+/* Social media: yahan apne asli page ke links daalein */
+var SOCIAL=[["facebook","https://www.facebook.com/",'<path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/>'],["instagram","https://www.instagram.com/",'<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>'],["youtube","https://www.youtube.com/",'<path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77C22 15.2 22 12 22 12s0-3.2-.4-4.8zM10 15V9l5.2 3-5.2 3z"/>'],["linkedin","https://www.linkedin.com/",'<path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/>']];
+$("#soc").innerHTML=SOCIAL.map(function(s){return '<a data-n="'+s[0]+'" href="'+s[1]+'" target="_blank" rel="noopener" aria-label="'+s[0]+'"><svg viewBox="0 0 24 24" fill="currentColor">'+s[2]+'</svg></a>'}).join("");
+var bg=$("#bg"),ln=$("#links");
+bg.onclick=function(){var o=ln.classList.toggle("open");bg.classList.toggle("x",o);bg.setAttribute("aria-expanded",o)};
+ln.onclick=function(e){if(e.target.tagName=="A"){ln.classList.remove("open");bg.classList.remove("x")}};
+addEventListener("scroll",function(){$("#nav").classList.toggle("sc",scrollY>30)},{passive:true});
+
+$("#cg").innerHTML=COURSES.map(function(c){return '<article class="card rv" style="--c:'+c[4]+'"><div class="ic">'+c[2]+'</div><span class="d">'+c[1]+'</span><h3>'+c[0]+'</h3><p>'+c[3]+'</p><a class="btn s" target="_blank" rel="noopener" href="'+wa("Namaste, mujhe "+c[0]+" course ke baare mein jaankari chahiye.")+'">WhatsApp Enquiry</a></article>'}).join("");
+$("#cs").innerHTML='<option value="">Course chuniye</option>'+COURSES.map(function(c){return "<option>"+c[0]+"</option>"}).join("");
+document.querySelectorAll(".card").forEach(function(el){
+  el.addEventListener("pointermove",function(e){if(e.pointerType=="touch")return;var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    el.style.transform="rotateY("+((x-.5)*14)+"deg) rotateX("+((.5-y)*14)+"deg) translateY(-4px)";el.style.setProperty("--mx",x*100+"%");el.style.setProperty("--my",y*100+"%")});
+  el.addEventListener("pointerleave",function(){el.style.transform=""})});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add("in");
+  e.target.querySelectorAll("[data-n]").forEach(function(b){var end=+b.dataset.n,n=0,st=Math.max(1,Math.ceil(end/60)),t=setInterval(function(){n=Math.min(end,n+st);b.textContent=n.toLocaleString("en-IN")+(b.dataset.s||"");if(n>=end)clearInterval(t)},25)});io.unobserve(e.target)})},{threshold:.15});
+document.querySelectorAll(".rv,.trust").forEach(function(e){io.observe(e)});
+
+$("#f").addEventListener("submit",function(e){e.preventDefault();var f=e.target;f.querySelectorAll(".err").forEach(function(x){x.remove()});var ok=true;
+  function bad(n,m){ok=false;var s=document.createElement("small");s.className="err";s.textContent=m;f[n].after(s)}
+  if(f.name.value.trim().length<2)bad("name","Sahi naam likhiye");
+  if(!/^[6-9]\d{9}$/.test(f.mobile.value.trim()))bad("mobile","10 digit ka sahi mobile number likhiye");
+  if(!f.course.value)bad("course","Course chuniye");
+  if(!ok)return;
+  var d={name:f.name.value.trim(),mobile:f.mobile.value.trim(),course:f.course.value,message:f.msg.value.trim(),submittedAtIST:new Date().toLocaleString("en-IN",{timeZone:"Asia/Kolkata"}),status:"New"};
+  try{var a=JSON.parse(localStorage.getItem("nci_enq")||"[]");a.push(d);localStorage.setItem("nci_enq",JSON.stringify(a))}catch(x){}
+  f.reset();toast("Enquiry save hui. WhatsApp se bhejkar pakka kijiye.");
+  window.open(wa("Admission enquiry: "+d.name+", "+d.mobile+", Course: "+d.course),"_blank")});
+
+/* 3D scene: refined blue + gold */
+(function(){var cv=$("#gl");
+ try{var R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));
+  var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(50,1,.1,100);C.position.z=10;
+  S.add(new THREE.AmbientLight(0xffffff,.75));var L1=new THREE.DirectionalLight(0xffffff,1.1);L1.position.set(5,6,6);S.add(L1);var L2=new THREE.PointLight(0xf59e0b,1.6,30);L2.position.set(-5,-3,4);S.add(L2);
+  var grp=new THREE.Group();S.add(grp);
+  var core=new THREE.Mesh(new THREE.IcosahedronGeometry(1.9,1),new THREE.MeshStandardMaterial({color:0x1d4ed8,metalness:.55,roughness:.22,flatShading:true}));grp.add(core);
+  var shell=new THREE.Mesh(new THREE.IcosahedronGeometry(2.6,1),new THREE.MeshBasicMaterial({color:0x3b82f6,wireframe:true,transparent:true,opacity:.4}));grp.add(shell);
+  var r1=new THREE.Mesh(new THREE.TorusGeometry(3.4,.05,12,140),new THREE.MeshStandardMaterial({color:0xf59e0b,metalness:.6,roughness:.25}));r1.rotation.x=1.2;grp.add(r1);
+  var r2=new THREE.Mesh(new THREE.TorusGeometry(4.1,.03,12,140),new THREE.MeshStandardMaterial({color:0x3b82f6,metalness:.5,roughness:.3}));r2.rotation.y=1;grp.add(r2);
+  var cols=[0x1d4ed8,0xf59e0b,0x3b82f6,0xffffff],bx=[];
+  for(var i=0;i<10;i++){var m=new THREE.Mesh(i%2?new THREE.BoxGeometry(.5,.5,.5):new THREE.OctahedronGeometry(.36),new THREE.MeshStandardMaterial({color:cols[i%4],metalness:.35,roughness:.3}));
+   m.userData={a:i/10*6.28,r:3.7+Math.random()*1,y:(Math.random()-.5)*3.6,s:.3+Math.random()*.4};grp.add(m);bx.push(m)}
+  var N=260,pos=new Float32Array(N*3);for(var j=0;j<N*3;j++)pos[j]=(Math.random()-.5)*24;var pg=new THREE.BufferGeometry();pg.setAttribute("position",new THREE.BufferAttribute(pos,3));
+  var pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0x3b82f6,size:.06,transparent:true,opacity:.6}));S.add(pts);
+  function size(){var w=cv.clientWidth,h=cv.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();var mob=w<900;grp.position.set(mob?0:3.4,mob?2.6:0,0);grp.scale.setScalar(mob?.55:1)}
+  size();addEventListener("resize",size);var mx=0,my=0;addEventListener("pointermove",function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+  var still=matchMedia("(prefers-reduced-motion:reduce)").matches,vis=true,t0=performance.now();new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(cv);
+  (function loop(){requestAnimationFrame(loop);if(!vis)return;var t=(performance.now()-t0)/1000*(still?0:1);
+   core.rotation.x=t*.35;core.rotation.y=t*.5;shell.rotation.y=-t*.18;shell.rotation.x=t*.1;r1.rotation.z=t*.45;r2.rotation.x=t*.3;
+   bx.forEach(function(b){var u=b.userData,a=u.a+t*u.s*.5;b.position.set(Math.cos(a)*u.r,u.y+Math.sin(t+u.a)*.3,Math.sin(a)*u.r);b.rotation.set(t*u.s,t*.6,a)});
+   pts.rotation.y=t*.02;grp.rotation.y+=((mx*1.1)-grp.rotation.y)*.05;grp.rotation.x+=((my*.7)-grp.rotation.x)*.05;C.position.y+=(-my*1-C.position.y)*.04;C.lookAt(0,0,0);R.render(S,C)})();
+ }catch(err){cv.style.display="none"}})();
+</script>
+</body>
+</html>
