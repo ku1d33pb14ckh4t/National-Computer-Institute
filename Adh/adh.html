@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💀 KULDEEP'S FAMILY REPORT | DANGER ZONE</title>
+<link rel="stylesheet" href="adh.css">
+</head>
+<body>
+
+<!-- Background MP3 audio (adh.mp3 from same folder) -->
+<audio id="bgAudio" src="adh.mp3" loop preload="auto"></audio>
+
+<button class="audio-control" id="audioToggle" title="Toggle horror sound">
+  🔊 <span id="audioLabel">SOUND ON</span>
+</button>
+
+<div class="particle" style="left:8%; animation-delay:0s;">💀</div>
+<div class="particle" style="left:22%; animation-delay:3s; font-size:2.2rem;">👻</div>
+<div class="particle" style="left:40%; animation-delay:6s;">☠</div>
+<div class="particle" style="left:58%; animation-delay:2s; font-size:2.5rem;">🕷</div>
+<div class="particle" style="left:72%; animation-delay:8s;">💀</div>
+<div class="particle" style="left:88%; animation-delay:5s; font-size:2rem;">👻</div>
+
+<div class="report-container">
+  <div class="border-glitch"></div>
+  <div class="header">
+    <h1>☠ FAMILY REPORT</h1>
+    <span class="danger-badge">DANGER ZONE</span>
+  </div>
+
+  <div class="search-section">
+    <input type="text" id="aadhaarInput" placeholder="ENTER AADHAAR NUMBER (12 DIGITS)" maxlength="12" inputmode="numeric">
+    <button id="fetchBtn"><span>⚡</span> ACCESS REPORT</button>
+  </div>
+
+  <div id="statusBox" class="status-message">⚡ AWAITING INPUT... ENTER AADHAAR TO BEGIN</div>
+
+  <div id="reportContent" class="report-grid"></div>
+
+  <div class="credit-footer">
+    <span>👤 OWNER: <span class="owner-name">KULDEEP</span></span>
+    <span>💬 <a href="https://t.me/ASUR_ABOUT" target="_blank" rel="noopener">@ASURPAPA</a></span>
+    <span style="color:#7a0055; font-size:.75rem; font-family:'Orbitron',sans-serif; letter-spacing:1px;">💀 POWERED BY ASUR 💀</span>
+  </div>
+</div>
+
+<script src="adh.js"></script>
+</body>
+</html>
