@@ -256,7 +256,7 @@
                 </h2>
 
                 <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-7">
-                    M1-R5, M2-R5, M3-R5, M4-R5 Theory Papers, Practical Labs (PR1–PR4), Solved Previous Papers aur 100-Marks CBT Mock Tests. Kisi bhi card par <strong class="text-white">"Open Paper"</strong> click karein.
+                    -R5, M2-R5, M3-R5, M4-R5 Theory Papers, Practical Labs (PR1–PR4), Solved Previous Papers aur 100-Marks CBT Mock Tests. Kisi bhi card par <strong class="text-white">"Open Paper"</strong> click karein.
                 </p>
 
                 <!-- Quick NIELIT O-Level Exam Pattern Stats -->
@@ -285,7 +285,7 @@
                         All O-Level Papers (8)
                     </button>
                     <button onclick="filterPaperCards('theory', this)" class="paper-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-slate-200 border border-white/10 transition">
-                        Theory Papers (M1–M4)
+                        Theory Papers (–M4)
                     </button>
                     <button onclick="filterPaperCards('practical', this)" class="paper-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-slate-200 border border-white/10 transition">
                         Practical &amp; Viva (PR1–PR4)
@@ -678,25 +678,704 @@
                 ],
                 questions: [
                     {
-                        topic: 'Chapter 1: Memory & CPU',
-                        q: 'Computer boot hote samay sabse pehle kaun sa test run hota hai?',
-                        options: ['RAM Test', 'POST (Power-On Self-Test)', 'Defragmentation', 'Disk Check'],
-                        answer: 1,
-                        exp: 'POST (Power-On Self-Test) BIOS dwara boot hone par hardware check karne ke liye chalta hai.'
+                        topic: 'Computer Fundamentals: Full Forms',
+                        q: 'Computer का पूरा नाम क्या है?',
+                        options: ['Commonly Operated Machine Particularly Used for Technology', 'Central Processing Unit', 'Computer Personal Unit', 'इनमें से कोई नहीं'],
+                        answer: 0,
+                        exp: 'Computer का पूरा नाम Commonly Operated Machine Particularly Used for Technology है।'
                     },
                     {
-                        topic: 'Chapter 1: Storage Units',
-                        q: 'Ek Nibble kitne bits ke barabar hota hai?',
-                        options: ['2 bits', '4 bits', '8 bits', '16 bits'],
-                        answer: 1,
-                        exp: '4 bits ka group 1 Nibble kehlata hai aur 8 bits (2 nibbles) ka 1 Byte hota hai.'
+                        topic: 'Computer Fundamentals: Full Forms',
+                        q: 'CPU का पूरा नाम क्या है?',
+                        options: ['Central Processing Unit (केंद्रीय प्रोसेसिंग यूनिट)', 'Computer Personal Unit', 'Central Program Unit', 'इनमें से कोई नहीं'],
+                        answer: 0,
+                        exp: 'CPU का पूरा नाम Central Processing Unit — केंद्रीय प्रोसेसिंग यूनिट है।'
                     },
                     {
-                        topic: 'Chapter 1: Software',
-                        q: 'Compiler aur Interpreter mein mukhya antar kya hai?',
-                        options: ['Compiler line-by-line chalata hai', 'Compiler pure program ko ek saath translate karta hai', 'Interpreter object code banata hai', 'Dono hardware hain'],
-                        answer: 1,
-                        exp: 'Compiler poore source code ko ek saath machine code mein translate karta hai jabki Interpreter line-by-line.'
+                        topic: 'Computer Fundamentals: Full Forms',
+                        q: 'ALU का पूरा नाम क्या है?',
+                        options: ['Arithmetic Logic Unit (अंकगणितीय तर्क इकाई)', 'Array Logic Unit', 'Applied Logic Unit', 'इनमें से कोई नहीं'],
+                        answer: 0,
+                        exp: 'ALU का पूरा नाम Arithmetic Logic Unit — अंकगणितीय तर्क इकाई है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'RAM का पूरा नाम क्या है?',
+                    options: ['Random Access Memory (यादृच्छिक अभिगम स्मृति)', 'Read Access Memory', 'Rapid Access Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'RAM का पूरा नाम Random Access Memory — यादृच्छिक अभिगम स्मृति है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'ROM का पूरा नाम क्या है?',
+                    options: ['Read Only Memory (केवल पढ़ने योग्य स्मृति)', 'Random Only Memory', 'Read Open Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'ROM का पूरा नाम Read Only Memory — केवल पढ़ने योग्य स्मृति है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: CPU',
+                    q: 'कंप्यूटर का मस्तिष्क किसे कहा जाता है?',
+                    options: ['CPU (सीपीयू)', 'RAM (रैम)', 'Monitor (मॉनिटर)', 'Keyboard (कीबोर्ड)'],
+                    answer: 0,
+                    exp: 'CPU — सीपीयू (केंद्रीय प्रोसेसिंग यूनिट) को कंप्यूटर का मस्तिष्क कहा जाता है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से इनपुट डिवाइस कौन सी है?',
+                    options: ['Keyboard (कीबोर्ड)', 'Monitor (मॉनिटर)', 'Printer (प्रिंटर)', 'Speaker (स्पीकर)'],
+                    answer: 0,
+                    exp: 'Keyboard — कीबोर्ड एक इनपुट डिवाइस है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'निम्न में से आउटपुट डिवाइस कौन सी है?',
+                    options: ['Monitor (मॉनिटर)', 'Mouse (माउस)', 'Keyboard (कीबोर्ड)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'Monitor — मॉनिटर एक आउटपुट डिवाइस है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 बाइट में कितने बिट होते हैं?',
+                    options: ['8', '4', '16', '32'],
+                    answer: 0,
+                    exp: '8 — एक बाइट में 8 बिट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 KB में कितने बाइट होते हैं?',
+                    options: ['1024', '1000', '512', '2048'],
+                    answer: 0,
+                    exp: '1024 — एक किलोबाइट में 1024 बाइट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'कीबोर्ड किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'माउस किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'प्रिंटर किस प्रकार का डिवाइस है?',
+                    options: ['Output (आउटपुट)', 'Input (इनपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Output — आउटपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'स्कैनर किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'मॉनिटर किस प्रकार का डिवाइस है?',
+                    options: ['Output (आउटपुट)', 'Input (इनपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Output — आउटपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'कंप्यूटर के पूरे नाम में M का अर्थ क्या है?',
+                    options: ['Machine (मशीन)', 'Memory (मेमोरी)', 'Monitor (मॉनिटर)', 'Mouse (माउस)'],
+                    answer: 0,
+                    exp: 'Machine — मशीन।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कौन सी मेमोरी अस्थिर (volatile) है?',
+                    options: ['RAM (रैम)', 'ROM (रोम)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)'],
+                    answer: 0,
+                    exp: 'RAM — रैम (बिजली बंद होने पर डेटा मिट जाता है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कौन सी मेमोरी स्थिर (non-volatile) है?',
+                    options: ['ROM (रोम)', 'RAM (रैम)', 'Cache (कैश)', 'Register (रजिस्टर)'],
+                    answer: 0,
+                    exp: 'ROM — रोम (बिजली बंद होने पर भी डेटा सुरक्षित रहता है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: History',
+                    q: 'कंप्यूटर का जनक किसे कहा जाता है?',
+                    options: ['Charles Babbage (चार्ल्स बैबेज)', 'Bill Gates (बिल गेट्स)', 'Steve Jobs (स्टीव जॉब्स)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Charles Babbage — चार्ल्स बैबेज।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 MB में कितने KB होते हैं?',
+                    options: ['1024', '1000', '512', '2048'],
+                    answer: 0,
+                    exp: '1024 — एक मेगाबाइट में 1024 किलोबाइट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 GB में कितने MB होते हैं?',
+                    options: ['1024', '1000', '512', '2048'],
+                    answer: 0,
+                    exp: '1024 — एक गीगाबाइट में 1024 मेगाबाइट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से कौन सी इनपुट डिवाइस है?',
+                    options: ['Scanner (स्कैनर)', 'Printer (प्रिंटर)', 'Plotter (प्लॉटर)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'Scanner — स्कैनर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'निम्न में से कौन सी आउटपुट डिवाइस है?',
+                    options: ['Plotter (प्लॉटर)', 'Mouse (माउस)', 'Keyboard (कीबोर्ड)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'Plotter — प्लॉटर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Data Representation',
+                    q: 'कंप्यूटर में डेटा किस रूप में संग्रहित होता है?',
+                    options: ['Binary (द्विआधारी — 0 और 1)', 'Decimal (दशमलव)', 'English (अंग्रेजी)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Binary — द्विआधारी (0 और 1 के रूप में)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: 'निबल (Nibble) में कितने बिट होते हैं?',
+                    options: ['4', '8', '16', '2'],
+                    answer: 0,
+                    exp: '4 — एक निबल में 4 बिट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Hardware',
+                    q: 'कौन सा डिवाइस कंप्यूटर को बिजली प्रदान करता है?',
+                    options: ['SMPS (एसएमपीएस)', 'CPU (सीपीयू)', 'RAM (रैम)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'SMPS — स्विच्ड मोड पावर सप्लाई।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Hardware',
+                    q: 'कंप्यूटर का मुख्य सर्किट बोर्ड क्या कहलाता है?',
+                    options: ['Motherboard (मदरबोर्ड)', 'CPU (सीपीयू)', 'RAM (रैम)', 'Hard Disk (हार्ड डिस्क)'],
+                    answer: 0,
+                    exp: 'Motherboard — मदरबोर्ड।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 TB में कितने GB होते हैं?',
+                    options: ['1024', '1000', '512', '2048'],
+                    answer: 0,
+                    exp: '1024 — एक टेराबाइट में 1024 गीगाबाइट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा स्टोरेज डिवाइस है?',
+                    options: ['Hard Disk (हार्ड डिस्क)', 'Monitor (मॉनिटर)', 'Keyboard (कीबोर्ड)', 'Mouse (माउस)'],
+                    answer: 0,
+                    exp: 'Hard Disk — हार्ड डिस्क।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कंप्यूटर में सबसे तेज मेमोरी कौन सी है?',
+                    options: ['Register (रजिस्टर)', 'RAM (रैम)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)'],
+                    answer: 0,
+                    exp: 'Register — रजिस्टर (CPU के अंदर होती है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से कौन सा इनपुट डिवाइस नहीं है?',
+                    options: ['Printer (प्रिंटर)', 'Keyboard (कीबोर्ड)', 'Mouse (माउस)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'Printer — प्रिंटर (यह आउटपुट डिवाइस है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'निम्न में से कौन सा आउटपुट डिवाइस नहीं है?',
+                    options: ['Keyboard (कीबोर्ड)', 'Monitor (मॉनिटर)', 'Printer (प्रिंटर)', 'Speaker (स्पीकर)'],
+                    answer: 0,
+                    exp: 'Keyboard — कीबोर्ड (यह इनपुट डिवाइस है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Components',
+                    q: 'कंप्यूटर के कितने मुख्य भाग होते हैं?',
+                    options: ['3', '2', '4', '5'],
+                    answer: 0,
+                    exp: '3 — इनपुट यूनिट, CPU (प्रोसेसिंग यूनिट), आउटपुट यूनिट।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: CPU',
+                    q: 'CPU के कितने भाग होते हैं?',
+                    options: ['3', '2', '4', '5'],
+                    answer: 0,
+                    exp: '3 — ALU (अंकगणितीय तर्क इकाई), CU (नियंत्रण इकाई), Register (रजिस्टर)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'CU का पूरा नाम क्या है?',
+                    options: ['Control Unit (नियंत्रण इकाई)', 'Central Unit', 'Computer Unit', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Control Unit — नियंत्रण इकाई।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Data Representation',
+                    q: 'कंप्यूटर में 0 और 1 को क्या कहते हैं?',
+                    options: ['Bit (बिट)', 'Byte (बाइट)', 'Nibble (निबल)', 'Word (वर्ड)'],
+                    answer: 0,
+                    exp: 'Bit — बिट (बाइनरी अंक)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'निम्न में से कौन सी मेमोरी स्थायी है?',
+                    options: ['ROM (रोम)', 'RAM (रैम)', 'Cache (कैश)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'ROM — रोम (स्थायी मेमोरी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Data Representation',
+                    q: 'कंप्यूटर में डेटा की सबसे छोटी इकाई क्या है?',
+                    options: ['Bit (बिट)', 'Byte (बाइट)', 'KB (केबी)', 'MB (एमबी)'],
+                    answer: 0,
+                    exp: 'Bit — बिट।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से कौन सा पॉइंटिंग डिवाइस है?',
+                    options: ['Mouse (माउस)', 'Keyboard (कीबोर्ड)', 'Printer (प्रिंटर)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'Mouse — माउस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'OMR का पूरा नाम क्या है?',
+                    options: ['Optical Mark Reader (ऑप्टिकल मार्क रीडर)', 'Optical Memory Reader', 'Output Mark Reader', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Optical Mark Reader — ऑप्टिकल मार्क रीडर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कैश मेमोरी कहाँ स्थित होती है?',
+                    options: ['CPU और मुख्य मेमोरी के बीच', 'हार्ड डिस्क के अंदर', 'मॉनिटर में', 'कीबोर्ड में'],
+                    answer: 0,
+                    exp: 'CPU और मुख्य मेमोरी के बीच — यह गति बढ़ाने के लिए होती है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'SRAM का पूरा नाम क्या है?',
+                    options: ['Static Random Access Memory (स्थिर यादृच्छिक अभिगम स्मृति)', 'System Random Access Memory', 'Static Read Access Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Static Random Access Memory — स्थिर यादृच्छिक अभिगम स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'DRAM का पूरा नाम क्या है?',
+                    options: ['Dynamic Random Access Memory (गतिशील यादृच्छिक अभिगम स्मृति)', 'Data Random Access Memory', 'Dynamic Read Access Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Dynamic Random Access Memory — गतिशील यादृच्छिक अभिगम स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'PROM का पूरा नाम क्या है?',
+                    options: ['Programmable Read Only Memory (क्रमादेश्य केवल पढ़ने योग्य स्मृति)', 'Program Read Only Memory', 'Primary Read Only Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Programmable Read Only Memory — क्रमादेश्य केवल पढ़ने योग्य स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'EPROM का पूरा नाम क्या है?',
+                    options: ['Erasable Programmable Read Only Memory (मिटाने योग्य क्रमादेश्य केवल पढ़ने योग्य स्मृति)', 'Electronic Programmable Read Only Memory', 'Erasable Program Read Only Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Erasable Programmable Read Only Memory — मिटाने योग्य क्रमादेश्य केवल पढ़ने योग्य स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'निम्न में से कौन सी मेमोरी बिजली बंद होने पर डेटा खो देती है?',
+                    options: ['RAM (रैम)', 'ROM (रोम)', 'Hard Disk (हार्ड डिस्क)', 'DVD (डीवीडी)'],
+                    answer: 0,
+                    exp: 'RAM — रैम (यह अस्थिर मेमोरी है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Speed',
+                    q: 'कंप्यूटर की गति किस इकाई में मापी जाती है?',
+                    options: ['Hertz (हर्ट्ज़)', 'Meter (मीटर)', 'Liter (लीटर)', 'Byte (बाइट)'],
+                    answer: 0,
+                    exp: 'Hertz — हर्ट्ज़ (GHz में भी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Speed',
+                    q: '1 GHz में कितने MHz होते हैं?',
+                    options: ['1000', '1024', '512', '2048'],
+                    answer: 0,
+                    exp: '1000 — एक गीगाहर्ट्ज़ में 1000 मेगाहर्ट्ज़ होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'निम्न में से कौन सा प्राथमिक स्टोरेज है?',
+                    options: ['RAM (रैम)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)', 'CD (सीडी)'],
+                    answer: 0,
+                    exp: 'RAM — रैम (प्राथमिक/मुख्य मेमोरी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा द्वितीयक स्टोरेज है?',
+                    options: ['Hard Disk (हार्ड डिस्क)', 'RAM (रैम)', 'Cache (कैश)', 'Register (रजिस्टर)'],
+                    answer: 0,
+                    exp: 'Hard Disk — हार्ड डिस्क (द्वितीयक/सहायक मेमोरी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'MICR का पूरा नाम क्या है?',
+                    options: ['Magnetic Ink Character Reader (चुंबकीय स्याही अक्षर पाठक)', 'Magnetic Ink Code Reader', 'Machine Ink Character Reader', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Magnetic Ink Character Reader — चुंबकीय स्याही अक्षर पाठक (बैंकों में चेक पढ़ने के लिए)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'OCR का पूरा नाम क्या है?',
+                    options: ['Optical Character Recognition (ऑप्टिकल अक्षर पहचान)', 'Optical Code Reader', 'Output Character Reader', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Optical Character Recognition — ऑप्टिकल अक्षर पहचान।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'कौन सा डिवाइस हाथ से लिखे अक्षरों को पहचानता है?',
+                    options: ['OCR (ओसीआर)', 'OMR (ओएमआर)', 'MICR (एमआईसीआर)', 'Plotter (प्लॉटर)'],
+                    answer: 0,
+                    exp: 'OCR — ऑप्टिकल अक्षर पहचान।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'बैंक चेक में कौन सा डिवाइस प्रयोग होता है?',
+                    options: ['MICR (एमआईसीआर)', 'OCR (ओसीआर)', 'OMR (ओएमआर)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'MICR — चुंबकीय स्याही अक्षर पाठक।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'परीक्षा की उत्तर पुस्तिका में कौन सा डिवाइस प्रयोग होता है?',
+                    options: ['OMR (ओएमआर)', 'MICR (एमआईसीआर)', 'OCR (ओसीआर)', 'Plotter (प्लॉटर)'],
+                    answer: 0,
+                    exp: 'OMR — ऑप्टिकल मार्क रीडर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा स्टोरेज डिवाइस नहीं है?',
+                    options: ['Monitor (मॉनिटर)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)', 'DVD (डीवीडी)'],
+                    answer: 0,
+                    exp: 'Monitor — मॉनिटर (यह आउटपुट डिवाइस है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'SSD का पूरा नाम क्या है?',
+                    options: ['Solid State Drive (सॉलिड स्टेट ड्राइव)', 'Static State Drive', 'Solid Storage Drive', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Solid State Drive — सॉलिड स्टेट ड्राइव।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा ऑप्टिकल स्टोरेज है?',
+                    options: ['DVD (डीवीडी)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)', 'RAM (रैम)'],
+                    answer: 0,
+                    exp: 'DVD — डीवीडी (लेजर से पढ़ा जाता है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'पेन ड्राइव किस प्रकार की मेमोरी है?',
+                    options: ['Flash Memory (फ्लैश मेमोरी)', 'RAM (रैम)', 'ROM (रोम)', 'Cache (कैश)'],
+                    answer: 0,
+                    exp: 'Flash Memory — फ्लैश मेमोरी (non-volatile)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: BIOS',
+                    q: 'कंप्यूटर में BIOS कहाँ संग्रहित होता है?',
+                    options: ['ROM (रोम)', 'RAM (रैम)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)'],
+                    answer: 0,
+                    exp: 'ROM — रोम (मदरबोर्ड पर स्थित चिप में)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'BIOS का पूरा नाम क्या है?',
+                    options: ['Basic Input Output System (बेसिक इनपुट आउटपुट सिस्टम)', 'Basic Internal Operating System', 'Binary Input Output System', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Basic Input Output System — बेसिक इनपुट आउटपुट सिस्टम।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'निम्न में से कौन सा डिवाइस बड़े चित्र छापने के लिए प्रयोग होता है?',
+                    options: ['Plotter (प्लॉटर)', 'Printer (प्रिंटर)', 'Monitor (मॉनिटर)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'Plotter — प्लॉटर (इंजीनियरिंग डिज़ाइन में)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Printers',
+                    q: 'लेजर प्रिंटर किस प्रकार का प्रिंटर है?',
+                    options: ['Non-Impact (नॉन-इम्पैक्ट)', 'Impact (इम्पैक्ट)', 'Dot Matrix (डॉट मैट्रिक्स)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Non-Impact — नॉन-इम्पैक्ट (बिना टकराव के छपाई)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Printers',
+                    q: 'डॉट मैट्रिक्स प्रिंटर किस प्रकार का प्रिंटर है?',
+                    options: ['Impact (इम्पैक्ट)', 'Non-Impact (नॉन-इम्पैक्ट)', 'Laser (लेजर)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Impact — इम्पैक्ट (टकराव से छपाई)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Hardware vs Software',
+                    q: 'निम्न में से कौन सा हार्डवेयर नहीं है?',
+                    options: ['Windows (विंडोज)', 'Monitor (मॉनिटर)', 'CPU (सीपीयू)', 'Keyboard (कीबोर्ड)'],
+                    answer: 0,
+                    exp: 'Windows — विंडोज (यह सॉफ्टवेयर है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Hardware vs Software',
+                    q: 'निम्न में से कौन सा सॉफ्टवेयर है?',
+                    options: ['MS Word (एमएस वर्ड)', 'Mouse (माउस)', 'Printer (प्रिंटर)', 'RAM (रैम)'],
+                    answer: 0,
+                    exp: 'MS Word — एमएस वर्ड (यह सॉफ्टवेयर है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 बाइट में कितने निबल होते हैं?',
+                    options: ['2', '4', '8', '1'],
+                    answer: 0,
+                    exp: '2 — एक बाइट में 2 निबल होते हैं (8 बिट = 2 × 4 बिट)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कंप्यूटर की मुख्य मेमोरी कौन सी है?',
+                    options: ['RAM (रैम)', 'Hard Disk (हार्ड डिस्क)', 'DVD (डीवीडी)', 'Pen Drive (पेन ड्राइव)'],
+                    answer: 0,
+                    exp: 'RAM — रैम (मुख्य/प्राथमिक मेमोरी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कैश मेमोरी RAM से कैसी होती है?',
+                    options: ['तेज (Faster)', 'धीमी (Slower)', 'बराबर (Equal)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'तेज — कैश मेमोरी रैम से अधिक तेज होती है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा डिवाइस डेटा को स्थायी रूप से संग्रहित करता है?',
+                    options: ['Hard Disk (हार्ड डिस्क)', 'RAM (रैम)', 'Cache (कैश)', 'Register (रजिस्टर)'],
+                    answer: 0,
+                    exp: 'Hard Disk — हार्ड डिस्क (स्थायी संग्रहण)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'लाइट पेन किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'जॉयस्टिक किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस (गेमिंग में प्रयोग)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से कौन सा डिवाइस आवाज़ को इनपुट के रूप में लेता है?',
+                    options: ['Microphone (माइक्रोफ़ोन)', 'Speaker (स्पीकर)', 'Printer (प्रिंटर)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'Microphone — माइक्रोफ़ोन।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'स्पीकर किस प्रकार का डिवाइस है?',
+                    options: ['Output (आउटपुट)', 'Input (इनपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Output — आउटपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Software',
+                    q: 'कंप्यूटर में डेटा और निर्देशों का समूह क्या कहलाता है?',
+                    options: ['Program (प्रोग्राम)', 'Hardware (हार्डवेयर)', 'CPU (सीपीयू)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'Program — प्रोग्राम (निर्देशों का समूह)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Computer Cycle',
+                    q: 'कंप्यूटर की कार्यप्रणाली में IPO चक्र का क्या अर्थ है?',
+                    options: ['Input-Process-Output (इनपुट-प्रोसेस-आउटपुट)', 'Input-Program-Output', 'Internal-Process-Output', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input-Process-Output — इनपुट-प्रोसेस-आउटपुट चक्र।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Architecture',
+                    q: 'फॉन न्यूमैन आर्किटेक्चर में कौन सा तत्व शामिल होता है?',
+                    options: ['Stored Program Concept (संग्रहित प्रोग्राम अवधारणा)', 'केवल हार्डवेयर', 'केवल सॉफ्टवेयर', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Stored Program Concept — संग्रहित प्रोग्राम अवधारणा (प्रोग्राम और डेटा एक ही मेमोरी में)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कैश मेमोरी में कौन सा सिद्धांत कार्य करता है?',
+                    options: ['Locality of Reference (संदर्भ की निकटता)', 'First In First Out', 'Last In First Out', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Locality of Reference — संदर्भ की निकटता (हाल में प्रयुक्त डेटा फिर प्रयोग होने की संभावना)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'निम्न में से कौन सी मेमोरी सबसे तेज है?',
+                    options: ['Register (रजिस्टर)', 'Cache (कैश)', 'RAM (रैम)', 'Hard Disk (हार्ड डिस्क)'],
+                    answer: 0,
+                    exp: 'Register — रजिस्टर (CPU के अंदर, सबसे तेज)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'मेमोरी पदानुक्रम (Memory Hierarchy) में सही क्रम क्या है (तेज से धीमी)?',
+                    options: ['Register > Cache > RAM > Hard Disk', 'RAM > Register > Cache > Hard Disk', 'Hard Disk > RAM > Cache > Register', 'Cache > Register > RAM > Hard Disk'],
+                    answer: 0,
+                    exp: 'Register > Cache > RAM > Hard Disk — तेज से धीमी।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'EEPROM का पूरा नाम क्या है?',
+                    options: ['Electrically Erasable Programmable Read Only Memory', 'Electronic Erasable Programmable Read Only Memory', 'Electrically Erasable Program Read Only Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Electrically Erasable Programmable Read Only Memory — विद्युत रूप से मिटाने योग्य क्रमादेश्य केवल पढ़ने योग्य स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'फ्लैश मेमोरी किस प्रकार की मेमोरी है?',
+                    options: ['Non-volatile (स्थिर)', 'Volatile (अस्थिर)', 'केवल पढ़ने योग्य', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Non-volatile — स्थिर (बिजली बंद होने पर डेटा सुरक्षित)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Bus',
+                    q: 'कंप्यूटर में "बस" क्या होती है?',
+                    options: ['डेटा स्थानांतरण का मार्ग (Data transfer path)', 'एक प्रकार की मेमोरी', 'एक प्रकार का प्रिंटर', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'डेटा स्थानांतरण का मार्ग — घटकों के बीच डेटा भेजने का रास्ता।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Bus',
+                    q: 'सिस्टम बस के कितने प्रकार होते हैं?',
+                    options: ['3', '2', '4', '5'],
+                    answer: 0,
+                    exp: '3 — Data Bus (डेटा बस), Address Bus (एड्रेस बस), Control Bus (कंट्रोल बस)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Bus',
+                    q: 'एड्रेस बस किस दिशा में डेटा भेजती है?',
+                    options: ['एकतरफा (Unidirectional)', 'दोतरफा (Bidirectional)', 'तीनतरफा', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'एकतरफा — Unidirectional (CPU से मेमोरी की ओर)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Bus',
+                    q: 'डेटा बस किस प्रकार की होती है?',
+                    options: ['दोतरफा (Bidirectional)', 'एकतरफा (Unidirectional)', 'तीनतरफा', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'दोतरफा — Bidirectional (दोनों दिशाओं में डेटा)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'RISC का पूरा नाम क्या है?',
+                    options: ['Reduced Instruction Set Computer (घटित निर्देश समुच्चय कंप्यूटर)', 'Random Instruction Set Computer', 'Reduced Internal Set Computer', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Reduced Instruction Set Computer — घटित निर्देश समुच्चय कंप्यूटर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'CISC का पूरा नाम क्या है?',
+                    options: ['Complex Instruction Set Computer (जटिल निर्देश समुच्चय कंप्यूटर)', 'Common Instruction Set Computer', 'Complex Internal Set Computer', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Complex Instruction Set Computer — जटिल निर्देश समुच्चय कंप्यूटर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Architecture',
+                    q: 'पाइपलाइनिंग (Pipelining) का क्या उद्देश्य है?',
+                    options: ['निर्देशों को समानांतर रूप से निष्पादित करना (Parallel execution)', 'मेमोरी बढ़ाना', 'डेटा संग्रहित करना', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'निर्देशों को समानांतर रूप से निष्पादित करना — समानांतर प्रोसेसिंग से गति बढ़ाना।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Architecture',
+                    q: 'हार्वर्ड आर्किटेक्चर में क्या अलग होता है?',
+                    options: ['डेटा और निर्देश के लिए अलग-अलग मेमोरी', 'केवल एक मेमोरी', 'केवल रजिस्टर', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'डेटा और निर्देश के लिए अलग-अलग मेमोरी — Separate memory for data and instructions।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'DMA का पूरा नाम क्या है?',
+                    options: ['Direct Memory Access (प्रत्यक्ष स्मृति अभिगम)', 'Dynamic Memory Access', 'Direct Main Access', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Direct Memory Access — प्रत्यक्ष स्मृति अभिगम (CPU की भागीदारी के बिना डेटा स्थानांतरण)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: DMA',
+                    q: 'DMA का क्या लाभ है?',
+                    options: ['CPU की भागीदारी के बिना डेटा स्थानांतरण (Data transfer without CPU involvement)', 'मेमोरी बढ़ाना', 'गति घटाना', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'CPU की भागीदारी के बिना डेटा स्थानांतरण — इससे गति बढ़ती है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Speed',
+                    q: 'कंप्यूटर में क्लॉक स्पीड किससे मापी जाती है?',
+                    options: ['GHz (गीगाहर्ट्ज़)', 'GB (गीगाबाइट)', 'MB (मेगाबाइट)', 'Bit (बिट)'],
+                    answer: 0,
+                    exp: 'GHz — गीगाहर्ट्ज़ (क्लॉक गति की इकाई)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: CPU',
+                    q: 'ओवरक्लॉकिंग (Overclocking) क्या है?',
+                    options: ['CPU की गति को निर्धारित सीमा से अधिक बढ़ाना', 'मेमोरी बढ़ाना', 'हार्ड डिस्क बदलना', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'CPU की गति को निर्धारित सीमा से अधिक बढ़ाना — निर्माता की सीमा से अधिक गति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Generations',
+                    q: 'निम्न में से कौन सा कंप्यूटर की चौथी पीढ़ी का घटक है?',
+                    options: ['Microprocessor (माइक्रोप्रोसेसर)', 'Vacuum Tube (वैक्यूम ट्यूब)', 'Transistor (ट्रांजिस्टर)', 'Integrated Circuit (आईसी)'],
+                    answer: 0,
+                    exp: 'Microprocessor — माइक्रोप्रोसेसर (चौथी पीढ़ी 1971 से)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Generations',
+                    q: 'कंप्यूटर की पहली पीढ़ी में कौन सा घटक प्रयोग होता था?',
+                    options: ['Vacuum Tube (वैक्यूम ट्यूब)', 'Transistor (ट्रांजिस्टर)', 'IC (आईसी)', 'Microprocessor (माइक्रोप्रोसेसर)'],
+                    answer: 0,
+                    exp: 'Vacuum Tube — वैक्यूम ट्यूब (पहली पीढ़ी 1940-1956)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Generations',
+                    q: 'कंप्यूटर की दूसरी पीढ़ी में कौन सा घटक प्रयोग होता था?',
+                    options: ['Transistor (ट्रांजिस्टर)', 'Vacuum Tube (वैक्यूम ट्यूब)', 'IC (आईसी)', 'Microprocessor (माइक्रोप्रोसेसर)'],
+                    answer: 0,
+                    exp: 'Transistor — ट्रांजिस्टर (दूसरी पीढ़ी 1956-1963)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Generations',
+                    q: 'कंप्यूटर की तीसरी पीढ़ी में कौन सा घटक प्रयोग होता था?',
+                    options: ['Integrated Circuit (एकीकृत परिपथ — IC)', 'Vacuum Tube (वैक्यूम ट्यूब)', 'Transistor (ट्रांजिस्टर)', 'Microprocessor (माइक्रोप्रोसेसर)'],
+                    answer: 0,
+                    exp: 'Integrated Circuit — एकीकृत परिपथ (तीसरी पीढ़ी 1964-1971)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Architecture',
+                    q: 'फॉन न्यूमैन बॉटलनेक (Von Neumann Bottleneck) क्या है?',
+                    options: ['CPU और मेमोरी के बीच डेटा स्थानांतरण की सीमा', 'हार्ड डिस्क की क्षमता की सीमा', 'प्रिंटर की गति की सीमा', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'CPU और मेमोरी के बीच डेटा स्थानांतरण की सीमा — बस की सीमित बैंडविड्थ के कारण।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Basics',
+                    q: 'निम्न में से कौन सा कथन कंप्यूटर के बारे में सही है?',
+                    options: ['कंप्यूटर स्वयं कोई निर्णय नहीं लेता, यह केवल निर्देशों का पालन करता है', 'कंप्यूटर स्वयं सोच सकता है', 'कंप्यूटर में भावनाएँ होती हैं', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'कंप्यूटर स्वयं कोई निर्णय नहीं लेता, यह केवल निर्देशों का पालन करता है — कंप्यूटर एक स्वचालित मशीन है जो प्रोग्राम के अनुसार कार्य करती है।'
                     }
                 ]
             },
