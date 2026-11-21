@@ -1,0 +1,3215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Computer Institute | NIELIT O-Level (R5.1) Exam Portal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at 15% 15%, #1e1b4b 0%, #090d16 45%, #170e2e 85%, #090d16 100%);
+            background-attachment: fixed;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .mono-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Ambient Glowing Mesh Orbs */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(110px);
+            z-index: -1;
+            opacity: 0.42;
+            animation: driftOrb 14s infinite alternate ease-in-out;
+        }
+        .orb-1 { top: -8%; left: -5%; width: 460px; height: 460px; background: #4f46e5; }
+        .orb-2 { bottom: 5%; right: -6%; width: 520px; height: 520px; background: #db2777; animation-delay: 4s; }
+        .orb-3 { top: 45%; left: 38%; width: 380px; height: 380px; background: #0891b2; animation-delay: 7s; }
+
+        @keyframes driftOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, -30px) scale(1.12); }
+        }
+
+        /* Premium Glass-White Exam Card */
+        .olevel-card {
+            background: rgba(255, 255, 255, 0.97);
+            color: #0f172a;
+            border-radius: 1.5rem;
+            transition: all 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .olevel-card:hover {
+            transform: translateY(-10px) scale(1.015);
+            box-shadow: 0 28px 50px -12px rgba(79, 70, 229, 0.5), 0 0 24px rgba(236, 72, 153, 0.28);
+        }
+
+        /* Shimmering Open Button */
+        .btn-open-paper {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-open-paper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.55s ease;
+        }
+        .btn-open-paper:hover::after {
+            left: 100%;
+        }
+
+        /* Full-Screen Derivation & Transition Loader */
+        #derivation-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: radial-gradient(circle at center, #1e1b4b 0%, #050811 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.38s ease;
+        }
+
+        #derivation-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Cyber Orbital Rings */
+        .cyber-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid transparent;
+        }
+        .ring-outer {
+            width: 136px;
+            height: 136px;
+            border-top-color: #38bdf8;
+            border-right-color: #818cf8;
+            animation: spinCW 1.3s linear infinite;
+        }
+        .ring-inner {
+            width: 104px;
+            height: 104px;
+            border-bottom-color: #f472b6;
+            border-left-color: #fbbf24;
+            animation: spinCCW 0.95s linear infinite;
+        }
+
+        @keyframes spinCW { 100% { transform: rotate(360deg); } }
+        @keyframes spinCCW { 100% { transform: rotate(-360deg); } }
+
+        /* Step-by-step Derivation Reveal */
+        .deriv-step {
+            opacity: 0;
+            transform: translateX(-12px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .deriv-step.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Smooth Page Entrance */
+        .workspace-reveal {
+            animation: revealScale 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes revealScale {
+            0% { opacity: 0; transform: scale(0.96) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-pink-500 selection:text-white">
+
+    <!-- Background Glowing Orbs -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <!-- ===================================================================== -->
+    <!-- ANIMATED DERIVATION & PAGE TRANSITION OVERLAY (On "Open" Click)       -->
+    <!-- ===================================================================== -->
+    <div id="derivation-overlay" class="px-4 text-center">
+        <!-- Orbital Cyber Rings + Paper Code Emblem -->
+        <div class="relative w-36 h-36 flex items-center justify-center mb-5">
+            <div class="cyber-ring ring-outer"></div>
+            <div class="cyber-ring ring-inner"></div>
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-pink-500 flex flex-col items-center justify-center shadow-2xl shadow-indigo-500/50">
+                <i id="loader-icon" class="fas fa-laptop-code text-2xl text-white mb-0.5"></i>
+                <span id="loader-code-badge" class="mono-font text-[10px] font-bold uppercase tracking-wider bg-black/30 px-2 py-0.5 rounded text-cyan-200">M1-R5</span>
+            </div>
+        </div>
+
+        <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-cyan-400 mb-1">National Computer Institute • NIELIT O-Level</p>
+        <h2 id="loader-paper-title" class="text-2xl sm:text-3xl font-extrabold text-white mb-5 max-w-xl">
+            Loading O-Level Paper Module...
+        </h2>
+
+        <!-- Step-by-Step Animated Derivation Box -->
+        <div class="bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl p-5 w-full max-w-lg mb-6 text-left space-y-3 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2 mb-1">
+                <span class="mono-font text-[11px] uppercase tracking-wider text-amber-300 font-bold">
+                    <i class="fas fa-microchip mr-1.5"></i>System Derivation Sequence
+                </span>
+                <span id="loader-percent" class="mono-font text-xs font-bold text-cyan-300">0%</span>
+            </div>
+
+            <div id="d-step-1" class="deriv-step flex items-start gap-3 text-xs sm:text-sm text-slate-200">
+                <i class="fas fa-circle-check text-emerald-400 mt-0.5"></i>
+                <span><strong>Step 1:</strong> Verifying NIELIT O-Level (R5.1) Syllabus &amp; Paper Blueprint...</span>
+            </div>
+            <div id="d-step-2" class="deriv-step flex items-start gap-3 text-xs sm:text-sm text-slate-200">
+                <i class="fas fa-circle-check text-cyan-400 mt-0.5"></i>
+                <span><strong>Step 2:</strong> Compiling 100-Mark CBT Question Bank &amp; NIELIT Grading Logic...</span>
+            </div>
+            <div id="d-step-3" class="deriv-step flex items-start gap-3 text-xs sm:text-sm text-slate-200">
+                <i class="fas fa-bolt text-amber-400 mt-0.5"></i>
+                <span id="d-step-3-label"><strong>Step 3:</strong> Initializing National Computer Institute Exam Portal...</span>
+            </div>
+        </div>
+
+        <!-- Animated Progress Bar -->
+        <div class="w-full max-w-lg bg-slate-900/90 rounded-full h-3 overflow-hidden border border-white/15 p-0.5">
+            <div id="loader-progress-bar" class="h-full rounded-full bg-gradient-to-r from-cyan-400 via-indigo-500 to-pink-500 transition-all duration-300" style="width: 0%;"></div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- STICKY TOP HEADER                                                     -->
+    <!-- ===================================================================== -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-slate-950/75 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+            <!-- Institute Logo & Name -->
+            <div class="flex items-center gap-3.5 cursor-pointer group" onclick="returnToHome()">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 via-indigo-600 to-pink-500 p-0.5 shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition">
+                    <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <h1 class="text-lg sm:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-cyan-100 to-pink-200 bg-clip-text text-transparent">
+                            National Computer Institute
+                        </h1>
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 text-cyan-300 border border-cyan-400/30">
+                            NIELIT O-LEVEL PORTAL
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-300">Complete R5.1 Syllabus • All 4 Theory Papers, Practicals &amp; CBT Mock Tests</p>
+                </div>
+            </div>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-2.5">
+                <button onclick="togglePageLinksModal()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs sm:text-sm font-semibold text-cyan-200 flex items-center gap-2 transition">
+                    <i class="fas fa-link"></i>
+                    <span>Page Links</span>
+                </button>
+                <div class="hidden md:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500/20 to-pink-500/20 border border-amber-400/35 text-xs font-bold text-amber-200">
+                    <i class="fas fa-crown text-amber-400"></i>
+                    <span>Director &amp; Owner: Kuldeep Chauhan</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- MAIN HOME VIEW: O-LEVEL R5.1 HERO + PAPER CARDS GRID                  -->
+    <!-- ===================================================================== -->
+    <main id="home-view" class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-11 workspace-reveal">
+        
+        <!-- O-Level Hero Section -->
+        <section class="relative rounded-3xl bg-white/[0.06] backdrop-blur-xl border border-white/15 p-6 sm:p-10 mb-10 overflow-hidden shadow-2xl">
+            <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-br from-cyan-500/25 to-pink-500/25 blur-2xl pointer-events-none"></div>
+            
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/35 text-xs sm:text-sm font-bold text-cyan-300 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    NIELIT O-Level (R5.1 Revised Syllabus) • Complete Exam Preparation
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
+                    O-Level Ke Sabhi Papers Ki <span class="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-amber-300 bg-clip-text text-transparent">Puri Taiyari Ek Jagah!</span>
+                </h2>
+
+                <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-7">
+                    M1-R5, M2-R5, M3-R5, M4-R5 Theory Papers, Practical Labs (PR1–PR4), Solved Previous Papers aur 100-Marks CBT Mock Tests. Kisi bhi card par <strong class="text-white">"Open Paper"</strong> click karein.
+                </p>
+
+                <!-- Quick NIELIT O-Level Exam Pattern Stats -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto mb-7">
+                    <div class="p-3.5 rounded-2xl bg-slate-900/75 border border-white/10">
+                        <p class="text-xl sm:text-2xl font-extrabold text-cyan-400">4 + 4</p>
+                        <p class="text-[11px] sm:text-xs text-slate-300 font-medium">Theory &amp; Practical Papers</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-slate-900/75 border border-white/10">
+                        <p class="text-xl sm:text-2xl font-extrabold text-pink-400">100 MCQs</p>
+                        <p class="text-[11px] sm:text-xs text-slate-300 font-medium">OMR / Online CBT Pattern</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-slate-900/75 border border-white/10">
+                        <p class="text-xl sm:text-2xl font-extrabold text-amber-400">90 Mins</p>
+                        <p class="text-[11px] sm:text-xs text-slate-300 font-medium">No Negative Marking</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-slate-900/75 border border-white/10">
+                        <p class="text-xl sm:text-2xl font-extrabold text-emerald-400">50% Pass</p>
+                        <p class="text-[11px] sm:text-xs text-slate-300 font-medium">S, A, B, C, D Grade System</p>
+                    </div>
+                </div>
+
+                <!-- Filter Pills -->
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+                    <button onclick="filterPaperCards('all', this)" class="paper-filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition">
+                        All O-Level Papers (8)
+                    </button>
+                    <button onclick="filterPaperCards('theory', this)" class="paper-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-slate-200 border border-white/10 transition">
+                        Theory Papers (M1–M4)
+                    </button>
+                    <button onclick="filterPaperCards('practical', this)" class="paper-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-slate-200 border border-white/10 transition">
+                        Practical &amp; Viva (PR1–PR4)
+                    </button>
+                    <button onclick="filterPaperCards('mock', this)" class="paper-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-slate-200 border border-white/10 transition">
+                        Full Mock &amp; Previous Papers
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Message Box (Replaces alert/confirm) -->
+        <div id="portal-status-box" class="hidden mb-6 p-4 rounded-2xl bg-indigo-950/85 border border-cyan-400/35 text-cyan-100 text-xs sm:text-sm flex items-center justify-between gap-4 shadow-lg">
+            <div class="flex items-center gap-3">
+                <i class="fas fa-circle-check text-emerald-400 text-base shrink-0"></i>
+                <span id="portal-status-text">Saved page links.</span>
+            </div>
+            <button onclick="hideStatusMessage()" class="text-slate-300 hover:text-white px-2 py-1">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- O-Level Full Papers Cards Grid -->
+        <section id="olevel-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Cards rendered dynamically via JS -->
+        </section>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- SUB-CARDS VIEW: M1-R5 (9 CHAPTERS) & M2-R5 (HTML, CSS, JAVASCRIPT)  -->
+    <!-- ===================================================================== -->
+    <section id="subcards-view" class="hidden flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-11 workspace-reveal">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 bg-slate-900/85 backdrop-blur-xl border border-white/15 p-4 rounded-2xl shadow-xl">
+            <button onclick="returnToHomeFromSubcards()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                <i class="fas fa-arrow-left"></i>
+                All O-Level Papers
+            </button>
+
+            <div class="flex items-center gap-2.5">
+                <span id="subcards-paper-code" class="mono-font px-3 py-1.5 rounded-xl bg-indigo-500/25 border border-indigo-400/40 text-cyan-300 text-xs sm:text-sm font-bold">
+                    M1-R5
+                </span>
+                <span id="subcards-count-badge" class="px-3.5 py-1.5 rounded-xl bg-emerald-500/20 border border-emerald-400/35 text-emerald-300 text-xs sm:text-sm font-bold">
+                    9 Chapters
+                </span>
+            </div>
+        </div>
+
+        <div class="rounded-3xl bg-white/[0.06] backdrop-blur-xl border border-white/15 p-6 sm:p-8 mb-8 shadow-2xl">
+            <p id="subcards-kicker" class="text-xs font-extrabold uppercase tracking-[0.2em] text-cyan-400 mb-1.5">
+                NIELIT O-Level (R5.1) • Chapter-Wise Modules
+            </p>
+            <h2 id="subcards-view-title" class="text-2xl sm:text-4xl font-extrabold text-white mb-2">
+                M1-R5: IT Tools and Network Basics
+            </h2>
+            <p id="subcards-view-desc" class="text-slate-300 text-xs sm:text-base max-w-3xl">
+                Select any module below and click <strong>Open</strong> to start its interactive CBT Exam Workspace.
+            </p>
+        </div>
+
+        <div id="subcards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Sub-cards (9 for M1-R5, 3 for M2-R5) injected dynamically -->
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- INTERACTIVE NIELIT CBT FULL-PAPER EXAM WORKSPACE                      -->
+    <!-- ===================================================================== -->
+    <section id="paper-workspace-view" class="hidden flex-grow max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 workspace-reveal">
+        <!-- Top Navigation & CBT Timer Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 bg-slate-900/85 backdrop-blur-xl border border-white/15 p-4 rounded-2xl shadow-xl">
+            <div class="flex flex-wrap items-center gap-2.5">
+                <button id="ws-back-subcards-btn" onclick="returnToSubcardsFromWorkspace()" class="hidden px-4 py-2.5 rounded-xl bg-indigo-600/80 hover:bg-indigo-600 border border-indigo-400/30 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                    <i class="fas fa-layer-group"></i>
+                    <span id="ws-back-subcards-label">Back to Chapters</span>
+                </button>
+                <button onclick="returnWithAnimation()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                    <i class="fas fa-arrow-left"></i>
+                    All O-Level Papers
+                </button>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <span id="ws-code-pill" class="mono-font px-3 py-1.5 rounded-xl bg-indigo-500/25 border border-indigo-400/40 text-cyan-300 text-xs sm:text-sm font-bold">
+                    M1-R5
+                </span>
+                <div class="flex items-center gap-2 px-4 py-1.5 rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-300 font-bold text-xs sm:text-sm mono-font">
+                    <i class="fas fa-stopwatch animate-pulse"></i>
+                    <span id="cbt-timer">90:00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Paper Container -->
+        <div class="bg-white text-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-white/20">
+            <!-- Colored Paper Header -->
+            <div id="ws-header-banner" class="p-6 sm:p-8 text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-start sm:items-center gap-4">
+                    <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-3xl shrink-0 shadow-inner">
+                        <i id="ws-icon" class="fas fa-desktop"></i>
+                    </div>
+                    <div>
+                        <span id="ws-paper-tag" class="inline-block px-3 py-0.5 rounded-full text-xs font-extrabold bg-black/25 uppercase tracking-wider mb-1">
+                            Paper 1 • R5.1 Syllabus
+                        </span>
+                        <h2 id="ws-paper-title" class="text-xl sm:text-3xl font-extrabold leading-snug">
+                            Information Technology Tools and Network Basics
+                        </h2>
+                        <p id="ws-paper-desc" class="text-white/90 text-xs sm:text-sm mt-1">
+                            Full Paper CBT Practice Set • National Computer Institute
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Optional Linked Page Button -->
+                <div id="ws-external-wrap" class="hidden shrink-0">
+                    <a id="ws-external-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-indigo-700 font-extrabold text-sm shadow-lg hover:bg-slate-100 transition">
+                        <span>Open Linked Page</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Workspace Mode Switcher Tabs -->
+            <div class="px-6 sm:px-8 pt-6 border-b border-slate-200 flex flex-wrap items-center justify-between gap-4 pb-4 bg-slate-50/70">
+                <div class="flex flex-wrap gap-2">
+                    <button id="ws-tab-cbt" onclick="switchWorkspaceTab('cbt')" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-indigo-600 text-white shadow">
+                        <i class="fas fa-laptop-file mr-1.5"></i> CBT Mock Test Paper
+                    </button>
+                    <button id="ws-tab-syllabus" onclick="switchWorkspaceTab('syllabus')" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100">
+                        <i class="fas fa-list-check mr-1.5"></i> R5.1 Syllabus &amp; Important Notes
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-3 text-xs sm:text-sm font-bold text-slate-600">
+                    <span>Attempted: <strong id="attempted-count" class="text-indigo-600">0</strong>/<strong id="total-q-count">10</strong></span>
+                    <button onclick="submitCbtExam()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow transition">
+                        Submit Paper &amp; Check Grade
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 1: CBT MOCK TEST INTERFACE -->
+            <div id="ws-cbt-panel" class="p-6 sm:p-8">
+                <!-- Result Banner (Shown after Submit) -->
+                <div id="cbt-result-banner" class="hidden mb-8 p-6 rounded-2xl bg-gradient-to-r from-indigo-900 via-purple-900 to-slate-900 text-white shadow-xl border border-indigo-400/30">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-300">National Computer Institute • NIELIT CBT Result</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold mt-1">
+                                Score: <span id="res-percentage" class="text-amber-300">80%</span> — Grade: <span id="res-grade" class="px-3 py-0.5 rounded-lg bg-emerald-500 text-slate-950">A</span>
+                            </h3>
+                            <p id="res-remark" class="text-sm text-slate-300 mt-1">Excellent! You have qualified this O-Level paper mock test.</p>
+                        </div>
+                        <button onclick="resetCbtExam()" class="px-5 py-2.5 rounded-xl bg-white text-indigo-900 font-extrabold text-sm hover:bg-cyan-50 transition shrink-0">
+                            <i class="fas fa-rotate-right mr-1.5"></i> Re-Attempt Paper
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left: Active Question Area -->
+                    <div class="lg:col-span-2 space-y-5">
+                        <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="flex items-center justify-between gap-2 mb-3">
+                                <span id="active-q-badge" class="px-3 py-1 rounded-lg bg-indigo-100 text-indigo-700 font-extrabold text-xs">
+                                    Question 1 of 10
+                                </span>
+                                <span id="active-q-topic" class="text-xs font-semibold text-slate-500">
+                                    Topic: LibreOffice &amp; OS
+                                </span>
+                            </div>
+
+                            <h3 id="active-q-text" class="text-base sm:text-lg font-extrabold text-slate-900 leading-relaxed mb-5">
+                                Question text loads here...
+                            </h3>
+
+                            <div id="active-q-options" class="space-y-3">
+                                <!-- Options injected dynamically -->
+                            </div>
+
+                            <!-- Explanation box shown after submission -->
+                            <div id="active-q-explanation" class="hidden mt-5 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-sm text-emerald-950">
+                                <strong><i class="fas fa-circle-info text-emerald-600 mr-1.5"></i>Explanation:</strong>
+                                <span id="active-q-exp-text"></span>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Controls -->
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <button onclick="prevQuestion()" class="px-4 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-sm transition">
+                                <i class="fas fa-chevron-left mr-1.5"></i> Previous
+                            </button>
+
+                            <button onclick="toggleMarkReview()" id="mark-review-btn" class="px-4 py-2.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-sm border border-amber-300 transition">
+                                <i class="fas fa-bookmark mr-1.5"></i> Mark for Review
+                            </button>
+
+                            <button onclick="nextQuestion()" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow transition">
+                                Save &amp; Next <i class="fas fa-chevron-right ml-1.5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Scrollable Review & Quick-Jump Panel Below Navigation Bar -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm">
+                            <div class="flex items-center justify-between gap-2 pb-2.5 mb-3 border-b border-slate-200">
+                                <h4 class="font-extrabold text-slate-800 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fas fa-list-ol text-indigo-600"></i>
+                                    <span>Questions &amp; Answer Overview</span>
+                                </h4>
+                                <span class="text-[11px] font-semibold text-slate-500">Scrolls smoothly</span>
+                            </div>
+                            <div id="below-nav-scroll-box" class="max-h-60 overflow-y-auto pr-1.5 space-y-2.5 scroll-smooth">
+                                <!-- Populated dynamically with all questions & current selection status -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Compact NIELIT CBT Question Palette -->
+                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between self-start w-full">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-3 pb-2 border-b border-slate-200">
+                                <h4 class="font-extrabold text-slate-800 text-xs sm:text-sm uppercase tracking-wider">
+                                    Question Palette
+                                </h4>
+                                <span id="palette-total-badge" class="mono-font text-[11px] font-bold px-2 py-0.5 rounded-md bg-indigo-100 text-indigo-700">
+                                    0 Qs
+                                </span>
+                            </div>
+                            <div id="question-palette-grid" class="grid grid-cols-5 gap-1.5 max-h-48 overflow-y-auto pr-1 mb-4 scroll-smooth">
+                                <!-- Compact numbered buttons 1..N -->
+                            </div>
+                        </div>
+
+                        <!-- Legend -->
+                        <div class="space-y-1.5 text-xs font-semibold text-slate-600 pt-3 border-t border-slate-200">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-3.5 rounded bg-emerald-500 inline-block shrink-0"></span> Answered
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-3.5 rounded bg-amber-400 inline-block shrink-0"></span> Marked for Review
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-3.5 rounded bg-white border border-slate-300 inline-block shrink-0"></span> Not Answered
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: R5.1 SYLLABUS & IMPORTANT NOTES -->
+            <div id="ws-syllabus-panel" class="hidden p-6 sm:p-8 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-5 rounded-2xl bg-indigo-50/80 border border-indigo-100">
+                        <h3 class="text-lg font-extrabold text-indigo-950 mb-3 flex items-center gap-2">
+                            <i class="fas fa-book text-indigo-600"></i> NIELIT R5.1 Unit-Wise Syllabus
+                        </h3>
+                        <ul id="ws-syllabus-list" class="space-y-2.5 text-sm text-slate-700">
+                            <!-- Units injected dynamically -->
+                        </ul>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-amber-50/80 border border-amber-100">
+                        <h3 class="text-lg font-extrabold text-amber-950 mb-3 flex items-center gap-2">
+                            <i class="fas fa-star text-amber-500"></i> Exam Booster Formulas &amp; Key Points
+                        </h3>
+                        <ul id="ws-notes-list" class="space-y-2.5 text-sm text-slate-700 list-disc list-inside">
+                            <!-- Key points injected dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PAGE LINKS MANAGER MODAL (Assign / Edit Page Links per Paper)       -->
+    <!-- ===================================================================== -->
+    <div id="page-links-modal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/15 rounded-3xl max-w-2xl w-full p-6 sm:p-7 text-white shadow-2xl max-h-[88vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                <div>
+                    <h3 class="text-xl font-extrabold text-cyan-300">
+                        <i class="fas fa-link mr-2"></i>Paper Page Links Manager
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-1">
+                        Kisi bhi paper ke liye custom page/URL (jaise <code class="text-cyan-300">m1-r5-paper.html</code> ya full URL) set karein. Khali chhodne par built-in CBT workspace open hoga.
+                    </p>
+                </div>
+                <button onclick="togglePageLinksModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Open Target Mode Toggle inside Modal -->
+            <div class="mb-4 p-3.5 rounded-2xl bg-indigo-950/50 border border-indigo-400/25 flex flex-wrap items-center justify-between gap-3">
+                <span class="text-xs font-bold text-slate-200">
+                    <i class="fas fa-up-right-from-square text-cyan-300 mr-1.5"></i>Linked Page Open Mode:
+                </span>
+                <select id="link-open-mode" onchange="saveOpenModePref()" class="px-3 py-1.5 rounded-xl bg-slate-950 border border-white/15 text-xs font-bold text-cyan-200 focus:outline-none">
+                    <option value="same">Same Tab (Redirect Current Page)</option>
+                    <option value="new">New Tab (_blank)</option>
+                </select>
+            </div>
+
+            <div id="page-links-inputs-container" class="space-y-3 mb-6">
+                <!-- Inputs injected dynamically -->
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-white/10">
+                <button onclick="clearAllPageLinks()" class="px-4 py-2.5 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-400/30 text-rose-200 text-xs sm:text-sm font-bold transition">
+                    <i class="fas fa-trash-can mr-1.5"></i> Clear All Links
+                </button>
+                <div class="flex items-center gap-2.5">
+                    <button onclick="togglePageLinksModal()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs sm:text-sm font-semibold">
+                        Cancel
+                    </button>
+                    <button onclick="savePageLinks()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-xs sm:text-sm font-extrabold shadow-lg">
+                        Save Links
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- FOOTER: NATIONAL COMPUTER INSTITUTE & DIRECTOR KULDEEP CHAUHAN        -->
+    <!-- ===================================================================== -->
+    <footer class="mt-14 bg-slate-950/90 backdrop-blur-xl border-t border-white/15 text-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Left Institute Details -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-2.5 mb-1.5">
+                        <span class="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-pink-500"></span>
+                        <h3 class="text-xl font-extrabold text-white tracking-wide">National Computer Institute</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400">
+                        NIELIT O-Level (R5.1) Authorized Exam Preparation &amp; Practical Training Portal
+                    </p>
+                </div>
+
+                <!-- Highlighted Director & Owner Badge -->
+                <div class="px-7 py-4 rounded-2xl bg-gradient-to-r from-indigo-600/30 via-purple-600/30 to-pink-600/30 border border-pink-400/45 shadow-xl shadow-purple-950/40 text-center">
+                    <p class="text-[11px] uppercase tracking-[0.2em] text-cyan-300 font-extrabold mb-0.5">
+                        Director &amp; Owner
+                    </p>
+                    <p class="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-amber-200 via-white to-cyan-200 bg-clip-text text-transparent">
+                        Kuldeep Chauhan
+                    </p>
+                </div>
+
+                <!-- Right Batch & Copyright -->
+                <div class="text-center md:text-right text-xs text-slate-400 space-y-1">
+                    <p class="text-slate-200 font-bold">NIELIT O-Level R5.1 Batch 2026</p>
+                    <p>&copy; 2026 National Computer Institute. All Rights Reserved.</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT: O-LEVEL R5.1 FULL PAPER DATA, ANIMATIONS & CBT ENGINE     -->
+    <!-- ===================================================================== -->
+    <script>
+        // Chapter-wise sub-cards for M1-R5 (9 Chapters)
+        const m1R5Chapters = [
+            {
+                id: 'm1-ch1',
+                code: 'CH-01',
+                badge: 'CHAPTER 1 • M1-R5',
+                title: 'Introduction to Computer',
+                description: 'History of computers, generations, hardware & software architecture, input/output devices, memory units & IT gadgets.',
+                questionsCount: 'CBT Chapter Test',
+                duration: '20 Mins',
+                gradient: 'from-blue-600 via-indigo-600 to-violet-600',
+                iconBg: 'bg-blue-100 text-blue-600',
+                icon: 'fa-computer',
+                linkedPage: '',
+                syllabus: [
+                    'Evolution & Generations of Computers (1st to 5th Gen)',
+                    'CPU (ALU, CU, Registers), Primary (RAM/ROM) & Secondary Storage',
+                    'Input/Output Devices, Ports & Emerging IT Gadgets'
+                ],
+                notes: [
+                    '1 Byte = 8 Bits; 1 KB = 1024 Bytes; 1 MB = 1024 KB; 1 GB = 1024 MB.',
+                    'BIOS firmware ROM mein store hota hai aur POST (Power-On Self-Test) run karta hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Chapter 1: Memory & CPU',
+                        q: 'Computer boot hote samay sabse pehle kaun sa test run hota hai?',
+                        options: ['RAM Test', 'POST (Power-On Self-Test)', 'Defragmentation', 'Disk Check'],
+                        answer: 1,
+                        exp: 'POST (Power-On Self-Test) BIOS dwara boot hone par hardware check karne ke liye chalta hai.'
+                    },
+                    {
+                        topic: 'Chapter 1: Storage Units',
+                        q: 'Ek Nibble kitne bits ke barabar hota hai?',
+                        options: ['2 bits', '4 bits', '8 bits', '16 bits'],
+                        answer: 1,
+                        exp: '4 bits ka group 1 Nibble kehlata hai aur 8 bits (2 nibbles) ka 1 Byte hota hai.'
+                    },
+                    {
+                        topic: 'Chapter 1: Software',
+                        q: 'Compiler aur Interpreter mein mukhya antar kya hai?',
+                        options: ['Compiler line-by-line chalata hai', 'Compiler pure program ko ek saath translate karta hai', 'Interpreter object code banata hai', 'Dono hardware hain'],
+                        answer: 1,
+                        exp: 'Compiler poore source code ko ek saath machine code mein translate karta hai jabki Interpreter line-by-line.'
+                    }
+                ]
+            },
+            {
+                id: 'm1-ch2',
+                code: 'CH-02',
+                badge: 'CHAPTER 2 • M1-R5',
+                title: 'Introduction to Operating System',
+                description: 'OS functions, User Interface (CLI vs GUI), Windows & Linux/Ubuntu desktop, file/folder management & system utilities.',
+                questionsCount: 'CBT Chapter Test',
+                duration: '20 Mins',
+                gradient: 'from-indigo-600 via-blue-600 to-cyan-600',
+                iconBg: 'bg-indigo-100 text-indigo-600',
+                icon: 'fa-gear',
+                linkedPage: '',
+                syllabus: [
+                    'Operating System Types: Batch, Time-Sharing, Real-Time & Distributed',
+                    'GUI vs CLI, Taskbar, Control Panel & File Explorer Operations',
+                    'Linux/Ubuntu Basics, Directory Tree & Essential Terminal Commands'
+                ],
+                notes: [
+                    'Linux mein root directory ko "/" (forward slash) se darshate hain.',
+                    'pwd command current working directory ka full path print karti hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Chapter 2: Linux Commands',
+                        q: 'Linux terminal mein current working directory dekhne ke liye kaun si command use hoti hai?',
+                        options: ['cd', 'pwd', 'dir', 'path'],
+                        answer: 1,
+                        exp: 'pwd (Print Working Directory) current directory ka path dikhata hai.'
+                    },
+                    {
+                        topic: 'Chapter 2: OS Basics',
+                        q: 'Operating System ka kaun sa kaam process scheduling aur memory allocation se juda hai?',
+                        options: ['Resource Management', 'Spreadsheeting', 'Slide Transition', 'Mail Merge'],
+                        answer: 0,
+                        exp: 'OS CPU time, memory aur I/O devices ka resource management karta hai.'
+                    },
+                    {
+                        topic: 'Chapter 2: File Management',
+                        q: 'Windows mein kisi file ya folder ko permanently delete (bypassing Recycle Bin) karne ki shortcut key kya hai?',
+                        options: ['Ctrl + D', 'Shift + Delete', 'Alt + Delete', 'Ctrl + Shift + D'],
+                        answer: 1,
+                        exp: 'Shift + Delete dabane se item Recycle Bin mein jaaye bina permanently delete ho jaata hai.'
+                    }
+                ]
+            },
+            {
+                id: 'm1-ch3',
+                code: 'CH-03',
+                badge: 'CHAPTER 3 • M1-R5',
+                title: 'Word Processing (LibreOffice Writer)',
+                description: 'Document creation, formatting, styles, page setup, header/footer, tables, find & replace, and Mail Merge.',
+                questionsCount: 'CBT Chapter Test',
+                duration: '20 Mins',
+                gradient: 'from-sky-600 via-blue-600 to-indigo-700',
+                iconBg: 'bg-sky-100 text-sky-600',
+                icon: 'fa-file-word',
+                linkedPage: '',
+                syllabus: [
+                    'Writer Interface, Menu Bar, Status Bar & Document Extensions (.odt)',
+                    'Text/Paragraph Formatting, Bullets, Numbering, Page Break & Watermark',
+                    'Tables, Find & Replace (Ctrl+H), Spelling Check (F7) & Mail Merge'
+                ],
+                notes: [
+                    'LibreOffice Writer file ka default extension .odt (OpenDocument Text) hota hai.',
+                    'Ctrl + F12 se Writer mein Table insert ki ja sakti hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Computer Fundamentals: Full Forms',
+                        q: 'Computer का पूरा नाम क्या है?',
+                        options: ['Commonly Operated Machine Particularly Used for Technology', 'Central Processing Unit', 'Computer Personal Unit', 'इनमें से कोई नहीं'],
+                        answer: 0,
+                        exp: 'Computer का पूरा नाम Commonly Operated Machine Particularly Used for Technology है।'
+                    },
+                    {
+                        topic: 'Computer Fundamentals: Full Forms',
+                        q: 'CPU का पूरा नाम क्या है?',
+                        options: ['Central Processing Unit (केंद्रीय प्रोसेसिंग यूनिट)', 'Computer Personal Unit', 'Central Program Unit', 'इनमें से कोई नहीं'],
+                        answer: 0,
+                        exp: 'CPU का पूरा नाम Central Processing Unit — केंद्रीय प्रोसेसिंग यूनिट है।'
+                    },
+                    {
+                        topic: 'Computer Fundamentals: Full Forms',
+                        q: 'ALU का पूरा नाम क्या है?',
+                        options: ['Arithmetic Logic Unit (अंकगणितीय तर्क इकाई)', 'Array Logic Unit', 'Applied Logic Unit', 'इनमें से कोई नहीं'],
+                        answer: 0,
+                        exp: 'ALU का पूरा नाम Arithmetic Logic Unit — अंकगणितीय तर्क इकाई है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'RAM का पूरा नाम क्या है?',
+                    options: ['Random Access Memory (यादृच्छिक अभिगम स्मृति)', 'Read Access Memory', 'Rapid Access Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'RAM का पूरा नाम Random Access Memory — यादृच्छिक अभिगम स्मृति है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'ROM का पूरा नाम क्या है?',
+                    options: ['Read Only Memory (केवल पढ़ने योग्य स्मृति)', 'Random Only Memory', 'Read Open Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'ROM का पूरा नाम Read Only Memory — केवल पढ़ने योग्य स्मृति है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: CPU',
+                    q: 'कंप्यूटर का मस्तिष्क किसे कहा जाता है?',
+                    options: ['CPU (सीपीयू)', 'RAM (रैम)', 'Monitor (मॉनिटर)', 'Keyboard (कीबोर्ड)'],
+                    answer: 0,
+                    exp: 'CPU — सीपीयू (केंद्रीय प्रोसेसिंग यूनिट) को कंप्यूटर का मस्तिष्क कहा जाता है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से इनपुट डिवाइस कौन सी है?',
+                    options: ['Keyboard (कीबोर्ड)', 'Monitor (मॉनिटर)', 'Printer (प्रिंटर)', 'Speaker (स्पीकर)'],
+                    answer: 0,
+                    exp: 'Keyboard — कीबोर्ड एक इनपुट डिवाइस है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'निम्न में से आउटपुट डिवाइस कौन सी है?',
+                    options: ['Monitor (मॉनिटर)', 'Mouse (माउस)', 'Keyboard (कीबोर्ड)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'Monitor — मॉनिटर एक आउटपुट डिवाइस है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 बाइट में कितने बिट होते हैं?',
+                    options: ['8', '4', '16', '32'],
+                    answer: 0,
+                    exp: '8 — एक बाइट में 8 बिट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 KB में कितने बाइट होते हैं?',
+                    options: ['1024', '1000', '512', '2048'],
+                    answer: 0,
+                    exp: '1024 — एक किलोबाइट में 1024 बाइट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'कीबोर्ड किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'माउस किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'प्रिंटर किस प्रकार का डिवाइस है?',
+                    options: ['Output (आउटपुट)', 'Input (इनपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Output — आउटपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'स्कैनर किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'मॉनिटर किस प्रकार का डिवाइस है?',
+                    options: ['Output (आउटपुट)', 'Input (इनपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Output — आउटपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'कंप्यूटर के पूरे नाम में M का अर्थ क्या है?',
+                    options: ['Machine (मशीन)', 'Memory (मेमोरी)', 'Monitor (मॉनिटर)', 'Mouse (माउस)'],
+                    answer: 0,
+                    exp: 'Machine — मशीन।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कौन सी मेमोरी अस्थिर (volatile) है?',
+                    options: ['RAM (रैम)', 'ROM (रोम)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)'],
+                    answer: 0,
+                    exp: 'RAM — रैम (बिजली बंद होने पर डेटा मिट जाता है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कौन सी मेमोरी स्थिर (non-volatile) है?',
+                    options: ['ROM (रोम)', 'RAM (रैम)', 'Cache (कैश)', 'Register (रजिस्टर)'],
+                    answer: 0,
+                    exp: 'ROM — रोम (बिजली बंद होने पर भी डेटा सुरक्षित रहता है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: History',
+                    q: 'कंप्यूटर का जनक किसे कहा जाता है?',
+                    options: ['Charles Babbage (चार्ल्स बैबेज)', 'Bill Gates (बिल गेट्स)', 'Steve Jobs (स्टीव जॉब्स)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Charles Babbage — चार्ल्स बैबेज।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 MB में कितने KB होते हैं?',
+                    options: ['1024', '1000', '512', '2048'],
+                    answer: 0,
+                    exp: '1024 — एक मेगाबाइट में 1024 किलोबाइट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 GB में कितने MB होते हैं?',
+                    options: ['1024', '1000', '512', '2048'],
+                    answer: 0,
+                    exp: '1024 — एक गीगाबाइट में 1024 मेगाबाइट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से कौन सी इनपुट डिवाइस है?',
+                    options: ['Scanner (स्कैनर)', 'Printer (प्रिंटर)', 'Plotter (प्लॉटर)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'Scanner — स्कैनर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'निम्न में से कौन सी आउटपुट डिवाइस है?',
+                    options: ['Plotter (प्लॉटर)', 'Mouse (माउस)', 'Keyboard (कीबोर्ड)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'Plotter — प्लॉटर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Data Representation',
+                    q: 'कंप्यूटर में डेटा किस रूप में संग्रहित होता है?',
+                    options: ['Binary (द्विआधारी — 0 और 1)', 'Decimal (दशमलव)', 'English (अंग्रेजी)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Binary — द्विआधारी (0 और 1 के रूप में)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: 'निबल (Nibble) में कितने बिट होते हैं?',
+                    options: ['4', '8', '16', '2'],
+                    answer: 0,
+                    exp: '4 — एक निबल में 4 बिट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Hardware',
+                    q: 'कौन सा डिवाइस कंप्यूटर को बिजली प्रदान करता है?',
+                    options: ['SMPS (एसएमपीएस)', 'CPU (सीपीयू)', 'RAM (रैम)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'SMPS — स्विच्ड मोड पावर सप्लाई।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Hardware',
+                    q: 'कंप्यूटर का मुख्य सर्किट बोर्ड क्या कहलाता है?',
+                    options: ['Motherboard (मदरबोर्ड)', 'CPU (सीपीयू)', 'RAM (रैम)', 'Hard Disk (हार्ड डिस्क)'],
+                    answer: 0,
+                    exp: 'Motherboard — मदरबोर्ड।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 TB में कितने GB होते हैं?',
+                    options: ['1024', '1000', '512', '2048'],
+                    answer: 0,
+                    exp: '1024 — एक टेराबाइट में 1024 गीगाबाइट होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा स्टोरेज डिवाइस है?',
+                    options: ['Hard Disk (हार्ड डिस्क)', 'Monitor (मॉनिटर)', 'Keyboard (कीबोर्ड)', 'Mouse (माउस)'],
+                    answer: 0,
+                    exp: 'Hard Disk — हार्ड डिस्क।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कंप्यूटर में सबसे तेज मेमोरी कौन सी है?',
+                    options: ['Register (रजिस्टर)', 'RAM (रैम)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)'],
+                    answer: 0,
+                    exp: 'Register — रजिस्टर (CPU के अंदर होती है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से कौन सा इनपुट डिवाइस नहीं है?',
+                    options: ['Printer (प्रिंटर)', 'Keyboard (कीबोर्ड)', 'Mouse (माउस)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'Printer — प्रिंटर (यह आउटपुट डिवाइस है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'निम्न में से कौन सा आउटपुट डिवाइस नहीं है?',
+                    options: ['Keyboard (कीबोर्ड)', 'Monitor (मॉनिटर)', 'Printer (प्रिंटर)', 'Speaker (स्पीकर)'],
+                    answer: 0,
+                    exp: 'Keyboard — कीबोर्ड (यह इनपुट डिवाइस है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Components',
+                    q: 'कंप्यूटर के कितने मुख्य भाग होते हैं?',
+                    options: ['3', '2', '4', '5'],
+                    answer: 0,
+                    exp: '3 — इनपुट यूनिट, CPU (प्रोसेसिंग यूनिट), आउटपुट यूनिट।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: CPU',
+                    q: 'CPU के कितने भाग होते हैं?',
+                    options: ['3', '2', '4', '5'],
+                    answer: 0,
+                    exp: '3 — ALU (अंकगणितीय तर्क इकाई), CU (नियंत्रण इकाई), Register (रजिस्टर)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'CU का पूरा नाम क्या है?',
+                    options: ['Control Unit (नियंत्रण इकाई)', 'Central Unit', 'Computer Unit', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Control Unit — नियंत्रण इकाई।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Data Representation',
+                    q: 'कंप्यूटर में 0 और 1 को क्या कहते हैं?',
+                    options: ['Bit (बिट)', 'Byte (बाइट)', 'Nibble (निबल)', 'Word (वर्ड)'],
+                    answer: 0,
+                    exp: 'Bit — बिट (बाइनरी अंक)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'निम्न में से कौन सी मेमोरी स्थायी है?',
+                    options: ['ROM (रोम)', 'RAM (रैम)', 'Cache (कैश)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'ROM — रोम (स्थायी मेमोरी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Data Representation',
+                    q: 'कंप्यूटर में डेटा की सबसे छोटी इकाई क्या है?',
+                    options: ['Bit (बिट)', 'Byte (बाइट)', 'KB (केबी)', 'MB (एमबी)'],
+                    answer: 0,
+                    exp: 'Bit — बिट।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से कौन सा पॉइंटिंग डिवाइस है?',
+                    options: ['Mouse (माउस)', 'Keyboard (कीबोर्ड)', 'Printer (प्रिंटर)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'Mouse — माउस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'OMR का पूरा नाम क्या है?',
+                    options: ['Optical Mark Reader (ऑप्टिकल मार्क रीडर)', 'Optical Memory Reader', 'Output Mark Reader', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Optical Mark Reader — ऑप्टिकल मार्क रीडर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कैश मेमोरी कहाँ स्थित होती है?',
+                    options: ['CPU और मुख्य मेमोरी के बीच', 'हार्ड डिस्क के अंदर', 'मॉनिटर में', 'कीबोर्ड में'],
+                    answer: 0,
+                    exp: 'CPU और मुख्य मेमोरी के बीच — यह गति बढ़ाने के लिए होती है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'SRAM का पूरा नाम क्या है?',
+                    options: ['Static Random Access Memory (स्थिर यादृच्छिक अभिगम स्मृति)', 'System Random Access Memory', 'Static Read Access Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Static Random Access Memory — स्थिर यादृच्छिक अभिगम स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'DRAM का पूरा नाम क्या है?',
+                    options: ['Dynamic Random Access Memory (गतिशील यादृच्छिक अभिगम स्मृति)', 'Data Random Access Memory', 'Dynamic Read Access Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Dynamic Random Access Memory — गतिशील यादृच्छिक अभिगम स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'PROM का पूरा नाम क्या है?',
+                    options: ['Programmable Read Only Memory (क्रमादेश्य केवल पढ़ने योग्य स्मृति)', 'Program Read Only Memory', 'Primary Read Only Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Programmable Read Only Memory — क्रमादेश्य केवल पढ़ने योग्य स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'EPROM का पूरा नाम क्या है?',
+                    options: ['Erasable Programmable Read Only Memory (मिटाने योग्य क्रमादेश्य केवल पढ़ने योग्य स्मृति)', 'Electronic Programmable Read Only Memory', 'Erasable Program Read Only Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Erasable Programmable Read Only Memory — मिटाने योग्य क्रमादेश्य केवल पढ़ने योग्य स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'निम्न में से कौन सी मेमोरी बिजली बंद होने पर डेटा खो देती है?',
+                    options: ['RAM (रैम)', 'ROM (रोम)', 'Hard Disk (हार्ड डिस्क)', 'DVD (डीवीडी)'],
+                    answer: 0,
+                    exp: 'RAM — रैम (यह अस्थिर मेमोरी है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Speed',
+                    q: 'कंप्यूटर की गति किस इकाई में मापी जाती है?',
+                    options: ['Hertz (हर्ट्ज़)', 'Meter (मीटर)', 'Liter (लीटर)', 'Byte (बाइट)'],
+                    answer: 0,
+                    exp: 'Hertz — हर्ट्ज़ (GHz में भी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Speed',
+                    q: '1 GHz में कितने MHz होते हैं?',
+                    options: ['1000', '1024', '512', '2048'],
+                    answer: 0,
+                    exp: '1000 — एक गीगाहर्ट्ज़ में 1000 मेगाहर्ट्ज़ होते हैं।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'निम्न में से कौन सा प्राथमिक स्टोरेज है?',
+                    options: ['RAM (रैम)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)', 'CD (सीडी)'],
+                    answer: 0,
+                    exp: 'RAM — रैम (प्राथमिक/मुख्य मेमोरी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा द्वितीयक स्टोरेज है?',
+                    options: ['Hard Disk (हार्ड डिस्क)', 'RAM (रैम)', 'Cache (कैश)', 'Register (रजिस्टर)'],
+                    answer: 0,
+                    exp: 'Hard Disk — हार्ड डिस्क (द्वितीयक/सहायक मेमोरी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'MICR का पूरा नाम क्या है?',
+                    options: ['Magnetic Ink Character Reader (चुंबकीय स्याही अक्षर पाठक)', 'Magnetic Ink Code Reader', 'Machine Ink Character Reader', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Magnetic Ink Character Reader — चुंबकीय स्याही अक्षर पाठक (बैंकों में चेक पढ़ने के लिए)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'OCR का पूरा नाम क्या है?',
+                    options: ['Optical Character Recognition (ऑप्टिकल अक्षर पहचान)', 'Optical Code Reader', 'Output Character Reader', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Optical Character Recognition — ऑप्टिकल अक्षर पहचान।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'कौन सा डिवाइस हाथ से लिखे अक्षरों को पहचानता है?',
+                    options: ['OCR (ओसीआर)', 'OMR (ओएमआर)', 'MICR (एमआईसीआर)', 'Plotter (प्लॉटर)'],
+                    answer: 0,
+                    exp: 'OCR — ऑप्टिकल अक्षर पहचान।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'बैंक चेक में कौन सा डिवाइस प्रयोग होता है?',
+                    options: ['MICR (एमआईसीआर)', 'OCR (ओसीआर)', 'OMR (ओएमआर)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'MICR — चुंबकीय स्याही अक्षर पाठक।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'परीक्षा की उत्तर पुस्तिका में कौन सा डिवाइस प्रयोग होता है?',
+                    options: ['OMR (ओएमआर)', 'MICR (एमआईसीआर)', 'OCR (ओसीआर)', 'Plotter (प्लॉटर)'],
+                    answer: 0,
+                    exp: 'OMR — ऑप्टिकल मार्क रीडर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा स्टोरेज डिवाइस नहीं है?',
+                    options: ['Monitor (मॉनिटर)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)', 'DVD (डीवीडी)'],
+                    answer: 0,
+                    exp: 'Monitor — मॉनिटर (यह आउटपुट डिवाइस है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'SSD का पूरा नाम क्या है?',
+                    options: ['Solid State Drive (सॉलिड स्टेट ड्राइव)', 'Static State Drive', 'Solid Storage Drive', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Solid State Drive — सॉलिड स्टेट ड्राइव।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा ऑप्टिकल स्टोरेज है?',
+                    options: ['DVD (डीवीडी)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)', 'RAM (रैम)'],
+                    answer: 0,
+                    exp: 'DVD — डीवीडी (लेजर से पढ़ा जाता है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'पेन ड्राइव किस प्रकार की मेमोरी है?',
+                    options: ['Flash Memory (फ्लैश मेमोरी)', 'RAM (रैम)', 'ROM (रोम)', 'Cache (कैश)'],
+                    answer: 0,
+                    exp: 'Flash Memory — फ्लैश मेमोरी (non-volatile)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: BIOS',
+                    q: 'कंप्यूटर में BIOS कहाँ संग्रहित होता है?',
+                    options: ['ROM (रोम)', 'RAM (रैम)', 'Hard Disk (हार्ड डिस्क)', 'Pen Drive (पेन ड्राइव)'],
+                    answer: 0,
+                    exp: 'ROM — रोम (मदरबोर्ड पर स्थित चिप में)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'BIOS का पूरा नाम क्या है?',
+                    options: ['Basic Input Output System (बेसिक इनपुट आउटपुट सिस्टम)', 'Basic Internal Operating System', 'Binary Input Output System', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Basic Input Output System — बेसिक इनपुट आउटपुट सिस्टम।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'निम्न में से कौन सा डिवाइस बड़े चित्र छापने के लिए प्रयोग होता है?',
+                    options: ['Plotter (प्लॉटर)', 'Printer (प्रिंटर)', 'Monitor (मॉनिटर)', 'Scanner (स्कैनर)'],
+                    answer: 0,
+                    exp: 'Plotter — प्लॉटर (इंजीनियरिंग डिज़ाइन में)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Printers',
+                    q: 'लेजर प्रिंटर किस प्रकार का प्रिंटर है?',
+                    options: ['Non-Impact (नॉन-इम्पैक्ट)', 'Impact (इम्पैक्ट)', 'Dot Matrix (डॉट मैट्रिक्स)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Non-Impact — नॉन-इम्पैक्ट (बिना टकराव के छपाई)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Printers',
+                    q: 'डॉट मैट्रिक्स प्रिंटर किस प्रकार का प्रिंटर है?',
+                    options: ['Impact (इम्पैक्ट)', 'Non-Impact (नॉन-इम्पैक्ट)', 'Laser (लेजर)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Impact — इम्पैक्ट (टकराव से छपाई)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Hardware vs Software',
+                    q: 'निम्न में से कौन सा हार्डवेयर नहीं है?',
+                    options: ['Windows (विंडोज)', 'Monitor (मॉनिटर)', 'CPU (सीपीयू)', 'Keyboard (कीबोर्ड)'],
+                    answer: 0,
+                    exp: 'Windows — विंडोज (यह सॉफ्टवेयर है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Hardware vs Software',
+                    q: 'निम्न में से कौन सा सॉफ्टवेयर है?',
+                    options: ['MS Word (एमएस वर्ड)', 'Mouse (माउस)', 'Printer (प्रिंटर)', 'RAM (रैम)'],
+                    answer: 0,
+                    exp: 'MS Word — एमएस वर्ड (यह सॉफ्टवेयर है)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Units',
+                    q: '1 बाइट में कितने निबल होते हैं?',
+                    options: ['2', '4', '8', '1'],
+                    answer: 0,
+                    exp: '2 — एक बाइट में 2 निबल होते हैं (8 बिट = 2 × 4 बिट)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कंप्यूटर की मुख्य मेमोरी कौन सी है?',
+                    options: ['RAM (रैम)', 'Hard Disk (हार्ड डिस्क)', 'DVD (डीवीडी)', 'Pen Drive (पेन ड्राइव)'],
+                    answer: 0,
+                    exp: 'RAM — रैम (मुख्य/प्राथमिक मेमोरी)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कैश मेमोरी RAM से कैसी होती है?',
+                    options: ['तेज (Faster)', 'धीमी (Slower)', 'बराबर (Equal)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'तेज — कैश मेमोरी रैम से अधिक तेज होती है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Storage Devices',
+                    q: 'निम्न में से कौन सा डिवाइस डेटा को स्थायी रूप से संग्रहित करता है?',
+                    options: ['Hard Disk (हार्ड डिस्क)', 'RAM (रैम)', 'Cache (कैश)', 'Register (रजिस्टर)'],
+                    answer: 0,
+                    exp: 'Hard Disk — हार्ड डिस्क (स्थायी संग्रहण)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'लाइट पेन किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'जॉयस्टिक किस प्रकार का डिवाइस है?',
+                    options: ['Input (इनपुट)', 'Output (आउटपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input — इनपुट डिवाइस (गेमिंग में प्रयोग)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Input Devices',
+                    q: 'निम्न में से कौन सा डिवाइस आवाज़ को इनपुट के रूप में लेता है?',
+                    options: ['Microphone (माइक्रोफ़ोन)', 'Speaker (स्पीकर)', 'Printer (प्रिंटर)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'Microphone — माइक्रोफ़ोन।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Output Devices',
+                    q: 'स्पीकर किस प्रकार का डिवाइस है?',
+                    options: ['Output (आउटपुट)', 'Input (इनपुट)', 'Storage (स्टोरेज)', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Output — आउटपुट डिवाइस।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Software',
+                    q: 'कंप्यूटर में डेटा और निर्देशों का समूह क्या कहलाता है?',
+                    options: ['Program (प्रोग्राम)', 'Hardware (हार्डवेयर)', 'CPU (सीपीयू)', 'Monitor (मॉनिटर)'],
+                    answer: 0,
+                    exp: 'Program — प्रोग्राम (निर्देशों का समूह)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Computer Cycle',
+                    q: 'कंप्यूटर की कार्यप्रणाली में IPO चक्र का क्या अर्थ है?',
+                    options: ['Input-Process-Output (इनपुट-प्रोसेस-आउटपुट)', 'Input-Program-Output', 'Internal-Process-Output', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Input-Process-Output — इनपुट-प्रोसेस-आउटपुट चक्र।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Architecture',
+                    q: 'फॉन न्यूमैन आर्किटेक्चर में कौन सा तत्व शामिल होता है?',
+                    options: ['Stored Program Concept (संग्रहित प्रोग्राम अवधारणा)', 'केवल हार्डवेयर', 'केवल सॉफ्टवेयर', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Stored Program Concept — संग्रहित प्रोग्राम अवधारणा (प्रोग्राम और डेटा एक ही मेमोरी में)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'कैश मेमोरी में कौन सा सिद्धांत कार्य करता है?',
+                    options: ['Locality of Reference (संदर्भ की निकटता)', 'First In First Out', 'Last In First Out', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Locality of Reference — संदर्भ की निकटता (हाल में प्रयुक्त डेटा फिर प्रयोग होने की संभावना)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'निम्न में से कौन सी मेमोरी सबसे तेज है?',
+                    options: ['Register (रजिस्टर)', 'Cache (कैश)', 'RAM (रैम)', 'Hard Disk (हार्ड डिस्क)'],
+                    answer: 0,
+                    exp: 'Register — रजिस्टर (CPU के अंदर, सबसे तेज)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'मेमोरी पदानुक्रम (Memory Hierarchy) में सही क्रम क्या है (तेज से धीमी)?',
+                    options: ['Register > Cache > RAM > Hard Disk', 'RAM > Register > Cache > Hard Disk', 'Hard Disk > RAM > Cache > Register', 'Cache > Register > RAM > Hard Disk'],
+                    answer: 0,
+                    exp: 'Register > Cache > RAM > Hard Disk — तेज से धीमी।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'EEPROM का पूरा नाम क्या है?',
+                    options: ['Electrically Erasable Programmable Read Only Memory', 'Electronic Erasable Programmable Read Only Memory', 'Electrically Erasable Program Read Only Memory', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Electrically Erasable Programmable Read Only Memory — विद्युत रूप से मिटाने योग्य क्रमादेश्य केवल पढ़ने योग्य स्मृति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Memory',
+                    q: 'फ्लैश मेमोरी किस प्रकार की मेमोरी है?',
+                    options: ['Non-volatile (स्थिर)', 'Volatile (अस्थिर)', 'केवल पढ़ने योग्य', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Non-volatile — स्थिर (बिजली बंद होने पर डेटा सुरक्षित)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Bus',
+                    q: 'कंप्यूटर में "बस" क्या होती है?',
+                    options: ['डेटा स्थानांतरण का मार्ग (Data transfer path)', 'एक प्रकार की मेमोरी', 'एक प्रकार का प्रिंटर', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'डेटा स्थानांतरण का मार्ग — घटकों के बीच डेटा भेजने का रास्ता।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Bus',
+                    q: 'सिस्टम बस के कितने प्रकार होते हैं?',
+                    options: ['3', '2', '4', '5'],
+                    answer: 0,
+                    exp: '3 — Data Bus (डेटा बस), Address Bus (एड्रेस बस), Control Bus (कंट्रोल बस)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Bus',
+                    q: 'एड्रेस बस किस दिशा में डेटा भेजती है?',
+                    options: ['एकतरफा (Unidirectional)', 'दोतरफा (Bidirectional)', 'तीनतरफा', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'एकतरफा — Unidirectional (CPU से मेमोरी की ओर)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Bus',
+                    q: 'डेटा बस किस प्रकार की होती है?',
+                    options: ['दोतरफा (Bidirectional)', 'एकतरफा (Unidirectional)', 'तीनतरफा', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'दोतरफा — Bidirectional (दोनों दिशाओं में डेटा)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'RISC का पूरा नाम क्या है?',
+                    options: ['Reduced Instruction Set Computer (घटित निर्देश समुच्चय कंप्यूटर)', 'Random Instruction Set Computer', 'Reduced Internal Set Computer', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Reduced Instruction Set Computer — घटित निर्देश समुच्चय कंप्यूटर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'CISC का पूरा नाम क्या है?',
+                    options: ['Complex Instruction Set Computer (जटिल निर्देश समुच्चय कंप्यूटर)', 'Common Instruction Set Computer', 'Complex Internal Set Computer', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Complex Instruction Set Computer — जटिल निर्देश समुच्चय कंप्यूटर।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Architecture',
+                    q: 'पाइपलाइनिंग (Pipelining) का क्या उद्देश्य है?',
+                    options: ['निर्देशों को समानांतर रूप से निष्पादित करना (Parallel execution)', 'मेमोरी बढ़ाना', 'डेटा संग्रहित करना', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'निर्देशों को समानांतर रूप से निष्पादित करना — समानांतर प्रोसेसिंग से गति बढ़ाना।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Architecture',
+                    q: 'हार्वर्ड आर्किटेक्चर में क्या अलग होता है?',
+                    options: ['डेटा और निर्देश के लिए अलग-अलग मेमोरी', 'केवल एक मेमोरी', 'केवल रजिस्टर', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'डेटा और निर्देश के लिए अलग-अलग मेमोरी — Separate memory for data and instructions।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Full Forms',
+                    q: 'DMA का पूरा नाम क्या है?',
+                    options: ['Direct Memory Access (प्रत्यक्ष स्मृति अभिगम)', 'Dynamic Memory Access', 'Direct Main Access', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'Direct Memory Access — प्रत्यक्ष स्मृति अभिगम (CPU की भागीदारी के बिना डेटा स्थानांतरण)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: DMA',
+                    q: 'DMA का क्या लाभ है?',
+                    options: ['CPU की भागीदारी के बिना डेटा स्थानांतरण (Data transfer without CPU involvement)', 'मेमोरी बढ़ाना', 'गति घटाना', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'CPU की भागीदारी के बिना डेटा स्थानांतरण — इससे गति बढ़ती है।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Speed',
+                    q: 'कंप्यूटर में क्लॉक स्पीड किससे मापी जाती है?',
+                    options: ['GHz (गीगाहर्ट्ज़)', 'GB (गीगाबाइट)', 'MB (मेगाबाइट)', 'Bit (बिट)'],
+                    answer: 0,
+                    exp: 'GHz — गीगाहर्ट्ज़ (क्लॉक गति की इकाई)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: CPU',
+                    q: 'ओवरक्लॉकिंग (Overclocking) क्या है?',
+                    options: ['CPU की गति को निर्धारित सीमा से अधिक बढ़ाना', 'मेमोरी बढ़ाना', 'हार्ड डिस्क बदलना', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'CPU की गति को निर्धारित सीमा से अधिक बढ़ाना — निर्माता की सीमा से अधिक गति।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Generations',
+                    q: 'निम्न में से कौन सा कंप्यूटर की चौथी पीढ़ी का घटक है?',
+                    options: ['Microprocessor (माइक्रोप्रोसेसर)', 'Vacuum Tube (वैक्यूम ट्यूब)', 'Transistor (ट्रांजिस्टर)', 'Integrated Circuit (आईसी)'],
+                    answer: 0,
+                    exp: 'Microprocessor — माइक्रोप्रोसेसर (चौथी पीढ़ी 1971 से)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Generations',
+                    q: 'कंप्यूटर की पहली पीढ़ी में कौन सा घटक प्रयोग होता था?',
+                    options: ['Vacuum Tube (वैक्यूम ट्यूब)', 'Transistor (ट्रांजिस्टर)', 'IC (आईसी)', 'Microprocessor (माइक्रोप्रोसेसर)'],
+                    answer: 0,
+                    exp: 'Vacuum Tube — वैक्यूम ट्यूब (पहली पीढ़ी 1940-1956)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Generations',
+                    q: 'कंप्यूटर की दूसरी पीढ़ी में कौन सा घटक प्रयोग होता था?',
+                    options: ['Transistor (ट्रांजिस्टर)', 'Vacuum Tube (वैक्यूम ट्यूब)', 'IC (आईसी)', 'Microprocessor (माइक्रोप्रोसेसर)'],
+                    answer: 0,
+                    exp: 'Transistor — ट्रांजिस्टर (दूसरी पीढ़ी 1956-1963)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Generations',
+                    q: 'कंप्यूटर की तीसरी पीढ़ी में कौन सा घटक प्रयोग होता था?',
+                    options: ['Integrated Circuit (एकीकृत परिपथ — IC)', 'Vacuum Tube (वैक्यूम ट्यूब)', 'Transistor (ट्रांजिस्टर)', 'Microprocessor (माइक्रोप्रोसेसर)'],
+                    answer: 0,
+                    exp: 'Integrated Circuit — एकीकृत परिपथ (तीसरी पीढ़ी 1964-1971)।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Architecture',
+                    q: 'फॉन न्यूमैन बॉटलनेक (Von Neumann Bottleneck) क्या है?',
+                    options: ['CPU और मेमोरी के बीच डेटा स्थानांतरण की सीमा', 'हार्ड डिस्क की क्षमता की सीमा', 'प्रिंटर की गति की सीमा', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'CPU और मेमोरी के बीच डेटा स्थानांतरण की सीमा — बस की सीमित बैंडविड्थ के कारण।'
+                    },
+                    {
+                    topic: 'Computer Fundamentals: Basics',
+                    q: 'निम्न में से कौन सा कथन कंप्यूटर के बारे में सही है?',
+                    options: ['कंप्यूटर स्वयं कोई निर्णय नहीं लेता, यह केवल निर्देशों का पालन करता है', 'कंप्यूटर स्वयं सोच सकता है', 'कंप्यूटर में भावनाएँ होती हैं', 'इनमें से कोई नहीं'],
+                    answer: 0,
+                    exp: 'कंप्यूटर स्वयं कोई निर्णय नहीं लेता, यह केवल निर्देशों का पालन करता है — कंप्यूटर एक स्वचालित मशीन है जो प्रोग्राम के अनुसार कार्य करती है।'
+                    }
+                ]
+            },
+            {
+                id: 'm1-ch4',
+                code: 'CH-04',
+                badge: 'CHAPTER 4 • M1-R5',
+                title: 'Spreadsheet (LibreOffice Calc)',
+                description: 'Cells, rows & columns, cell referencing (Relative, Absolute $), SUM/AVERAGE/IF/ROUND/COUNT functions & charts.',
+                questionsCount: 'CBT Chapter Test',
+                duration: '25 Mins',
+                gradient: 'from-emerald-600 via-teal-600 to-cyan-600',
+                iconBg: 'bg-emerald-100 text-emerald-600',
+                icon: 'fa-table',
+                linkedPage: '',
+                syllabus: [
+                    'Spreadsheet Grid, Cell Address, Name Box & Formula Bar (.ods)',
+                    'Mathematical, Logical (IF, AND, OR), Text & Date/Time Functions',
+                    'Sorting, Filtering, Conditional Formatting & Chart Types'
+                ],
+                notes: [
+                    'Calc mein har formula "=" (equal to) sign se start hota hai.',
+                    '$A$1 Absolute Cell Reference ko darshata hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Chapter 4: LibreOffice Calc',
+                        q: 'LibreOffice Calc mein =COUNT(10, "A", 20, 30) ka result kya hoga?',
+                        options: ['4', '3', '60', '2'],
+                        answer: 1,
+                        exp: 'COUNT function keval numeric values (10, 20, 30) ko ginta hai, isliye output 3 hoga.'
+                    },
+                    {
+                        topic: 'Chapter 4: Cell Reference',
+                        q: 'Calc mein $A$1 kis prakar ka cell reference hai?',
+                        options: ['Relative Reference', 'Mixed Reference', 'Absolute Reference', '3D Reference'],
+                        answer: 2,
+                        exp: '$A$1 mein row aur column dono lock hain, isliye yeh Absolute Reference hai.'
+                    },
+                    {
+                        topic: 'Chapter 4: Calc Limits',
+                        q: 'LibreOffice Calc worksheet mein kul kitne columns hote hain (R5.1)?',
+                        options: ['256', '1024', '16384', '1048576'],
+                        answer: 1,
+                        exp: 'LibreOffice Calc mein maximum 1024 columns (A se AMJ) aur 1,048,576 rows hoti hain.'
+                    }
+                ]
+            },
+            {
+                id: 'm1-ch5',
+                code: 'CH-05',
+                badge: 'CHAPTER 5 • M1-R5',
+                title: 'Presentation (LibreOffice Impress)',
+                description: 'Creating slides, slide layouts, master slide, slide transition, custom animation, speaker notes & slide show.',
+                questionsCount: 'CBT Chapter Test',
+                duration: '20 Mins',
+                gradient: 'from-purple-600 via-fuchsia-600 to-pink-600',
+                iconBg: 'bg-purple-100 text-purple-600',
+                icon: 'fa-person-chalkboard',
+                linkedPage: '',
+                syllabus: [
+                    'Creating & Formatting Presentations (.odp), Slide Sorter & Normal View',
+                    'Slide Master, Slide Transition Effects & Object Custom Animation',
+                    'Inserting Images/Tables/Audio & Running Full-Screen Slide Show'
+                ],
+                notes: [
+                    'LibreOffice Impress presentation ka default extension .odp hota hai.',
+                    'Ctrl + M se nayi slide insert ki jaati hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Chapter 5: LibreOffice Impress',
+                        q: 'LibreOffice Impress presentation ka default file extension kya hota hai?',
+                        options: ['.pptx', '.odp', '.pps', '.odg'],
+                        answer: 1,
+                        exp: 'LibreOffice Impress ka default extension .odp (OpenDocument Presentation) hota hai.'
+                    },
+                    {
+                        topic: 'Chapter 5: Slide Shortcuts',
+                        q: 'LibreOffice Impress mein nayi slide add karne ki shortcut key kya hai?',
+                        options: ['Ctrl + N', 'Ctrl + M', 'Ctrl + S', 'Shift + M'],
+                        answer: 1,
+                        exp: 'Ctrl + M se current presentation mein nayi slide insert hoti hai.'
+                    },
+                    {
+                        topic: 'Chapter 5: Slide Show',
+                        q: 'Pehli slide se Slide Show shuru karne ke liye kaun si key dabate hain?',
+                        options: ['F2', 'F5', 'F8', 'Esc'],
+                        answer: 1,
+                        exp: 'F5 key se Slide Show pehli slide se start hota hai.'
+                    }
+                ]
+            },
+            {
+                id: 'm1-ch6',
+                code: 'CH-06',
+                badge: 'CHAPTER 6 • M1-R5',
+                title: 'Introduction to Internet & WWW',
+                description: 'LAN/MAN/WAN, network topologies, IPv4/IPv6, DNS, URL, HTTP/HTTPS, web browsers, search engines & email protocols.',
+                questionsCount: 'CBT Chapter Test',
+                duration: '20 Mins',
+                gradient: 'from-cyan-600 via-sky-600 to-blue-700',
+                iconBg: 'bg-cyan-100 text-cyan-600',
+                icon: 'fa-globe',
+                linkedPage: '',
+                syllabus: [
+                    'Network Types (PAN, LAN, MAN, WAN), Topologies & Transmission Media',
+                    'TCP/IP, IP Address, MAC Address, Domain Name System (DNS) & URL Structure',
+                    'Web Browsers, Bookmarks, Incognito Mode, Email (SMTP, POP3, IMAP) & CC/BCC'
+                ],
+                notes: [
+                    'SMTP email bhejne ke liye aur POP3/IMAP email receive karne ke liye use hote hain.',
+                    'BCC (Blind Carbon Copy) mein recipients ek-doosre ka email address nahi dekh paate.'
+                ],
+                questions: [
+                    {
+                        topic: 'Chapter 6: Email Protocols',
+                        q: 'Email send karne ke liye kaun sa protocol use hota hai?',
+                        options: ['SMTP', 'POP3', 'FTP', 'DHCP'],
+                        answer: 0,
+                        exp: 'SMTP (Simple Mail Transfer Protocol) outgoing emails bhejne ke liye kaam aata hai.'
+                    },
+                    {
+                        topic: 'Chapter 6: Addressing',
+                        q: 'Domain name ko IP address mein translate karne wali system service kya kehlati hai?',
+                        options: ['HTTP', 'DNS', 'URL', 'ISP'],
+                        answer: 1,
+                        exp: 'DNS (Domain Name System) human-readable domain names ko IP addresses mein resolve karta hai.'
+                    },
+                    {
+                        topic: 'Chapter 6: Email CC/BCC',
+                        q: 'Email mein BCC ka poora roop kya hai?',
+                        options: ['Blind Carbon Copy', 'Bulk Carbon Copy', 'Basic Client Copy', 'Binary Code Copy'],
+                        answer: 0,
+                        exp: 'BCC ka full form Blind Carbon Copy hota hai.'
+                    }
+                ]
+            },
+            {
+                id: 'm1-ch7',
+                code: 'CH-07',
+                badge: 'CHAPTER 7 • M1-R5',
+                title: 'E-Governance Services & Digital Financial Tools',
+                description: 'UMANG, DigiLocker, IRCTC, Passport Seva, UPI, BHIM, AEPS, USSD (*99#), NEFT, RTGS, IMPS, Debit/Credit Card & OTP.',
+                questionsCount: 'CBT Chapter Test',
+                duration: '20 Mins',
+                gradient: 'from-amber-500 via-orange-600 to-rose-600',
+                iconBg: 'bg-amber-100 text-amber-600',
+                icon: 'fa-indian-rupee-sign',
+                linkedPage: '',
+                syllabus: [
+                    'Digital India & E-Governance Portals (DigiLocker, UMANG, National Scholarship Portal)',
+                    'UPI, BHIM App, QR Code, AEPS & *99# USSD Mobile Banking',
+                    'NEFT, RTGS, IMPS, RuPay/Visa/MasterCard, CVV & Banking Safety'
+                ],
+                notes: [
+                    'USSD mobile banking ke liye dial code *99# hota hai jo bina internet ke bhi kaam karta hai.',
+                    'UPI mein per-transaction PIN ko UPI PIN kehte hain; CVV card ke peeche 3 digits ka hota hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Chapter 7: Digital Finance',
+                        q: 'Bina internet ke mobile banking ke liye kaun sa USSD code dial kiya jaata hai?',
+                        options: ['*99#', '*123#', '#99*', '*199#'],
+                        answer: 0,
+                        exp: '*99# USSD code se bina internet connection ke balance check aur fund transfer kiya ja sakta hai.'
+                    },
+                    {
+                        topic: 'Chapter 7: E-Governance',
+                        q: 'Digital documents (Marksheet, Driving Licence, Aadhaar) ko cloud par store karne ki sarkari seva kaun si hai?',
+                        options: ['DigiLocker', 'IMPS', 'NEFT', 'SMTP'],
+                        answer: 0,
+                        exp: 'DigiLocker Government of India ki digital document wallet seva hai.'
+                    },
+                    {
+                        topic: 'Chapter 7: Card Security',
+                        q: 'Debit ya Credit card par CVV code aam taur par kitne digits ka hota hai?',
+                        options: ['2 digits', '3 digits', '6 digits', '8 digits'],
+                        answer: 1,
+                        exp: 'CVV (Card Verification Value) aam taur par 3 digits ka hota hai.'
+                    }
+                ]
+            },
+            {
+                id: 'm1-ch8',
+                code: 'CH-08',
+                badge: 'CHAPTER 8 • M1-R5',
+                title: 'Overview of Futureskills & Cyber Security',
+                description: 'IoT, Big Data Analytics, Cloud Computing, AI, Blockchain, VR/AR, Phishing, Malware, Ransomware, 2FA & Cert-In.',
+                questionsCount: 'CBT Chapter Test',
+                duration: '20 Mins',
+                gradient: 'from-rose-600 via-pink-600 to-purple-700',
+                iconBg: 'bg-rose-100 text-rose-600',
+                icon: 'fa-shield-halved',
+                linkedPage: '',
+                syllabus: [
+                    'Futureskills Pillars: IoT, Big Data, Cloud Computing, AI, Machine Learning & Blockchain',
+                    'Cyber Threats: Phishing, Vishing, Smishing, Trojan, Spyware & Ransomware',
+                    'Strong Passwords, Two-Factor Authentication (2FA), Encryption & Cyber Hygiene'
+                ],
+                notes: [
+                    'Fake emails ya links ke zariye sensitive data churane ki koshish ko Phishing kehte hain.',
+                    'Ransomware system ya files ko encrypt karke ransom (firauti) ki maang karta hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Chapter 8: Cyber Security',
+                        q: 'Nakli website ya email bhej kar user ka password/OTP churane ke attack ko kya kehte hain?',
+                        options: ['Phishing', 'Formatting', 'Defragmenting', 'Compiling'],
+                        answer: 0,
+                        exp: 'Phishing social engineering attack hai jisme fraudulent messages/links se data churaaya jaata hai.'
+                    },
+                    {
+                        topic: 'Chapter 8: Futureskills',
+                        q: 'Distributed ledger technology jo tamper-resistant blocks mein data store karti hai use kya kehte hain?',
+                        options: ['Blockchain', 'Spreadsheet', 'BIOS', 'Cache'],
+                        answer: 0,
+                        exp: 'Blockchain ek secure, decentralized aur tamper-evident ledger technology hai.'
+                    },
+                    {
+                        topic: 'Chapter 8: Malware',
+                        q: 'Aisa malware jo files ko lock/encrypt karke paise ki maang karta hai kya kehlata hai?',
+                        options: ['Ransomware', 'Browser', 'Driver', 'Firewall'],
+                        answer: 0,
+                        exp: 'Ransomware data ko encrypt kar deta hai aur unlock karne ke liye ransom demand karta hai.'
+                    }
+                ]
+            },
+            {
+                id: 'm1-ch9',
+                code: 'CH-09',
+                badge: 'CHAPTER 9 • M1-R5',
+                title: 'Full Paper Review & Mixed M1-R5 Practice',
+                description: 'Complete M1-R5 chapter-by-chapter revision test covering Writer, Calc, Impress, Internet, Banking & Cyber Security.',
+                questionsCount: 'Mixed M1-R5 Set',
+                duration: '25 Mins',
+                gradient: 'from-violet-600 via-indigo-600 to-cyan-600',
+                iconBg: 'bg-violet-100 text-violet-600',
+                icon: 'fa-graduation-cap',
+                linkedPage: '',
+                syllabus: [
+                    'Complete Revision of Chapters 1 to 8 (M1-R5 R5.1 Syllabus)',
+                    'High-Frequency NIELIT O-Level MCQs & Shortcut Keys Recap',
+                    'Self-Assessment with NIELIT S / A / B / C / D Grade Evaluation'
+                ],
+                notes: [
+                    'Sabhi 9 chapters ka concept clear hone par full M1-R5 paper mein 85%+ (S Grade) laana aasaan hota hai.',
+                    'Har option ko dhyan se padhein aur explanation note karein.'
+                ],
+                questions: [
+                    {
+                        topic: 'Chapter 9: M1-R5 Master Review',
+                        q: 'LibreOffice Writer mein superscript lagane ki shortcut key kya hoti hai?',
+                        options: ['Ctrl + Shift + P', 'Ctrl + Shift + B', 'Ctrl + = ', 'Alt + Shift + P'],
+                        answer: 0,
+                        exp: 'LibreOffice mein Ctrl + Shift + P se Superscript aur Ctrl + Shift + B se Subscript apply hota hai.'
+                    },
+                    {
+                        topic: 'Chapter 9: M1-R5 Master Review',
+                        q: 'HTTPS mein "S" ka kya matlab hai?',
+                        options: ['Server', 'Secure', 'System', 'Standard'],
+                        answer: 1,
+                        exp: 'HTTPS ka matlab HyperText Transfer Protocol Secure hai jo SSL/TLS encryption use karta hai.'
+                    },
+                    {
+                        topic: 'Chapter 9: M1-R5 Master Review',
+                        q: 'Calc mein kisi range A1 se A10 ka average nikalne ka sahi formula kya hai?',
+                        options: ['=AVG(A1:A10)', '=AVERAGE(A1:A10)', '=MEAN(A1-A10)', '=SUM(A1:A10)/AVG'],
+                        answer: 1,
+                        exp: '=AVERAGE(A1:A10) A1 se A10 tak ki values ka arithmetic mean nikalta hai.'
+                    }
+                ]
+            }
+        ];
+
+        // Topic-wise sub-cards for M2-R5 (3 Cards: HTML, CSS, JavaScript)
+        const m2R5Topics = [
+            {
+                id: 'm2-html',
+                code: 'HTML5',
+                badge: 'M2-R5 • WEB DESIGN',
+                title: 'HTML (HyperText Markup Language)',
+                description: 'HTML5 document structure, headings, paragraphs, lists, links, images, tables, forms, input types & semantic tags.',
+                questionsCount: 'CBT Topic Test',
+                duration: '25 Mins',
+                gradient: 'from-orange-500 via-red-500 to-pink-600',
+                iconBg: 'bg-orange-100 text-orange-600',
+                icon: 'fa-brands fa-html5',
+                linkedPage: '',
+                syllabus: [
+                    'HTML5 Skeleton (<!DOCTYPE html>, <html>, <head>, <body>) & Meta Tags',
+                    'Text Formatting, Lists (<ol>, <ul>, <dl>), Anchors (<a>), Images (<img>) & Tables',
+                    'HTML Forms (<form>, <input>, <select>, <textarea>) & Semantic Elements (<article>, <nav>, <section>)'
+                ],
+                notes: [
+                    'HTML5 mein <!DOCTYPE html> document type declaration sabse upar likhi jaati hai.',
+                    '<input type="email"> aur required attribute browser-level form validation mein madad karte hain.'
+                ],
+                questions: [
+                    {
+                        topic: 'HTML5 Basics',
+                        q: 'HTML5 mein sabse bada heading tag kaun sa hota hai?',
+                        options: ['<h6>', '<h1>', '<head>', '<header>'],
+                        answer: 1,
+                        exp: '<h1> sabse bada heading tag hai aur <h6> sabse chota heading tag hota hai.'
+                    },
+                    {
+                        topic: 'HTML Forms & Links',
+                        q: 'Hyperlink banane ke liye HTML mein kaun sa tag aur attribute use hota hai?',
+                        options: ['<link href="...">', '<a href="...">', '<url src="...">', '<hlink to="...">'],
+                        answer: 1,
+                        exp: '<a href="URL">Text</a> se hyperlink banaya jaata hai.'
+                    },
+                    {
+                        topic: 'HTML5 Semantic & Media',
+                        q: 'HTML5 mein webpage ka navigation links section dikhane ke liye kaun sa semantic tag use hota hai?',
+                        options: ['<nav>', '<menu-bar>', '<links>', '<navigate>'],
+                        answer: 0,
+                        exp: '<nav> tag navigation links ke block ko define karta hai.'
+                    }
+                ]
+            },
+            {
+                id: 'm2-css',
+                code: 'CSS3',
+                badge: 'M2-R5 • WEB DESIGN',
+                title: 'CSS (Cascading Style Sheets)',
+                description: 'Inline, Internal & External CSS, selectors, colors, backgrounds, box model (margin, border, padding), flexbox & W3.CSS.',
+                questionsCount: 'CBT Topic Test',
+                duration: '25 Mins',
+                gradient: 'from-blue-600 via-indigo-600 to-purple-600',
+                iconBg: 'bg-blue-100 text-blue-600',
+                icon: 'fa-brands fa-css3-alt',
+                linkedPage: '',
+                syllabus: [
+                    'Inline, Internal (<style>) & External (<link rel="stylesheet">) CSS Priority',
+                    'Element, Class (.), ID (#), Attribute & Pseudo-Class Selectors',
+                    'CSS Box Model, Flexbox/Grid Layout, Transitions & W3.CSS Utility Classes'
+                ],
+                notes: [
+                    'Inline CSS ki specificity Internal aur External CSS se zyada hoti hai (jab tak !important na ho).',
+                    'Margin do elements ke beech ki bahari jagah banata hai aur Padding border ke andar ki jagah.'
+                ],
+                questions: [
+                    {
+                        topic: 'CSS Selectors',
+                        q: 'CSS mein kisi specific "id" wale element ko select karne ke liye kaun sa prefix use hota hai?',
+                        options: ['Dot (.)', 'Hash (#)', 'Dollar ($)', 'At (@)'],
+                        answer: 1,
+                        exp: 'CSS mein ID selector ke liye # (hash) aur Class selector ke liye . (dot) use hota hai.'
+                    },
+                    {
+                        topic: 'CSS Box Model',
+                        q: 'Border aur Content ke beech ki inner spacing ko CSS mein kya kehte hain?',
+                        options: ['Margin', 'Padding', 'Outline', 'Gutter'],
+                        answer: 1,
+                        exp: 'Padding element ke content aur border ke beech ki space hoti hai.'
+                    },
+                    {
+                        topic: 'CSS Layout',
+                        q: 'Kisi container ko Flex container banane ke liye kaun si property likhte hain?',
+                        options: ['display: flex;', 'layout: flexbox;', 'position: flex;', 'box-type: flex;'],
+                        answer: 0,
+                        exp: 'display: flex; container ko flex formatting context mein badal deta hai.'
+                    }
+                ]
+            },
+            {
+                id: 'm2-js',
+                code: 'JAVASCRIPT',
+                badge: 'M2-R5 • WEB DESIGN',
+                title: 'JavaScript (Client-Side Scripting)',
+                description: 'Variables (var, let, const), data types, operators, functions, loops, arrays, events, DOM manipulation & form validation.',
+                questionsCount: 'CBT Topic Test',
+                duration: '25 Mins',
+                gradient: 'from-amber-500 via-yellow-500 to-orange-600',
+                iconBg: 'bg-amber-100 text-amber-600',
+                icon: 'fa-brands fa-js',
+                linkedPage: '',
+                syllabus: [
+                    'JavaScript Placement (<script>), Variables (var, let, const), Operators & Control Flow',
+                    'Functions, Arrays, Objects, Strings & Built-in Methods',
+                    'DOM Methods (getElementById, querySelector), Event Listeners & Form Validation'
+                ],
+                notes: [
+                    'const se declare kiye gaye variable ko reassign nahi kiya ja sakta; let block-scoped hota hai.',
+                    '=== (strict equality) value aur data type dono ko check karta hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'JavaScript Basics',
+                        q: 'JavaScript mein kaun sa keyword block-scoped variable declare karne ke liye use hota hai?',
+                        options: ['let', 'dim', 'define', 'var-block'],
+                        answer: 0,
+                        exp: 'let aur const block-scoped variables declare karte hain.'
+                    },
+                    {
+                        topic: 'JavaScript DOM',
+                        q: 'JavaScript mein kisi element ka inner HTML content badalne ke liye kaun si property use hoti hai?',
+                        options: ['innerHTML', 'changeText', 'htmlContent', 'setCode'],
+                        answer: 0,
+                        exp: 'element.innerHTML se element ke andar ka HTML content padha ya badla ja sakta hai.'
+                    },
+                    {
+                        topic: 'JavaScript Operators',
+                        q: 'JavaScript mein === operator kya check karta hai?',
+                        options: ['Keval value', 'Keval data type', 'Value aur data type dono', 'Memory address'],
+                        answer: 2,
+                        exp: '=== (Strict Equality Operator) bina type conversion ke value aur type dono match karta hai.'
+                    }
+                ]
+            }
+        ];
+
+        const oLevelPapers = [
+            {
+                id: 'm1-r5',
+                code: 'M1-R5',
+                category: 'theory',
+                badge: 'PAPER 1 • M1-R5',
+                title: 'IT Tools and Network Basics',
+                description: '9 Chapters Complete Syllabus: Computer Intro, OS, Writer, Calc, Impress, Internet, Banking, Cyber Security & Review.',
+                questionsCount: '9 Chapter Cards',
+                duration: '90 Mins CBT',
+                gradient: 'from-blue-600 via-indigo-600 to-violet-600',
+                iconBg: 'bg-blue-100 text-blue-600',
+                icon: 'fa-desktop',
+                linkedPage: '',
+                subcardsTitle: 'M1-R5: IT Tools and Network Basics (All 9 Chapters)',
+                subcardsDesc: 'Click "Open" on any of the 9 chapters below to launch its interactive CBT exam.',
+                subcards: m1R5Chapters,
+                syllabus: m1R5Chapters.map(c => c.title),
+                notes: [
+                    'M1-R5 ke sabhi 9 chapters ke cards open karne ke liye "Open Paper" par click karein.',
+                    'Har chapter card par click karne se us chapter ka CBT exam open hoga.'
+                ],
+                questions: m1R5Chapters[0].questions
+            },
+            {
+                id: 'm2-r5',
+                code: 'M2-R5',
+                category: 'theory',
+                badge: 'PAPER 2 • M2-R5',
+                title: 'Web Designing & Publishing',
+                description: '3 Topic Cards: HTML, CSS & JavaScript. Click Open Paper to choose HTML, CSS, or JavaScript and start the exam.',
+                questionsCount: 'HTML • CSS • JS',
+                duration: '90 Mins CBT',
+                gradient: 'from-pink-600 via-rose-600 to-orange-500',
+                iconBg: 'bg-pink-100 text-pink-600',
+                icon: 'fa-code',
+                linkedPage: '',
+                subcardsTitle: 'M2-R5: Web Designing & Publishing (HTML, CSS & JavaScript)',
+                subcardsDesc: 'Click "Open" on HTML, CSS, or JavaScript below to start the exam for that module.',
+                subcards: m2R5Topics,
+                syllabus: [
+                    'HTML5 Markup, Tags, Forms, Tables & Semantic Elements',
+                    'CSS3 Selectors, Box Model, Flexbox & W3.CSS Layout',
+                    'JavaScript Variables, DOM Manipulation, Events & Validation'
+                ],
+                notes: [
+                    'HTML structure deta hai, CSS styling aur layout deta hai, aur JavaScript interactivity.'
+                ],
+                questions: m2R5Topics[0].questions
+            },
+            {
+                id: 'm3-r5',
+                code: 'M3-R5',
+                category: 'theory',
+                badge: 'PAPER 3 • M3-R5',
+                title: 'Programming & Problem Solving (Python)',
+                description: 'Flowcharts, Algorithms, Python Data Types (List, Tuple, Dict, Set), Functions, File Handling & NumPy Arrays.',
+                questionsCount: '100 MCQs Pattern',
+                duration: '90 Mins CBT',
+                gradient: 'from-emerald-600 via-teal-600 to-cyan-600',
+                iconBg: 'bg-emerald-100 text-emerald-600',
+                icon: 'fa-brands fa-python',
+                linkedPage: '',
+                syllabus: [
+                    'Unit 1: Introduction to Programming, Algorithms & Flowcharts Symbols',
+                    'Unit 2: Python Introduction, Operators, Expressions & Control Statements (if, for, while)',
+                    'Unit 3: Sequence Data Types — Strings, Lists, Tuples, Dictionaries & Sets',
+                    'Unit 4: Functions, Scope of Variables, Recursion & Python Modules (math, random)',
+                    'Unit 5: File Processing (open, read, write, seek, tell) & NumPy Array Basics'
+                ],
+                notes: [
+                    'Flowchart mein Diamond shape Decision / Condition box ko darshata hai.',
+                    'Python File Handling mein "a" mode file ke ant mein data append karta hai bina purana data delete kiye.',
+                    'NumPy library mein np.ndim array ke dimensions ki sankhya batata hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Python Operators',
+                        q: 'Python mein expression 17 // 3 ka output kya hoga?',
+                        options: ['5.66', '5', '6', '2'],
+                        answer: 1,
+                        exp: '// Floor Division operator hai jo decimal part hata kar integer quotient (5) deta hai.'
+                    },
+                    {
+                        topic: 'Python Data Structures',
+                        q: 'Python mein kaun sa data structure unordered hota hai aur duplicate elements allow nahi karta?',
+                        options: ['List', 'Tuple', 'Set', 'String'],
+                        answer: 2,
+                        exp: 'Set unordered collection hota hai jisme keval unique elements store hote hain.'
+                    },
+                    {
+                        topic: 'File Handling',
+                        q: 'Python file object mein current file pointer position jaanne ke liye kaun sa method use hota hai?',
+                        options: ['seek()', 'tell()', 'pos()', 'loc()'],
+                        answer: 1,
+                        exp: 'tell() method file pointer ki current byte position return karta hai.'
+                    },
+                    {
+                        topic: 'Flowcharts',
+                        q: 'Flowchart mein Input/Output operation dikhane ke liye kaun sa symbol use hota hai?',
+                        options: ['Rectangle', 'Diamond', 'Parallelogram', 'Oval'],
+                        answer: 2,
+                        exp: 'Parallelogram Input aur Output operations ko darshata hai.'
+                    },
+                    {
+                        topic: 'NumPy',
+                        q: 'NumPy array ka shape (rows, columns) check karne ke liye kaun sa attribute use hota hai?',
+                        options: ['arr.size', 'arr.shape', 'arr.dtype', 'arr.len'],
+                        answer: 1,
+                        exp: 'arr.shape tuple ke roop mein array ke dimensions (rows, columns) return karta hai.'
+                    },
+                    {
+                        topic: 'Functions',
+                        q: 'Python mein anonymous (bina naam wale) single-line function banane ke liye kaun sa keyword use hota hai?',
+                        options: ['def', 'func', 'lambda', 'inline'],
+                        answer: 2,
+                        exp: 'lambda keyword chote anonymous functions banane ke liye use hota hai.'
+                    }
+                ]
+            },
+            {
+                id: 'm4-r5',
+                code: 'M4-R5',
+                category: 'theory',
+                badge: 'PAPER 4 • M4-R5',
+                title: 'Internet of Things (IoT) & Applications',
+                description: 'IoT Architecture, Sensors & Actuators, Arduino Programming (Embedded C), MQTT/CoAP Protocols & Soft Skills.',
+                questionsCount: '100 MCQs Pattern',
+                duration: '90 Mins CBT',
+                gradient: 'from-amber-500 via-orange-600 to-red-600',
+                iconBg: 'bg-amber-100 text-amber-600',
+                icon: 'fa-microchip',
+                linkedPage: '',
+                syllabus: [
+                    'Unit 1: Introduction to IoT — Applications, Devices, Communication Models & Protocols',
+                    'Unit 2: Things and Connections — Sensors, Actuators, Microcontrollers vs Microprocessors',
+                    'Unit 3: Building IoT Applications with Arduino UNO, Digital/Analog Pins & Embedded C',
+                    'Unit 4: IoT Security, Privacy Issues & Smart Home / Agriculture Case Studies',
+                    'Unit 5: Soft Skills, Personality Development, Time Management & Interview Preparation'
+                ],
+                notes: [
+                    'Arduino UNO mein 14 Digital I/O pins (0 se 13) aur 6 Analog Input pins (A0 se A5) hote hain.',
+                    'MQTT (Message Queuing Telemetry Transport) ek lightweight Publish-Subscribe IoT protocol hai jo TCP par kaam karta hai.',
+                    'Arduino sketch mein setup() function keval ek baar chalta hai jabki loop() baar-baar execute hota hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Arduino Hardware',
+                        q: 'Arduino UNO board mein kitni Analog Input pins hoti hain?',
+                        options: ['4', '6', '8', '14'],
+                        answer: 1,
+                        exp: 'Arduino UNO mein A0 se A5 tak kul 6 Analog Input pins hoti hain.'
+                    },
+                    {
+                        topic: 'IoT Protocols',
+                        q: 'MQTT protocol kis architecture par kaam karta hai?',
+                        options: ['Client-Server Request/Response', 'Publish-Subscribe', 'Peer-to-Peer', 'Token Ring'],
+                        answer: 1,
+                        exp: 'MQTT Broker ke madhyam se Publish-Subscribe model par kaam karta hai.'
+                    },
+                    {
+                        topic: 'Sensors & Actuators',
+                        q: 'DHT11 sensor ka upyog kya maapne ke liye kiya jaata hai?',
+                        options: ['Distance', 'Temperature & Humidity', 'Gas Leakage', 'Soil Moisture'],
+                        answer: 1,
+                        exp: 'DHT11 ek digital sensor hai jo Temperature aur Humidity dono maapta hai.'
+                    },
+                    {
+                        topic: 'Embedded C',
+                        q: 'Arduino mein kisi pin ko INPUT ya OUTPUT set karne ke liye kaun sa function use hota hai?',
+                        options: ['digitalWrite()', 'pinMode()', 'analogRead()', 'setPin()'],
+                        answer: 1,
+                        exp: 'pinMode(pin, mode) setup() ke andar pin ko INPUT ya OUTPUT configure karta hai.'
+                    },
+                    {
+                        topic: 'Communication Protocols',
+                        q: 'I2C communication protocol mein kitni wires/lines ka upyog hota hai?',
+                        options: ['1', '2 (SDA & SCL)', '3', '4'],
+                        answer: 1,
+                        exp: 'I2C mein keval 2 lines SDA (Serial Data) aur SCL (Serial Clock) use hoti hain.'
+                    },
+                    {
+                        topic: 'Soft Skills',
+                        q: 'Effective communication mein "7 Cs" mein se kaun sa shamil nahi hai?',
+                        options: ['Clarity', 'Conciseness', 'Confusion', 'Courtesy'],
+                        answer: 2,
+                        exp: '7 Cs mein Clear, Concise, Concrete, Correct, Coherent, Complete aur Courteous shamil hain.'
+                    }
+                ]
+            },
+            {
+                id: 'pr1-pr4',
+                code: 'PR1–PR4',
+                category: 'practical',
+                badge: 'PRACTICAL + VIVA',
+                title: 'All 4 Practical Exams & Viva-Voce',
+                description: 'PR1 (LibreOffice), PR2 (HTML/CSS/JS), PR3 (Python Programs) & PR4 (Arduino Coding) Practical Questions + Viva.',
+                questionsCount: '80 Marks Lab + 20 Viva',
+                duration: '50 Mins Each Lab',
+                gradient: 'from-purple-600 via-fuchsia-600 to-pink-600',
+                iconBg: 'bg-purple-100 text-purple-600',
+                icon: 'fa-flask-vial',
+                linkedPage: '',
+                syllabus: [
+                    'PR1 (M1-R5 Practical): Mail Merge in Writer, Payroll/Grade Sheet in Calc, Custom Animation in Impress',
+                    'PR2 (M2-R5 Practical): Registration Form with JS Validation, Responsive W3.CSS Page, Frames & Tables',
+                    'PR3 (M3-R5 Practical): Prime/Palindrome/Factorial, File Word Count, Matrix Operations using NumPy',
+                    'PR4 (M4-R5 Practical): LED Blink/Traffic Light, Ultrasonic Distance Sensor (HC-SR04), Temperature Alert'
+                ],
+                notes: [
+                    'NIELIT O-Level R5.1 mein har Theory paper ke saath uska alag Practical Exam (100 Marks: 80 Lab + 20 Viva) pass karna zaroori hai.',
+                    'Theory aur Practical dono mein kam se kam 50% aggregate aur individual qualifying marks laane hote hain.',
+                    'Practical exam mein examiner ko logic aur code flow clear samjhana Viva mein high marks dilata hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'NIELIT Practical Rules',
+                        q: 'NIELIT O-Level R5.1 mein har Practical Paper (PR1–PR4) kitne marks ka hota hai?',
+                        options: ['50 Marks', '80 Marks', '100 Marks (80 Practical + 20 Viva)', '150 Marks'],
+                        answer: 2,
+                        exp: 'Har Practical Exam 100 marks ka hota hai jisme 80 marks lab execution aur 20 marks Viva-Voce ke hote hain.'
+                    },
+                    {
+                        topic: 'PR3 Python Practical',
+                        q: 'Python mein string s = "NIELIT" ko reverse karne ka sabse chota slicing code kya hai?',
+                        options: ['s[::-1]', 's[0::-1]', 's.rev()', 'reverse(s)'],
+                        answer: 0,
+                        exp: 's[::-1] negative step -1 ke saath puri string ko reverse kar deta hai.'
+                    },
+                    {
+                        topic: 'PR4 Arduino Practical',
+                        q: 'Arduino UNO ke pin 13 par lage built-in LED ko ON karne ke liye kaun sa statement likhte hain?',
+                        options: ['digitalWrite(13, HIGH);', 'analogWrite(13, ON);', 'pinWrite(13, 1);', 'ledOn(13);'],
+                        answer: 0,
+                        exp: 'digitalWrite(13, HIGH); pin 13 par 5V signal bhej kar LED ON karta hai.'
+                    },
+                    {
+                        topic: 'PR1 LibreOffice Practical',
+                        q: 'LibreOffice Writer mein ek hi letter ko 50 alag-alag addresses par bhejne ke liye kaun sa feature use hota hai?',
+                        options: ['Track Changes', 'Mail Merge Wizard', 'Macros', 'Cross-Reference'],
+                        answer: 1,
+                        exp: 'Mail Merge Wizard data source ko document se jod kar multiple letters generate karta hai.'
+                    }
+                ]
+            },
+            {
+                id: 'grand-cbt',
+                code: 'FULL-CBT',
+                category: 'mock',
+                badge: 'GRAND MOCK TEST',
+                title: 'All-in-One O-Level Grand Mock Paper',
+                description: 'Combined High-Yield Questions from M1-R5, M2-R5, M3-R5 & M4-R5 with Real NIELIT S/A/B/C/D Grade Evaluation.',
+                questionsCount: 'Mixed Master Set',
+                duration: '90 Mins Timer',
+                gradient: 'from-cyan-500 via-blue-600 to-indigo-700',
+                iconBg: 'bg-cyan-100 text-cyan-600',
+                icon: 'fa-trophy',
+                linkedPage: '',
+                syllabus: [
+                    'Section A: IT Tools, Linux Commands & Digital Payments (25% Weightage)',
+                    'Section B: HTML5, CSS3, W3.CSS & JavaScript (25% Weightage)',
+                    'Section C: Python Data Types, Loops & File Handling (25% Weightage)',
+                    'Section D: IoT Sensors, Arduino & Communication Protocols (25% Weightage)'
+                ],
+                notes: [
+                    'NIELIT Grading Scale: 85% aur upar = S Grade, 75–84% = A, 65–74% = B, 55–64% = C, 50–54% = D, 50% se kam = F (Fail).',
+                    'CBT exam mein pehle un questions ko solve karein jin par aap 100% confident hain, phir Mark for Review questions dekhein.'
+                ],
+                questions: [
+                    {
+                        topic: 'M1-R5 Mixed',
+                        q: 'IPv4 address mein kitne octets (bytes) hote hain?',
+                        options: ['2', '4', '6', '8'],
+                        answer: 1,
+                        exp: 'IPv4 address 32 bits ka hota hai jo dot (.) se alag kiye gaye 4 octets mein likha jaata hai.'
+                    },
+                    {
+                        topic: 'M2-R5 Mixed',
+                        q: 'CSS mein kisi element ko bilkul gayab karne (space bhi na ghere) ke liye kya likhte hain?',
+                        options: ['visibility: hidden;', 'display: none;', 'opacity: 0;', 'hide: true;'],
+                        answer: 1,
+                        exp: 'display: none; element ko page layout se puri tarah hata deta hai.'
+                    },
+                    {
+                        topic: 'M3-R5 Mixed',
+                        q: 'Python mein print(type({})) ka output kya hoga?',
+                        options: ["<class 'set'>", "<class 'dict'>", "<class 'list'>", "<class 'tuple'>"],
+                        answer: 1,
+                        exp: 'Khali curly braces {} Python mein empty Dictionary banate hain; empty set ke liye set() likhte hain.'
+                    },
+                    {
+                        topic: 'M4-R5 Mixed',
+                        q: 'Arduino UNO mein PWM (Pulse Width Modulation) pins ko kis symbol se pehchana jaata hai?',
+                        options: ['#', '*', '~ (Tilde)', '@'],
+                        answer: 2,
+                        exp: 'Arduino UNO par pins 3, 5, 6, 9, 10, 11 ke aage ~ (tilde) symbol PWM support dikhata hai.'
+                    },
+                    {
+                        topic: 'M1-R5 Mixed',
+                        q: 'QR Code ka poora naam kya hai?',
+                        options: ['Quick Result Code', 'Quick Response Code', 'Quality Reader Code', 'Query Record Code'],
+                        answer: 1,
+                        exp: 'QR Code ka full form Quick Response Code hai.'
+                    }
+                ]
+            },
+            {
+                id: 'pyq-solved',
+                code: 'PYQ-2026',
+                category: 'mock',
+                badge: 'SOLVED PAPERS',
+                title: 'Previous Year Solved Papers (2022–2026)',
+                description: 'January & July Cycle Original NIELIT O-Level Question Papers with Detailed Explanations & Repeated MCQs.',
+                questionsCount: '500+ Repeated MCQs',
+                duration: 'Cycle-Wise Sets',
+                gradient: 'from-violet-600 via-purple-600 to-indigo-800',
+                iconBg: 'bg-violet-100 text-violet-600',
+                icon: 'fa-file-circle-check',
+                linkedPage: '',
+                syllabus: [
+                    'July 2022 & Jan 2023 First CBT Pattern Papers (M1 to M4)',
+                    'July 2023 & Jan 2024 R5.1 Revised Syllabus Solved Papers',
+                    'July 2024, Jan 2025 & Jan 2026 Most Repeated Questions Bank'
+                ],
+                notes: [
+                    'NIELIT O-Level exams mein lagbhag 35% se 45% questions pichle cycles ke concepts se repeat hote hain.',
+                    'Har question ke explanation ko dhyan se padhne se ek saath 3-4 related MCQs taiyar ho jaate hain.'
+                ],
+                questions: [
+                    {
+                        topic: 'NIELIT PYQ (M1)',
+                        q: 'UMANG App mein "N" ka kya arth hai?',
+                        options: ['National', 'New-age', 'Network', 'Numeric'],
+                        answer: 1,
+                        exp: 'UMANG = Unified Mobile Application for New-age Governance.'
+                    },
+                    {
+                        topic: 'NIELIT PYQ (M2)',
+                        q: 'HTML mein Ordered List banane ke liye kaun sa tag use hota hai?',
+                        options: ['<ul>', '<ol>', '<li>', '<dl>'],
+                        answer: 1,
+                        exp: '<ol> (Ordered List) numbered list banata hai.'
+                    },
+                    {
+                        topic: 'NIELIT PYQ (M3)',
+                        q: 'Python mein list ke end mein ek item jodne ke liye kaun sa method use hota hai?',
+                        options: ['insert()', 'add()', 'append()', 'push()'],
+                        answer: 2,
+                        exp: 'append() method list ke end mein single element add karta hai.'
+                    },
+                    {
+                        topic: 'NIELIT PYQ (M4)',
+                        q: 'CoAP protocol kis transport layer protocol par kaam karta hai?',
+                        options: ['TCP', 'UDP', 'ICMP', 'FTP'],
+                        answer: 1,
+                        exp: 'CoAP (Constrained Application Protocol) lightweight communication ke liye UDP par kaam karta hai.'
+                    }
+                ]
+            },
+            {
+                id: 'cheatsheet',
+                code: 'CAPSULE',
+                category: 'practical',
+                badge: 'LAST-DAY REVISION',
+                title: 'Shortcuts, Full Forms & Viva Capsule',
+                description: 'All LibreOffice Shortcuts, HTML/CSS Tags, Python Built-in Functions, IoT Pinouts & Full Forms in One Place.',
+                questionsCount: 'Quick Revision Quiz',
+                duration: '15 Mins Express',
+                gradient: 'from-teal-500 via-emerald-600 to-green-700',
+                iconBg: 'bg-teal-100 text-teal-600',
+                icon: 'fa-bolt',
+                linkedPage: '',
+                syllabus: [
+                    'Top 50 LibreOffice Writer, Calc & Impress Keyboard Shortcuts',
+                    'Top 100 Computer, Networking & IoT Full Forms (HTTP, MQTT, DNS, BIOS, CMOS)',
+                    'Python Built-in Functions & Arduino Pin Configuration Table'
+                ],
+                notes: [
+                    'Ctrl + F2 LibreOffice Calc mein Function Wizard open karta hai.',
+                    'Ctrl + Shift + J LibreOffice mein Full Screen mode toggle karta hai.',
+                    'EEPROM ka full form Electrically Erasable Programmable Read-Only Memory hota hai.'
+                ],
+                questions: [
+                    {
+                        topic: 'Shortcuts Capsule',
+                        q: 'LibreOffice mein Full Screen mode ON/OFF karne ki shortcut key kya hai?',
+                        options: ['F11', 'Ctrl + Shift + J', 'Alt + Enter', 'Ctrl + F10'],
+                        answer: 1,
+                        exp: 'Ctrl + Shift + J LibreOffice mein Full Screen mode toggle karta hai.'
+                    },
+                    {
+                        topic: 'Full Forms Capsule',
+                        q: 'IoT mein "BLE" ka full form kya hota hai?',
+                        options: ['Basic Link Energy', 'Bluetooth Low Energy', 'Binary Logic Engine', 'Broadband Local Ethernet'],
+                        answer: 1,
+                        exp: 'BLE = Bluetooth Low Energy, jo wearable aur battery-operated IoT devices mein use hota hai.'
+                    },
+                    {
+                        topic: 'Python Capsule',
+                        q: 'Python mein ascii value se character prapt karne ke liye kaun sa function use hota hai?',
+                        options: ['ord()', 'chr()', 'ascii()', 'char()'],
+                        answer: 1,
+                        exp: 'chr(65) "A" return karta hai, jabki ord("A") 65 return karta hai.'
+                    }
+                ]
+            }
+        ];
+
+        const STORAGE_KEY_LINKS = 'nci_olevel_linked_pages_v1';
+        const STORAGE_KEY_MODE = 'nci_olevel_link_open_mode_v1';
+
+        // Global State
+        let currentFilter = 'all';
+        let parentPaperContext = null; // Holds M1-R5 or M2-R5 when viewing sub-cards
+        let activePaper = null;        // Holds the exam item (sub-card or standalone paper)
+        let currentQIndex = 0;
+        let userAnswers = {};          // { qIndex: selectedOptionIndex }
+        let markedReview = new Set();
+        let examSubmitted = false;
+        let timerInterval = null;
+        let secondsRemaining = 90 * 60;
+        let linkOpenMode = 'same';     // 'same' or 'new'
+
+        // Helper to find any paper or sub-card by id
+        function findTargetById(targetId) {
+            const topPaper = oLevelPapers.find(p => p.id === targetId);
+            if (topPaper) return { item: topPaper, parent: null };
+
+            for (const p of oLevelPapers) {
+                if (Array.isArray(p.subcards)) {
+                    const sub = p.subcards.find(s => s.id === targetId);
+                    if (sub) return { item: sub, parent: p };
+                }
+            }
+            return null;
+        }
+
+        // Load Saved Custom Page Links & Open Mode from localStorage
+        function loadSavedPageLinks() {
+            try {
+                const savedLinks = JSON.parse(localStorage.getItem(STORAGE_KEY_LINKS) || '{}');
+                oLevelPapers.forEach(p => {
+                    if (typeof savedLinks[p.id] === 'string') {
+                        p.linkedPage = savedLinks[p.id];
+                    }
+                    if (Array.isArray(p.subcards)) {
+                        p.subcards.forEach(sub => {
+                            if (typeof savedLinks[sub.id] === 'string') {
+                                sub.linkedPage = savedLinks[sub.id];
+                            }
+                        });
+                    }
+                });
+                const savedMode = localStorage.getItem(STORAGE_KEY_MODE);
+                if (savedMode === 'same' || savedMode === 'new') {
+                    linkOpenMode = savedMode;
+                }
+            } catch (e) {
+                console.warn('Unable to load saved page links:', e);
+            }
+        }
+
+        function saveOpenModePref() {
+            const sel = document.getElementById('link-open-mode');
+            if (!sel) return;
+            linkOpenMode = sel.value === 'new' ? 'new' : 'same';
+            try {
+                localStorage.setItem(STORAGE_KEY_MODE, linkOpenMode);
+            } catch (e) {
+                console.warn('Unable to save link open mode:', e);
+            }
+        }
+
+        function escapeAttr(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        function showStatusMessage(msg) {
+            const box = document.getElementById('portal-status-box');
+            const textEl = document.getElementById('portal-status-text');
+            if (box && textEl) {
+                textEl.textContent = msg;
+                box.classList.remove('hidden');
+            }
+        }
+
+        function hideStatusMessage() {
+            const box = document.getElementById('portal-status-box');
+            if (box) box.classList.add('hidden');
+        }
+
+        // Render All O-Level Cards
+        function renderPaperCards() {
+            const grid = document.getElementById('olevel-cards-grid');
+            grid.innerHTML = '';
+
+            const filtered = oLevelPapers.filter(p => currentFilter === 'all' || p.category === currentFilter);
+
+            filtered.forEach(paper => {
+                const hasLinkedPage = Boolean(paper.linkedPage && paper.linkedPage.trim() !== '');
+                const hasSubcards = Array.isArray(paper.subcards) && paper.subcards.length > 0 && !hasLinkedPage;
+                const linkedBadgeHtml = hasLinkedPage
+                    ? `<div class="mb-3 px-3 py-1.5 rounded-xl bg-indigo-50 border border-indigo-200/80 flex items-center justify-between gap-2 text-[11px] font-bold text-indigo-800">
+                            <span class="shrink-0"><i class="fas fa-link text-indigo-600 mr-1"></i>Linked:</span>
+                            <span class="mono-font truncate text-slate-700" title="${escapeAttr(paper.linkedPage)}">${escapeAttr(paper.linkedPage)}</span>
+                       </div>`
+                    : '';
+
+                const btnIcon = hasLinkedPage
+                    ? 'fa-arrow-up-right-from-square'
+                    : (hasSubcards ? 'fa-layer-group' : 'fa-arrow-right');
+
+                const cardHTML = `
+                    <article class="olevel-card flex flex-col justify-between shadow-2xl border border-white/40 group">
+                        <!-- Top Colorful Gradient Bar -->
+                        <div class="h-2.5 w-full bg-gradient-to-r ${paper.gradient}"></div>
+
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <!-- Top Row: Icon & Paper Code Badge -->
+                                <div class="flex items-center justify-between gap-2 mb-4">
+                                    <div class="w-13 h-13 p-3.5 rounded-2xl ${paper.iconBg} flex items-center justify-center text-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas ${paper.icon}"></i>
+                                    </div>
+                                    <span class="mono-font px-3 py-1 rounded-full text-[11px] font-extrabold tracking-wide bg-slate-900 text-cyan-300 shadow-sm">
+                                        ${paper.badge}
+                                    </span>
+                                </div>
+
+                                <!-- Paper Title & Description -->
+                                <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-indigo-600 transition-colors">
+                                    ${paper.title}
+                                </h3>
+                                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                                    ${paper.description}
+                                </p>
+                            </div>
+
+                            <div>
+                                ${linkedBadgeHtml}
+
+                                <!-- Exam Pattern Info Strip -->
+                                <div class="flex items-center justify-between text-[11px] sm:text-xs font-bold text-slate-600 bg-slate-100/90 rounded-xl px-3.5 py-2.5 mb-5 border border-slate-200/70">
+                                    <span class="flex items-center gap-1.5 text-indigo-700">
+                                        <i class="fas fa-file-lines"></i> ${paper.questionsCount}
+                                    </span>
+                                    <span class="flex items-center gap-1.5 text-slate-700">
+                                        <i class="far fa-clock"></i> ${paper.duration}
+                                    </span>
+                                </div>
+
+                                <!-- Glowing "Open" Button -->
+                                <button 
+                                    onclick="startPaperDerivationAnimation('${paper.id}')" 
+                                    class="btn-open-paper w-full py-3.5 px-5 rounded-xl bg-gradient-to-r ${paper.gradient} text-white font-extrabold text-sm sm:text-base shadow-lg hover:shadow-xl flex items-center justify-center gap-2.5 cursor-pointer active:scale-95"
+                                >
+                                    <span>Open Paper</span>
+                                    <i class="fas ${btnIcon} text-sm group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        function filterPaperCards(category, btn) {
+            currentFilter = category;
+            document.querySelectorAll('.paper-filter-btn').forEach(b => {
+                b.className = 'paper-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 text-slate-200 border border-white/10 transition';
+            });
+            btn.className = 'paper-filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30 transition';
+            renderPaperCards();
+        }
+
+        // Render Sub-Cards for M1-R5 (9 Chapters) or M2-R5 (HTML, CSS, JavaScript)
+        function renderSubcardsGrid(parentPaper) {
+            const grid = document.getElementById('subcards-grid');
+            grid.innerHTML = '';
+
+            document.getElementById('subcards-paper-code').textContent = parentPaper.code;
+            document.getElementById('subcards-count-badge').textContent = `${parentPaper.subcards.length} Modules`;
+            document.getElementById('subcards-kicker').textContent = `${parentPaper.badge} • NIELIT O-LEVEL (R5.1)`;
+            document.getElementById('subcards-view-title').textContent = parentPaper.subcardsTitle || parentPaper.title;
+            document.getElementById('subcards-view-desc').innerHTML = parentPaper.subcardsDesc || parentPaper.description;
+
+            parentPaper.subcards.forEach(sub => {
+                const hasLinkedPage = Boolean(sub.linkedPage && sub.linkedPage.trim() !== '');
+                const linkedBadgeHtml = hasLinkedPage
+                    ? `<div class="mb-3 px-3 py-1.5 rounded-xl bg-indigo-50 border border-indigo-200/80 flex items-center justify-between gap-2 text-[11px] font-bold text-indigo-800">
+                            <span class="shrink-0"><i class="fas fa-link text-indigo-600 mr-1"></i>Linked:</span>
+                            <span class="mono-font truncate text-slate-700" title="${escapeAttr(sub.linkedPage)}">${escapeAttr(sub.linkedPage)}</span>
+                       </div>`
+                    : '';
+
+                const subCardHTML = `
+                    <article class="olevel-card flex flex-col justify-between shadow-2xl border border-white/40 group">
+                        <div class="h-2.5 w-full bg-gradient-to-r ${sub.gradient}"></div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between gap-2 mb-4">
+                                    <div class="w-13 h-13 p-3.5 rounded-2xl ${sub.iconBg} flex items-center justify-center text-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas ${sub.icon}"></i>
+                                    </div>
+                                    <span class="mono-font px-3 py-1 rounded-full text-[11px] font-extrabold tracking-wide bg-slate-900 text-cyan-300 shadow-sm">
+                                        ${sub.badge}
+                                    </span>
+                                </div>
+
+                                <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-indigo-600 transition-colors">
+                                    ${sub.title}
+                                </h3>
+                                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                                    ${sub.description}
+                                </p>
+                            </div>
+
+                            <div>
+                                ${linkedBadgeHtml}
+                                <div class="flex items-center justify-between text-[11px] sm:text-xs font-bold text-slate-600 bg-slate-100/90 rounded-xl px-3.5 py-2.5 mb-5 border border-slate-200/70">
+                                    <span class="flex items-center gap-1.5 text-indigo-700">
+                                        <i class="fas fa-laptop-code"></i> ${sub.questionsCount}
+                                    </span>
+                                    <span class="flex items-center gap-1.5 text-slate-700">
+                                        <i class="far fa-clock"></i> ${sub.duration}
+                                    </span>
+                                </div>
+
+                                <button
+                                    onclick="startPaperDerivationAnimation('${sub.id}')"
+                                    class="btn-open-paper w-full py-3.5 px-5 rounded-xl bg-gradient-to-r ${sub.gradient} text-white font-extrabold text-sm sm:text-base shadow-lg hover:shadow-xl flex items-center justify-center gap-2.5 cursor-pointer active:scale-95"
+                                >
+                                    <span>Open</span>
+                                    <i class="fas ${hasLinkedPage ? 'fa-arrow-up-right-from-square' : 'fa-play'} text-sm group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+                grid.insertAdjacentHTML('beforeend', subCardHTML);
+            });
+        }
+
+        function openSubcardsView(parentPaper) {
+            parentPaperContext = parentPaper;
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('paper-workspace-view').classList.add('hidden');
+            const subView = document.getElementById('subcards-view');
+            renderSubcardsGrid(parentPaper);
+            subView.classList.remove('hidden');
+            subView.classList.remove('workspace-reveal');
+            void subView.offsetWidth;
+            subView.classList.add('workspace-reveal');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function returnToHomeFromSubcards() {
+            parentPaperContext = null;
+            document.getElementById('subcards-view').classList.add('hidden');
+            returnToHome();
+        }
+
+        function returnToSubcardsFromWorkspace() {
+            if (!parentPaperContext) {
+                returnToHome();
+                return;
+            }
+            if (timerInterval) clearInterval(timerInterval);
+            document.getElementById('paper-workspace-view').classList.add('hidden');
+            const subView = document.getElementById('subcards-view');
+            renderSubcardsGrid(parentPaperContext);
+            subView.classList.remove('hidden');
+            subView.classList.remove('workspace-reveal');
+            void subView.offsetWidth;
+            subView.classList.add('workspace-reveal');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // =========================================================================
+        // STEP-BY-STEP DERIVATION ANIMATION + SUB-CARDS / REDIRECT / CBT LAUNCH
+        // =========================================================================
+        function startPaperDerivationAnimation(targetId) {
+            const found = findTargetById(targetId);
+            if (!found) return;
+            const { item, parent } = found;
+            activePaper = item;
+
+            const overlay = document.getElementById('derivation-overlay');
+            const iconEl = document.getElementById('loader-icon');
+            const codeBadge = document.getElementById('loader-code-badge');
+            const titleEl = document.getElementById('loader-paper-title');
+            const barEl = document.getElementById('loader-progress-bar');
+            const pctEl = document.getElementById('loader-percent');
+            const s1 = document.getElementById('d-step-1');
+            const s2 = document.getElementById('d-step-2');
+            const s3 = document.getElementById('d-step-3');
+            const s3Label = document.getElementById('d-step-3-label');
+
+            // Reset loader elements
+            iconEl.className = `fas ${item.icon} text-2xl text-white mb-0.5`;
+            codeBadge.textContent = item.code;
+            titleEl.textContent = `${item.code}: ${item.title}`;
+            barEl.style.width = '0%';
+            pctEl.textContent = '0%';
+            [s1, s2, s3].forEach(el => el.classList.remove('show'));
+
+            const customPage = (item.linkedPage || '').trim();
+            const hasCustomPage = customPage !== '';
+            const willShowSubcards = !parent && !hasCustomPage && Array.isArray(item.subcards) && item.subcards.length > 0;
+
+            if (hasCustomPage) {
+                s3Label.innerHTML = `<strong>Step 3:</strong> Redirecting to Linked Page (${escapeAttr(customPage)})...`;
+            } else if (willShowSubcards) {
+                s3Label.innerHTML = `<strong>Step 3:</strong> Loading ${item.subcards.length} Module Cards for ${item.code}...`;
+            } else {
+                s3Label.innerHTML = `<strong>Step 3:</strong> Initializing National Computer Institute CBT Exam Workspace...`;
+            }
+
+            overlay.classList.add('active');
+
+            // Step 1
+            setTimeout(() => {
+                s1.classList.add('show');
+                barEl.style.width = '34%';
+                pctEl.textContent = '34%';
+            }, 220);
+
+            // Step 2
+            setTimeout(() => {
+                s2.classList.add('show');
+                barEl.style.width = '72%';
+                pctEl.textContent = '72%';
+            }, 720);
+
+            // Step 3
+            setTimeout(() => {
+                s3.classList.add('show');
+                barEl.style.width = '100%';
+                pctEl.textContent = '100%';
+            }, 1220);
+
+            // Navigate after derivation animation completes
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                if (hasCustomPage) {
+                    if (linkOpenMode === 'new') {
+                        const opened = window.open(customPage, '_blank', 'noopener,noreferrer');
+                        if (!opened) {
+                            window.location.href = customPage;
+                        }
+                    } else {
+                        window.location.href = customPage;
+                    }
+                    return;
+                }
+                if (willShowSubcards) {
+                    openSubcardsView(item);
+                    return;
+                }
+                launchPaperWorkspace(item, parent);
+            }, 1750);
+        }
+
+        // =========================================================================
+        // FULL PAPER CBT WORKSPACE LOGIC
+        // =========================================================================
+        function launchPaperWorkspace(paper, parent = parentPaperContext) {
+            if (parent) {
+                parentPaperContext = parent;
+            }
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('subcards-view').classList.add('hidden');
+            const wsView = document.getElementById('paper-workspace-view');
+            wsView.classList.remove('hidden');
+            wsView.classList.remove('workspace-reveal');
+            void wsView.offsetWidth;
+            wsView.classList.add('workspace-reveal');
+
+            // Show contextual back-to-subcards button if launched from M1-R5 or M2-R5 sub-cards
+            const backSubBtn = document.getElementById('ws-back-subcards-btn');
+            const backSubLabel = document.getElementById('ws-back-subcards-label');
+            if (parentPaperContext) {
+                backSubBtn.classList.remove('hidden');
+                backSubLabel.textContent = `Back to ${parentPaperContext.code}`;
+            } else {
+                backSubBtn.classList.add('hidden');
+            }
+
+            // Populate Header Banner
+            const banner = document.getElementById('ws-header-banner');
+            banner.className = `p-6 sm:p-8 text-white bg-gradient-to-r ${paper.gradient} flex flex-col md:flex-row md:items-center justify-between gap-4`;
+            document.getElementById('ws-icon').className = `fas ${paper.icon}`;
+            document.getElementById('ws-code-pill').textContent = paper.code;
+            document.getElementById('ws-paper-tag').textContent = `${paper.badge} • NIELIT R5.1 SYLLABUS`;
+            document.getElementById('ws-paper-title').textContent = paper.title;
+            document.getElementById('ws-paper-desc').textContent = paper.description;
+
+            // Optional Linked Page Button inside Workspace
+            const extWrap = document.getElementById('ws-external-wrap');
+            const extLink = document.getElementById('ws-external-link');
+            if (paper.linkedPage && paper.linkedPage.trim() !== '') {
+                extWrap.classList.remove('hidden');
+                extLink.href = paper.linkedPage.trim();
+            } else {
+                extWrap.classList.add('hidden');
+            }
+
+            // Populate Syllabus & Notes
+            document.getElementById('ws-syllabus-list').innerHTML = paper.syllabus.map(u => `
+                <li class="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-indigo-100 shadow-sm">
+                    <i class="fas fa-check-circle text-indigo-600 mt-0.5"></i>
+                    <span>${u}</span>
+                </li>
+            `).join('');
+
+            document.getElementById('ws-notes-list').innerHTML = paper.notes.map(n => `
+                <li class="leading-relaxed">${n}</li>
+            `).join('');
+
+            resetCbtExam();
+            switchWorkspaceTab('cbt');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetCbtExam() {
+            currentQIndex = 0;
+            userAnswers = {};
+            markedReview.clear();
+            examSubmitted = false;
+
+            document.getElementById('cbt-result-banner').classList.add('hidden');
+            document.getElementById('total-q-count').textContent = activePaper.questions.length;
+            const paletteBadge = document.getElementById('palette-total-badge');
+            if (paletteBadge) paletteBadge.textContent = `${activePaper.questions.length} Qs`;
+            updateAttemptedCounter();
+            startCbtTimer(90 * 60);
+            renderActiveQuestion();
+            renderQuestionPalette();
+            renderBelowNavScrollList();
+        }
+
+        function startCbtTimer(totalSecs) {
+            if (timerInterval) clearInterval(timerInterval);
+            secondsRemaining = totalSecs;
+            updateTimerDisplay();
+
+            timerInterval = setInterval(() => {
+                if (examSubmitted) {
+                    clearInterval(timerInterval);
+                    return;
+                }
+                if (secondsRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    submitCbtExam();
+                    return;
+                }
+                secondsRemaining--;
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(secondsRemaining / 60);
+            const secs = secondsRemaining % 60;
+            document.getElementById('cbt-timer').textContent =
+                `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+
+        function renderActiveQuestion() {
+            const total = activePaper.questions.length;
+            const qObj = activePaper.questions[currentQIndex];
+
+            document.getElementById('active-q-badge').textContent = `Question ${currentQIndex + 1} of ${total}`;
+            document.getElementById('active-q-topic').textContent = `Topic: ${qObj.topic}`;
+            document.getElementById('active-q-text').textContent = qObj.q;
+
+            const optionsBox = document.getElementById('active-q-options');
+            optionsBox.innerHTML = '';
+
+            qObj.options.forEach((optText, idx) => {
+                const isSelected = userAnswers[currentQIndex] === idx;
+                const isCorrect = qObj.answer === idx;
+
+                let btnClass = 'w-full text-left p-4 rounded-xl border-2 transition flex items-center justify-between text-sm sm:text-base font-semibold ';
+                let badgeIcon = '';
+
+                if (!examSubmitted) {
+                    btnClass += isSelected
+                        ? 'border-indigo-600 bg-indigo-50 text-indigo-950 shadow-sm'
+                        : 'border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 text-slate-800';
+                } else {
+                    if (isCorrect) {
+                        btnClass += 'border-emerald-500 bg-emerald-50 text-emerald-950';
+                        badgeIcon = '<i class="fas fa-circle-check text-emerald-600 text-lg"></i>';
+                    } else if (isSelected && !isCorrect) {
+                        btnClass += 'border-rose-500 bg-rose-50 text-rose-950';
+                        badgeIcon = '<i class="fas fa-circle-xmark text-rose-600 text-lg"></i>';
+                    } else {
+                        btnClass += 'border-slate-200 bg-white text-slate-500 opacity-75';
+                    }
+                }
+
+                const optBtn = `
+                    <button onclick="selectOption(${idx})" class="${btnClass}">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-700'} flex items-center justify-center text-xs font-extrabold shrink-0">
+                                ${String.fromCharCode(65 + idx)}
+                            </span>
+                            <span>${optText}</span>
+                        </span>
+                        ${badgeIcon}
+                    </button>
+                `;
+                optionsBox.insertAdjacentHTML('beforeend', optBtn);
+            });
+
+            // Show Explanation if submitted
+            const expBox = document.getElementById('active-q-explanation');
+            if (examSubmitted) {
+                expBox.classList.remove('hidden');
+                document.getElementById('active-q-exp-text').textContent = qObj.exp;
+            } else {
+                expBox.classList.add('hidden');
+            }
+        }
+
+        function selectOption(optIdx) {
+            if (examSubmitted) return;
+            userAnswers[currentQIndex] = optIdx;
+            updateAttemptedCounter();
+            renderActiveQuestion();
+            renderQuestionPalette();
+            renderBelowNavScrollList();
+        }
+
+        function toggleMarkReview() {
+            if (examSubmitted) return;
+            if (markedReview.has(currentQIndex)) {
+                markedReview.delete(currentQIndex);
+            } else {
+                markedReview.add(currentQIndex);
+            }
+            renderQuestionPalette();
+            renderBelowNavScrollList();
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < activePaper.questions.length - 1) {
+                currentQIndex++;
+                renderActiveQuestion();
+                renderQuestionPalette();
+                renderBelowNavScrollList();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderActiveQuestion();
+                renderQuestionPalette();
+                renderBelowNavScrollList();
+            }
+        }
+
+        function jumpToQuestion(idx) {
+            currentQIndex = idx;
+            renderActiveQuestion();
+            renderQuestionPalette();
+            renderBelowNavScrollList();
+        }
+
+        function updateAttemptedCounter() {
+            document.getElementById('attempted-count').textContent = Object.keys(userAnswers).length;
+        }
+
+        function renderQuestionPalette() {
+            const grid = document.getElementById('question-palette-grid');
+            grid.innerHTML = '';
+
+            activePaper.questions.forEach((q, idx) => {
+                const isCurrent = idx === currentQIndex;
+                const isAnswered = userAnswers[idx] !== undefined;
+                const isMarked = markedReview.has(idx);
+
+                let style = 'h-8 rounded-lg font-extrabold text-[11px] transition flex items-center justify-center ';
+                if (examSubmitted) {
+                    const correct = userAnswers[idx] === q.answer;
+                    style += correct ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white';
+                } else if (isMarked) {
+                    style += 'bg-amber-400 text-slate-950';
+                } else if (isAnswered) {
+                    style += 'bg-emerald-500 text-white';
+                } else {
+                    style += 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100';
+                }
+
+                if (isCurrent) {
+                    style += ' ring-2 ring-indigo-600 ring-offset-1';
+                }
+
+                grid.insertAdjacentHTML('beforeend', `
+                    <button onclick="jumpToQuestion(${idx})" class="${style}">${idx + 1}</button>
+                `);
+            });
+        }
+
+        function renderBelowNavScrollList() {
+            const scrollBox = document.getElementById('below-nav-scroll-box');
+            if (!scrollBox || !activePaper || !Array.isArray(activePaper.questions)) return;
+
+            scrollBox.innerHTML = '';
+            activePaper.questions.forEach((q, idx) => {
+                const isCurrent = idx === currentQIndex;
+                const selectedIdx = userAnswers[idx];
+                const isAnswered = selectedIdx !== undefined;
+                const isMarked = markedReview.has(idx);
+
+                let statusBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 text-slate-700">Unanswered</span>';
+                if (examSubmitted) {
+                    const isRight = selectedIdx === q.answer;
+                    statusBadge = isRight
+                        ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Correct</span>'
+                        : '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800">Incorrect</span>';
+                } else if (isMarked) {
+                    statusBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-900">Review</span>';
+                } else if (isAnswered) {
+                    statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Ans: ${String.fromCharCode(65 + selectedIdx)}</span>`;
+                }
+
+                const activeBorder = isCurrent
+                    ? 'border-indigo-500 bg-indigo-50/70'
+                    : 'border-slate-200 bg-white hover:border-indigo-300';
+
+                scrollBox.insertAdjacentHTML('beforeend', `
+                    <div onclick="jumpToQuestion(${idx})" class="p-3 rounded-xl border ${activeBorder} cursor-pointer transition">
+                        <div class="flex items-center justify-between gap-2 mb-1">
+                            <span class="mono-font text-xs font-extrabold text-indigo-700">Q${idx + 1}.</span>
+                            ${statusBadge}
+                        </div>
+                        <p class="text-xs font-semibold text-slate-800 line-clamp-2">${escapeAttr(q.q)}</p>
+                        ${examSubmitted ? `<p class="text-[11px] text-emerald-800 mt-1.5"><strong>Answer (${String.fromCharCode(65 + q.answer)}):</strong> ${escapeAttr(q.options[q.answer])}</p>` : ''}
+                    </div>
+                `);
+            });
+        }
+
+        function submitCbtExam() {
+            if (examSubmitted) return;
+            examSubmitted = true;
+            if (timerInterval) clearInterval(timerInterval);
+
+            const total = activePaper.questions.length;
+            let correctCount = 0;
+            activePaper.questions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.answer) correctCount++;
+            });
+
+            const pct = Math.round((correctCount / total) * 100);
+            let grade = 'F';
+            let remark = 'Needs more revision. Review the explanations below and try again!';
+
+            if (pct >= 85) { grade = 'S'; remark = 'Outstanding Super Grade! Ready for NIELIT O-Level Exam.'; }
+            else if (pct >= 75) { grade = 'A'; remark = 'Excellent Performance! Grade A achieved.'; }
+            else if (pct >= 65) { grade = 'B'; remark = 'Very Good! Grade B achieved.'; }
+            else if (pct >= 55) { grade = 'C'; remark = 'Good! Grade C achieved.'; }
+            else if (pct >= 50) { grade = 'D'; remark = 'Qualified! Grade D achieved (Minimum 50% required).'; }
+
+            document.getElementById('res-percentage').textContent = `${pct}% (${correctCount}/${total})`;
+            const gradeEl = document.getElementById('res-grade');
+            gradeEl.textContent = grade;
+            gradeEl.className = grade === 'F'
+                ? 'px-3 py-0.5 rounded-lg bg-rose-500 text-white'
+                : 'px-3 py-0.5 rounded-lg bg-emerald-400 text-slate-950';
+            document.getElementById('res-remark').textContent = remark;
+            document.getElementById('cbt-result-banner').classList.remove('hidden');
+
+            renderActiveQuestion();
+            renderQuestionPalette();
+            renderBelowNavScrollList();
+        }
+
+        function toggleMarkReview() {
+            if (examSubmitted) return;
+            if (markedReview.has(currentQIndex)) {
+                markedReview.delete(currentQIndex);
+            } else {
+                markedReview.add(currentQIndex);
+            }
+            renderQuestionPalette();
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < activePaper.questions.length - 1) {
+                currentQIndex++;
+                renderActiveQuestion();
+                renderQuestionPalette();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderActiveQuestion();
+                renderQuestionPalette();
+            }
+        }
+
+        function jumpToQuestion(idx) {
+            currentQIndex = idx;
+            renderActiveQuestion();
+            renderQuestionPalette();
+        }
+
+        function updateAttemptedCounter() {
+            document.getElementById('attempted-count').textContent = Object.keys(userAnswers).length;
+        }
+
+        function renderQuestionPalette() {
+            const grid = document.getElementById('question-palette-grid');
+            grid.innerHTML = '';
+
+            activePaper.questions.forEach((q, idx) => {
+                const isCurrent = idx === currentQIndex;
+                const isAnswered = userAnswers[idx] !== undefined;
+                const isMarked = markedReview.has(idx);
+
+                let style = 'h-10 rounded-xl font-extrabold text-xs transition flex items-center justify-center ';
+                if (examSubmitted) {
+                    const correct = userAnswers[idx] === q.answer;
+                    style += correct ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white';
+                } else if (isMarked) {
+                    style += 'bg-amber-400 text-slate-950';
+                } else if (isAnswered) {
+                    style += 'bg-emerald-500 text-white';
+                } else {
+                    style += 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100';
+                }
+
+                if (isCurrent) {
+                    style += ' ring-2 ring-indigo-600 ring-offset-2';
+                }
+
+                grid.insertAdjacentHTML('beforeend', `
+                    <button onclick="jumpToQuestion(${idx})" class="${style}">${idx + 1}</button>
+                `);
+            });
+        }
+
+        function submitCbtExam() {
+            if (examSubmitted) return;
+            examSubmitted = true;
+            if (timerInterval) clearInterval(timerInterval);
+
+            const total = activePaper.questions.length;
+            let correctCount = 0;
+            activePaper.questions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.answer) correctCount++;
+            });
+
+            const pct = Math.round((correctCount / total) * 100);
+            let grade = 'F';
+            let remark = 'Needs more revision. Review the explanations below and try again!';
+
+            if (pct >= 85) { grade = 'S'; remark = 'Outstanding Super Grade! Ready for NIELIT O-Level Exam.'; }
+            else if (pct >= 75) { grade = 'A'; remark = 'Excellent Performance! Grade A achieved.'; }
+            else if (pct >= 65) { grade = 'B'; remark = 'Very Good! Grade B achieved.'; }
+            else if (pct >= 55) { grade = 'C'; remark = 'Good! Grade C achieved.'; }
+            else if (pct >= 50) { grade = 'D'; remark = 'Qualified! Grade D achieved (Minimum 50% required).'; }
+
+            document.getElementById('res-percentage').textContent = `${pct}% (${correctCount}/${total})`;
+            const gradeEl = document.getElementById('res-grade');
+            gradeEl.textContent = grade;
+            gradeEl.className = grade === 'F'
+                ? 'px-3 py-0.5 rounded-lg bg-rose-500 text-white'
+                : 'px-3 py-0.5 rounded-lg bg-emerald-400 text-slate-950';
+            document.getElementById('res-remark').textContent = remark;
+            document.getElementById('cbt-result-banner').classList.remove('hidden');
+
+            renderActiveQuestion();
+            renderQuestionPalette();
+        }
+
+        function switchWorkspaceTab(tab) {
+            const cbtBtn = document.getElementById('ws-tab-cbt');
+            const sylBtn = document.getElementById('ws-tab-syllabus');
+            const cbtPanel = document.getElementById('ws-cbt-panel');
+            const sylPanel = document.getElementById('ws-syllabus-panel');
+
+            if (tab === 'cbt') {
+                cbtBtn.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-indigo-600 text-white shadow';
+                sylBtn.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100';
+                cbtPanel.classList.remove('hidden');
+                sylPanel.classList.add('hidden');
+            } else {
+                sylBtn.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-indigo-600 text-white shadow';
+                cbtBtn.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100';
+                sylPanel.classList.remove('hidden');
+                cbtPanel.classList.add('hidden');
+            }
+        }
+
+        function returnWithAnimation() {
+            const overlay = document.getElementById('derivation-overlay');
+            document.getElementById('loader-paper-title').textContent = 'Returning to O-Level Papers...';
+            document.getElementById('loader-progress-bar').style.width = '100%';
+            document.getElementById('loader-percent').textContent = '100%';
+            overlay.classList.add('active');
+
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                returnToHome();
+            }, 520);
+        }
+
+        function returnToHome() {
+            if (timerInterval) clearInterval(timerInterval);
+            parentPaperContext = null;
+            document.getElementById('subcards-view').classList.add('hidden');
+            document.getElementById('paper-workspace-view').classList.add('hidden');
+            const homeView = document.getElementById('home-view');
+            homeView.classList.remove('hidden');
+            homeView.classList.remove('workspace-reveal');
+            void homeView.offsetWidth;
+            homeView.classList.add('workspace-reveal');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // =========================================================================
+        // PAGE LINKS MANAGER MODAL LOGIC (Supports Papers + M1/M2 Sub-Cards)
+        // =========================================================================
+        function buildLinkInputRow(item, prefixText) {
+            return `
+                <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <label class="text-xs font-extrabold text-cyan-300">
+                            ${prefixText ? `<span class="text-slate-400 mr-1">${prefixText}</span>` : ''}<span class="mono-font">${item.code}</span> — ${item.title}
+                        </label>
+                        <button type="button" onclick="clearSingleLinkInput('${item.id}')" class="text-[11px] font-semibold text-slate-400 hover:text-rose-300">
+                            Clear
+                        </button>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="link-input-${item.id}"
+                        data-paper-id="${item.id}" 
+                        value="${escapeAttr(item.linkedPage || '')}" 
+                        placeholder="e.g. m1-ch1.html or https://example.com/exam" 
+                        class="paper-page-link-input w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-white/15 text-xs mono-font text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                    >
+                </div>
+            `;
+        }
+
+        function togglePageLinksModal() {
+            const modal = document.getElementById('page-links-modal');
+            if (!modal) return;
+
+            if (modal.classList.contains('hidden')) {
+                const modeSel = document.getElementById('link-open-mode');
+                if (modeSel) modeSel.value = linkOpenMode;
+
+                const container = document.getElementById('page-links-inputs-container');
+                let html = `<p class="text-[11px] font-extrabold uppercase tracking-wider text-amber-300">Main Papers</p>`;
+                html += oLevelPapers.map(p => buildLinkInputRow(p, '')).join('');
+
+                html += `<p class="text-[11px] font-extrabold uppercase tracking-wider text-cyan-300 pt-2">M1-R5 (9 Chapters)</p>`;
+                html += m1R5Chapters.map(ch => buildLinkInputRow(ch, 'M1-R5 /')).join('');
+
+                html += `<p class="text-[11px] font-extrabold uppercase tracking-wider text-pink-300 pt-2">M2-R5 (HTML, CSS, JavaScript)</p>`;
+                html += m2R5Topics.map(tp => buildLinkInputRow(tp, 'M2-R5 /')).join('');
+
+                container.innerHTML = html;
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function clearSingleLinkInput(paperId) {
+            const input = document.getElementById(`link-input-${paperId}`);
+            if (input) input.value = '';
+        }
+
+        function clearAllPageLinks() {
+            document.querySelectorAll('.paper-page-link-input').forEach(inp => {
+                inp.value = '';
+            });
+        }
+
+        function savePageLinks() {
+            const inputs = document.querySelectorAll('.paper-page-link-input');
+            const linksObject = {};
+
+            inputs.forEach(inp => {
+                const id = inp.getAttribute('data-paper-id');
+                const val = inp.value.trim();
+                const found = findTargetById(id);
+                if (found && found.item) {
+                    found.item.linkedPage = val;
+                    linksObject[id] = val;
+                }
+            });
+
+            saveOpenModePref();
+
+            try {
+                localStorage.setItem(STORAGE_KEY_LINKS, JSON.stringify(linksObject));
+            } catch (e) {
+                console.warn('Could not save page links to localStorage:', e);
+            }
+
+            togglePageLinksModal();
+            renderPaperCards();
+            if (parentPaperContext) {
+                renderSubcardsGrid(parentPaperContext);
+            }
+            showStatusMessage('Page links saved! Clicking "Open Paper" on M1-R5 shows 9 chapters, M2-R5 shows HTML/CSS/JavaScript, and clicking "Open" launches the CBT exam.');
+        }
+
+        // Initialize on Window Load
+        window.onload = function() {
+            loadSavedPageLinks();
+            renderPaperCards();
+        };
+    </script>
+</body>
+</html>
